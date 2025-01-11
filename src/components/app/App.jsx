@@ -1,5 +1,5 @@
 import "./App.css";
-import WelcomeSection from "../WelcomeSection/WelcomeSection";
+import WelcomeSection from "..//HomePage/WelcomeSection/WelcomeSection";
 
 function App() {
   return (
