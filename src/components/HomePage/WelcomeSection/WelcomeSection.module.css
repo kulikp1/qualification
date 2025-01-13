@@ -74,6 +74,12 @@
   border: 0;
   border-radius: 30px;
   background: var(--Accent, #9be1a0);
+  cursor: pointer;
+}
+
+.btnSignUp:hover {
+  border-radius: 30px;
+  background: #87d28d;
 }
 
 .btnSignIn {
@@ -85,4 +91,11 @@
 
   border-radius: 30px;
   border: 1px solid #323f47;
+  cursor: pointer;
+}
+
+.btnSignIn:hover {
+  border-radius: 30px;
+  border: 1px solid #87d28d;
+  color: #87d28d;
 }
