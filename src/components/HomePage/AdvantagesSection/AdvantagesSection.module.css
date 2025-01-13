@@ -13,13 +13,25 @@
   background: url(../../../assets/homePageAssets/background.jpg);
 }
 .avatarContainer {
+  display: flex;
+  gap: 4px;
+
+  width: 320px;
+
   margin-top: 537px;
+  align-items: center;
+
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .avatars {
   display: flex;
   align-items: center;
   gap: -10px; /* Негативний відступ для перекриття аватарів */
-  position: relative;
+  padding-left: 35px;
 }
 
 .avatar {
@@ -30,7 +42,8 @@
   object-fit: cover; /* Коректне відображення зображення */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тінь для аватарів */
   position: relative;
-  margin-left: -15px; /* Негативний відступ для перекриття */
+
+  margin-left: -15px;
   z-index: 1; /* Для контролю порядку шарів */
 }
 

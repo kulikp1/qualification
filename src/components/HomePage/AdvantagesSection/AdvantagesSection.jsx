@@ -9,11 +9,9 @@ const AdvantagesSection = () => {
           <img src={customer1} alt="Customer 2" className={css.avatar} />
           <img src={customer1} alt="Customer 3" className={css.avatar} />
         </div>
-        <div className={css.text}>
-          {/* <h2>
-            Our <span className={css.highlight}>happy</span> customers
-          </h2> */}
-        </div>
+        <h2 className={css.describe}>
+          Our <span className={css.highlight}>happy</span> customers
+        </h2>
       </div>
     </div>
   );
