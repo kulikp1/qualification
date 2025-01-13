@@ -1,10 +1,10 @@
 import "./App.css";
-import WelcomeSection from "..//HomePage/WelcomeSection/WelcomeSection";
+import HomePage from "../../pages/Homepage/HomePage.jsx";
 
 function App() {
   return (
     <>
-      <WelcomeSection></WelcomeSection>
+      <HomePage></HomePage>
     </>
   );
 }
