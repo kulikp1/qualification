@@ -1,0 +1,12 @@
+.mainContainer {
+  /* 
+  position: relative; /* Встановлюємо позицію для дочірніх елементів */
+  width: 672px;
+  height: 736px;
+
+  /* flex-shrink: 0; */
+
+  border-radius: 30px;
+  background: url(../../../assets/background.jpg) lightgray -220.231px 0px / 164.206%
+    100% no-repeat;
+}
