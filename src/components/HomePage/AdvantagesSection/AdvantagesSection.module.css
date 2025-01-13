@@ -1,12 +1,59 @@
 .mainContainer {
-  /* 
-  position: relative; /* Встановлюємо позицію для дочірніх елементів */
+  position: relative;
   width: 672px;
   height: 736px;
 
-  /* flex-shrink: 0; */
+  padding-top: 0;
+  padding-right: 32px;
+  padding-left: 32px;
+
+  flex-shrink: 0;
 
   border-radius: 30px;
-  background: url(../../../assets/background.jpg) lightgray -220.231px 0px / 164.206%
-    100% no-repeat;
+  background: url(../../../assets/homePageAssets/background.jpg);
+}
+.avatarContainer {
+  margin-top: 537px;
+}
+.avatars {
+  display: flex;
+  align-items: center;
+  gap: -10px; /* Негативний відступ для перекриття аватарів */
+  position: relative;
+}
+
+.avatar {
+  width: 60px; /* Розмір аватара */
+  height: 60px; /* Розмір аватара */
+  border-radius: 50%; /* Робимо коло */
+  border: 3px solid #fff; /* Білий обвід */
+  object-fit: cover; /* Коректне відображення зображення */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тінь для аватарів */
+  position: relative;
+  margin-left: -15px; /* Негативний відступ для перекриття */
+  z-index: 1; /* Для контролю порядку шарів */
+}
+
+.avatar:nth-child(2) {
+  z-index: 2; /* Другий аватар поверх першого */
+}
+
+.avatar:nth-child(3) {
+  z-index: 3; /* Третій аватар поверх другого */
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.highlight {
+  color: #76c893; /* Зелений колір для слова "happy" */
 }
