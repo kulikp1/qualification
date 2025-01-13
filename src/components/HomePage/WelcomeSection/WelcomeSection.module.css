@@ -1,0 +1,90 @@
+.mainContainer {
+  width: 672px;
+  height: 736px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #f0eff4;
+  display: flex;
+  flex-direction: column;
+
+  margin: 32px;
+}
+
+.logo {
+  color: #323f47;
+  /* text-align: center; */
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 100% */
+  letter-spacing: -0.24px;
+  text-transform: uppercase;
+
+  margin-top: 32px;
+  margin-left: 33px;
+  margin-bottom: 0;
+}
+
+.descr {
+  color: #2f2f2f;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.96px;
+
+  margin-top: 132px;
+  margin-left: 64px;
+  margin-bottom: 0;
+}
+.title {
+  width: 547px;
+  color: #323f47;
+
+  /* Desktop_tablet/H1 */
+  font-family: Poppins;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 76px; /* 95% */
+  letter-spacing: -0.8px;
+
+  margin-top: 16px;
+  margin-left: 64px;
+  margin-bottom: 0;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 32px;
+  margin-left: 64px;
+
+  gap: 16px;
+}
+
+.btnSignUp {
+  display: flex;
+  padding: 18px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border: 0;
+  border-radius: 30px;
+  background: var(--Accent, #9be1a0);
+}
+
+.btnSignIn {
+  display: flex;
+  padding: 18px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 30px;
+  border: 1px solid #323f47;
+}
