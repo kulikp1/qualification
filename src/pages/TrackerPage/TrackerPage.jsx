@@ -1,9 +1,9 @@
-import DailySpend from "../../components/DailySpend/DailySpend.jsx";
+import DailySpend from "../../components/DailySpendPage/DailySpendPage";
 import styles from "./TrackerPage.module.css";
 
 export default function TrackerPage() {
   return (
-    <div className={styles.container}>
+    <div className={styles.TrackerPage}>
       <DailySpend />
       {/* <MonthSpend /> */}
     </div>
