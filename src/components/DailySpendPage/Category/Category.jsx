@@ -11,8 +11,10 @@ const Category = () => {
           alt="categoryAvatar"
           className={css.categoryAvatar}
         />
-        <h2 className={css.categoryDescr}>Shop</h2>
-        <p className={css.amount}>100$</p>
+        <div className={css.categorySpend}>
+          <h2 className={css.categoryDescr}>Shop</h2>
+          <p className={css.amount}>100$</p>
+        </div>
       </div>
     </div>
   );

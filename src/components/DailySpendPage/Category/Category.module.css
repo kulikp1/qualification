@@ -36,16 +36,25 @@
   border-radius: 15px;
   /* margin-top: 22px; */
 }
+.categorySpend {
+  display: flex;
+  gap: 4px;
+}
 .categoryDescr {
   color: #2f2f2f;
   font-family: Poppins;
-  font-size: 17px;
+  font-size: 14px;
   font-style: normal;
 
   letter-spacing: 0.96px;
   margin-bottom: 0px;
 }
 .amount {
+  color: #2f2f2f;
+  font-family: Poppins;
+  font-size: 14px;
+
+  font-style: normal;
   margin-bottom: 0px;
   margin-top: 0px;
 }
