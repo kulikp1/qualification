@@ -57,3 +57,10 @@
   justify-content: center;
   gap: 20px;
 }
+
+.moneyImg {
+  width: 200px;
+  height: 200px;
+  margin-left: 64px;
+  margin-top: 50px;
+}

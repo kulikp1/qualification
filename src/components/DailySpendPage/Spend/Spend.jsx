@@ -1,5 +1,6 @@
 import css from "./Spend.module.css";
 import Category from "../Category/Category";
+import money from "../../../assets/spendPageAssets/moneyPhoto.jpg";
 
 const Spend = () => {
   return (
@@ -18,6 +19,7 @@ const Spend = () => {
         <Category></Category>
         <Category></Category>
       </div>
+      <img src={money} alt="money" className={css.moneyImg} />
     </div>
   );
 };

@@ -12,8 +12,8 @@ const Category = () => {
           className={css.categoryAvatar}
         />
         <h2 className={css.categoryDescr}>Shop</h2>
+        <p className={css.amount}>100$</p>
       </div>
-      <p className={css.amount}>100$</p>
     </div>
   );
 };
