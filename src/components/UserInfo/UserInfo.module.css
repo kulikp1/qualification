@@ -1,0 +1,29 @@
+.Container {
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-left: 483px;
+  margin-right: 32px;
+  margin-top: 32px;
+
+  /* height: 44px; */
+  color: white;
+
+  border-radius: 30px;
+  background: #323f47;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.userItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
