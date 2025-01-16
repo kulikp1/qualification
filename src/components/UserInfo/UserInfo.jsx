@@ -7,7 +7,7 @@ const UserInfo = () => {
     <div className={css.pageContainer}>
       <div className={css.Container}>
         <div className={css.description}>
-          <h3>Months spend</h3>
+          <h3>Spending calendar</h3>
         </div>
 
         <div className={css.userItems}>

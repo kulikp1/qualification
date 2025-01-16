@@ -7,3 +7,38 @@
   display: flex;
   flex-direction: column;
 }
+.spendItems {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 32px;
+}
+.descr {
+  color: #323f47;
+  font-family: Gilroy;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px; /* 105.556% */
+  letter-spacing: -0.36px;
+
+  margin: 0px;
+}
+.btnItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 32px;
+}
+.addBtn {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-color: #9be1a0;
+  border: none;
+  outline: none;
+
+  border-radius: 30px;
+}
+.addBtnText {
+  margin: 0;
+}
