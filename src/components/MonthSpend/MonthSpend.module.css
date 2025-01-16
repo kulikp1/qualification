@@ -44,3 +44,6 @@
 .addBtnText {
   margin: 0;
 }
+.calendarContainer {
+  margin: 24px 32px 0 32px;
+}
