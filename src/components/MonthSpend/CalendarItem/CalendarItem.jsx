@@ -1,8 +1,9 @@
 import css from "./CalendarItem.module.css";
-const CalendarItem = () => {
+// eslint-disable-next-line react/prop-types
+const CalendarItem = ({ value }) => {
   return (
     <div className={css.calendarContainer}>
-      <button className={css.calendarItem}>1</button>
+      <button className={css.calendarItem}>{value}</button>
     </div>
   );
 };

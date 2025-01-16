@@ -1,1 +1,9 @@
-
+.addItem {
+  margin: 24px 32px 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 43px;
+}
+.gray {
+  background: rgba(50, 63, 71, 0.2);
+}
