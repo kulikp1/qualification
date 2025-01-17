@@ -2,6 +2,7 @@ import css from "./MonthSpend.module.css";
 import UserInfo from "../UserInfo/UserInfo";
 import { IoIosAdd } from "react-icons/io";
 import Calendar from "./Calendar/Calendar";
+import MonthName from "../MonthSpend/MonthName/MonthName";
 
 const MonthsSpend = () => {
   return (
@@ -10,6 +11,7 @@ const MonthsSpend = () => {
 
       <div className={css.spendItems}>
         <h3 className={css.descr}>Month</h3>
+        <MonthName></MonthName>
         <div className={css.btnItem}>
           <button className={css.addBtn}>
             <IoIosAdd />
