@@ -1,4 +1,4 @@
-# BudgetTrack README Context
+# BudgetTrack README
 
 **Project Overview**  
 BudgetTrack is a user-friendly application designed to help individuals track their daily expenses and manage their budgets effectively. With intuitive features and seamless navigation, BudgetTrack empowers users to monitor their spending habits and make informed financial decisions.
@@ -47,6 +47,8 @@ BudgetTrack is a user-friendly application designed to help individuals track th
 This context provides a clear overview of the project, its purpose, and technical implementation, ensuring easy onboarding for developers and effective use for end-users.
 
 ---
+
+# BudgetTrack README (Ukr)
 
 **Огляд проєкту**  
 **BudgetTrack** — це зручний застосунок, створений для допомоги користувачам у відстеженні щоденних витрат та ефективному управлінні бюджетом. Завдяки інтуїтивному інтерфейсу та зручній навігації, BudgetTrack допомагає аналізувати фінансові звички та приймати обґрунтовані рішення.
