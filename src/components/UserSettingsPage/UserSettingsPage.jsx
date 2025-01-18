@@ -1,5 +1,7 @@
 import css from "./UserSettingsPage.module.css";
 import { IoClose } from "react-icons/io5";
+import userAvatar from "../../assets/homePageAssets/pre-avatar.png";
+import { BsUpload } from "react-icons/bs";
 
 const UserSettingsPage = () => {
   return (
@@ -9,6 +11,20 @@ const UserSettingsPage = () => {
         <button className={css.closeBtn}>
           <IoClose className={css.closeBtnItem} />
         </button>
+      </div>
+
+      <div className={css.avatarItems}>
+        <img src={userAvatar} alt="userAvatar" className={css.avatar} />
+        <div className={css.avatarItem}>
+          <button className={css.uploadBtn}>
+            <BsUpload />
+          </button>
+          <p className={css.avatarDescr}>Upload a photo</p>
+        </div>
+      </div>
+
+      <div className={css.settingsController}>
+        <h3 className={css.settingsControllerDescr}>Your gender identity</h3>
       </div>
     </div>
   );

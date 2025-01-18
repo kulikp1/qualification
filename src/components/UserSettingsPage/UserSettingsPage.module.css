@@ -22,3 +22,53 @@
   width: 28px;
   height: 28px;
 }
+
+.avatarItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+}
+
+.avatarItem {
+  margin-top: 10px;
+
+  display: flex;
+}
+.uploadBtn {
+  border: 0;
+  cursor: pointer;
+}
+
+.avatarDescr {
+  color: #2f2f2f;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+}
+
+.settingsController {
+  margin: 40px 0 40px 0;
+}
+
+.settingsControllerDescr {
+  color: #323f47;
+
+  /* Desktop_tablet/H4 */
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+}
