@@ -37,36 +37,6 @@ BudgetTrack is a user-friendly application designed to help individuals track th
 - **Flexible Adjustments**: Update or remove expenses effortlessly.
 - **Secure Data Handling**: Built with best practices to ensure data integrity and privacy.
 
-**Installation**
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/BudgetTrack.git
-   ```
-2. Install dependencies for both frontend and backend:
-   ```bash
-   cd BudgetTrack/frontend
-   npm install
-   cd ../backend
-   npm install
-   ```
-3. Set up environment variables for backend (e.g., MongoDB connection string, JWT secret).
-
-4. Run the application:
-
-   - Start backend:
-     ```bash
-     cd backend
-     npm start
-     ```
-   - Start frontend:
-     ```bash
-     cd frontend
-     npm start
-     ```
-
-5. Access the app at `http://localhost:3000`.
-
 **Future Enhancements**
 
 - Budget planning and forecasting tools.
@@ -75,3 +45,61 @@ BudgetTrack is a user-friendly application designed to help individuals track th
 - Integration with third-party financial APIs.
 
 This context provides a clear overview of the project, its purpose, and technical implementation, ensuring easy onboarding for developers and effective use for end-users.
+
+---
+
+**Контекст README для BudgetTrack українською**
+
+---
+
+**Огляд проєкту**  
+**BudgetTrack** — це зручний застосунок, створений для допомоги користувачам у відстеженні щоденних витрат та ефективному управлінні бюджетом. Завдяки інтуїтивному інтерфейсу та зручній навігації, BudgetTrack допомагає аналізувати фінансові звички та приймати обґрунтовані рішення.
+
+---
+
+**Технологічний стек**
+
+- **Frontend**: React.js — для динамічного та адаптивного інтерфейсу.
+- **Backend**: Node.js — для стабільної серверної логіки та API.
+- **База даних**: MongoDB — для ефективного зберігання та управління даними користувачів.
+
+---
+
+**Ключові функції**
+
+1. **Автентифікація користувачів**:
+
+   - Реєстрація: легке створення нового облікового запису.
+   - Вхід: безпечний доступ до персонального кабінету.
+
+2. **Особистий кабінет**:
+
+   - Доступ до персональної фінансової панелі.
+   - Відстеження витрат та перегляд статистики.
+
+3. **Відстеження витрат**:
+
+   - Додавання щоденних витрат за категоріями (наприклад, їжа, транспорт, розваги).
+   - Перегляд місячної статистики витрат для аналізу фінансових звичок.
+   - Видалення або коригування записів у разі змін у бюджеті.
+
+4. **Функціонал виходу**:
+   - Безпечний вихід із системи після завершення роботи.
+
+---
+
+**Основні переваги**
+
+- **Відстеження витрат у реальному часі**: допомагає щоденно керувати фінансами.
+- **Аналітика витрат**: надає візуалізацію тенденцій у вигляді графіків і статистики.
+- **Простота в управлінні**: забезпечує зручне оновлення або видалення даних.
+- **Безпека даних**: забезпечується найкращими практиками збереження конфіденційності.
+
+---
+
+**Майбутні вдосконалення**
+
+- Інструменти для планування бюджету та прогнозування.
+- Покращена візуалізація тенденцій витрат.
+- Підтримка різних валют для глобальних користувачів.
+- Інтеграція з фінансовими API для автоматизації обліку витрат.
