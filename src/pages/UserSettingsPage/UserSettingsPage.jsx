@@ -3,7 +3,7 @@ import styles from "./UserSettingsPage.module.css";
 
 export default function TrackerPage() {
   return (
-    <div className={styles.TrackerPage}>
+    <div className={styles.SettingsPage}>
       <UserSettingsPage />
     </div>
   );
