@@ -1,0 +1,12 @@
+.nameContainer {
+  color: #323f47;
+  font-family: Gilroy;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 38px; /* 105.556% */
+  letter-spacing: -0.36px;
+
+  display: flex;
+  align-items: center;
+}
