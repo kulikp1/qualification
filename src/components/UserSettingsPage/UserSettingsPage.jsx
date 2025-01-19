@@ -2,6 +2,7 @@ import css from "./UserSettingsPage.module.css";
 import { IoClose } from "react-icons/io5";
 import userAvatar from "../../assets/homePageAssets/pre-avatar.png";
 import { BsUpload } from "react-icons/bs";
+import SettingsForm from "./SettingsForm/SettingsForm";
 
 const UserSettingsPage = () => {
   return (
@@ -24,7 +25,7 @@ const UserSettingsPage = () => {
       </div>
 
       <div className={css.settingsController}>
-        <h3 className={css.settingsControllerDescr}>Your gender identity</h3>
+        <SettingsForm></SettingsForm>
       </div>
     </div>
   );

@@ -1,0 +1,71 @@
+.radioGroup {
+  display: flex;
+  gap: 20px;
+
+  color: #2f2f2f;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+
+  margin-top: 14px;
+}
+
+.inputGroupName {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 337px;
+
+  color: #323f47;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+
+  margin-top: 24px;
+}
+
+.inputGroupEmail {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 337px;
+
+  color: #323f47;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+
+  margin-top: 14px;
+}
+
+.inputField {
+  display: flex;
+  padding: 16px 0 16px 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(47, 47, 47, 0.15);
+}
+
+.submitBtn {
+  display: flex;
+  padding: 16px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 30px;
+  background: var(--Accent, #9be1a0);
+  margin-top: 40px;
+}
