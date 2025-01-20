@@ -8,7 +8,7 @@ export default function SignInPage() {
         <h1 className={css.logo}>BudgetTrack</h1>
       </div>
       <div className={css.formContainer}>
-        <h2 className={css.formDescr}>Sign In</h2>
+        <h2 className={css.formDescr}>Sign Up</h2>
         <div className={css.formComponent}>
           <SignUpForm></SignUpForm>
         </div>

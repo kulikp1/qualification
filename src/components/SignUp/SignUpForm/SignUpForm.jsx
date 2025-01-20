@@ -53,8 +53,23 @@ const SignInForm = () => {
             />
           </div>
 
+          <div className={css.inputGroupPassword}>
+            <label htmlFor="repeatPassword">Repeat password</label>
+            <Field
+              id="repeatPassword"
+              name="repeatPassword"
+              type="password"
+              className={css.inputField}
+            />
+            <ErrorMessage
+              name="repeatPassword"
+              component="div"
+              className={css.error}
+            />
+          </div>
+
           <button type="submit" className={css.submitBtn}>
-            Save
+            Sign Up
           </button>
         </Form>
       )}
