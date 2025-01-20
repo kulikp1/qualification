@@ -1,0 +1,63 @@
+.signInFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.inputGroupEmail {
+  display: flex;
+  flex-direction: column;
+
+  color: #323f47;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+}
+.inputGroupPassword {
+  display: flex;
+  flex-direction: column;
+
+  color: #323f47;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+}
+.inputField {
+  display: flex;
+  padding: 16px 0 16px 16px;
+  align-items: flex-start;
+  border-radius: 15px;
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  margin-top: 10px;
+
+  background-color: #f0eff4;
+}
+
+.submitBtn {
+  display: flex;
+  padding: 16px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 30px;
+  background: var(--Accent, #9be1a0);
+
+  color: #323f47;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+
+  margin-top: 12px;
+}
