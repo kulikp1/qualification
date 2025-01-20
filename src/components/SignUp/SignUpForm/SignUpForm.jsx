@@ -1,4 +1,4 @@
-import css from "./SignInForm.module.css";
+import css from "./SignUpForm.module.css";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 

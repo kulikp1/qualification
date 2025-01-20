@@ -1,5 +1,5 @@
-import css from "./SignInPage.module.css";
-import SignInForm from "../SignInForm/SignInForm";
+import css from "./SignUpPage.module.css";
+import SignUpForm from "../SignUpForm/SignUpForm";
 
 export default function SignInPage() {
   return (
@@ -10,7 +10,7 @@ export default function SignInPage() {
       <div className={css.formContainer}>
         <h2 className={css.formDescr}>Sign In</h2>
         <div className={css.formComponent}>
-          <SignInForm></SignInForm>
+          <SignUpForm></SignUpForm>
         </div>
       </div>
     </div>
