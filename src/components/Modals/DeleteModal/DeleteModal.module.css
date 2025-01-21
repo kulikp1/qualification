@@ -1,0 +1,70 @@
+.deleteContainer {
+  display: inline-flex;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+
+  /* width: 436px; */
+  /* height: 164px; */
+}
+
+.deleteTitle {
+  /* width: 316px; */
+
+  color: #323f47;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 114.286% */
+  letter-spacing: -0.28px;
+
+  /* margin-top: 40px; */
+}
+.deleteDescr {
+  width: 436px;
+
+  color: #323f47;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+}
+
+.deleteBtns {
+  display: flex;
+  gap: 10px;
+}
+
+.btnDelete {
+  display: flex;
+  width: 170px;
+  padding: 18px 67px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 30px;
+  background: var(--Accent, #9be1a0);
+}
+
+.btnCancel {
+  display: flex;
+  padding: 18px 59px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 30px;
+  background: #f0eff4;
+}
