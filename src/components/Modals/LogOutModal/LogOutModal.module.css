@@ -1,4 +1,4 @@
-.deleteContainer {
+.logOutContainer {
   display: inline-flex;
   padding: 40px;
   flex-direction: column;
@@ -14,7 +14,7 @@
   /* height: 164px; */
 }
 
-.deleteTitle {
+.logOutTitle {
   /* width: 316px; */
 
   color: #323f47;
@@ -28,7 +28,7 @@
 
   /* margin-top: 40px; */
 }
-.deleteDescr {
+.logOutDescr {
   width: 436px;
 
   color: #323f47;
@@ -41,15 +41,14 @@
   letter-spacing: -0.18px;
 }
 
-.deleteBtns {
+.logOutBtns {
   display: flex;
   gap: 10px;
 }
 
-.btnDelete {
+.btnLogOut {
   display: flex;
-  width: 170px;
-  padding: 18px 67px;
+  padding: 18px 57px;
   justify-content: center;
   align-items: center;
   gap: 10px;
