@@ -1,0 +1,52 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+.formDescr {
+  color: #2f2f2f;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.valueDescr {
+  color: #323f47;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.formField {
+  display: flex;
+  padding: 16px 0px 16px 16px;
+  align-items: flex-start;
+  gap: 10px;
+  width: 390px;
+  border-radius: 15px;
+  border: 1px solid rgba(47, 47, 47, 0.15);
+}
+
+.saveBtn {
+  display: flex;
+  padding: 18px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 30px;
+  background: var(--Accent, #9be1a0);
+
+  margin-top: 24px;
+}
