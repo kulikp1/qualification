@@ -1,4 +1,5 @@
-// import React from "react";
+import css from "./AddSpendForm.module.css";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -31,22 +32,48 @@ const AddSpendForm = () => {
       <Form>
         {/* Інпут для введення тексту */}
         <div>
-          <label htmlFor="amount">Enter Amount:</label>
-          <Field
-            type="text"
-            id="amount"
-            name="amount"
-            placeholder="Введіть ваше ім'я"
-          />
-          {/* Виведення помилки валідації */}
-          <ErrorMessage
-            name="amount"
-            component="div"
-            style={{ color: "red" }}
-          />
+          <div className={css.formContainer}>
+            <label className={css.formDescr} htmlFor="amount">
+              Recording time:
+            </label>
+            <Field
+              className={css.formField}
+              type="text"
+              id="amount"
+              name="amount"
+              placeholder="7:00"
+            />
+            {/* Виведення помилки валідації */}
+            <ErrorMessage
+              name="amount"
+              component="div"
+              style={{ color: "red" }}
+            />
+          </div>
+
+          <div className={css.formContainer}>
+            <label className={css.valueDescr} htmlFor="amount">
+              Enter the value of spend:
+            </label>
+            <Field
+              className={css.formField}
+              type="text"
+              id="amount"
+              name="amount"
+              placeholder="250"
+            />
+            {/* Виведення помилки валідації */}
+            <ErrorMessage
+              name="amount"
+              component="div"
+              style={{ color: "red" }}
+            />
+          </div>
         </div>
         {/* Кнопка для відправлення форми */}
-        <button type="submit">Відправити</button>
+        <button className={css.saveBtn} type="submit">
+          Save
+        </button>
       </Form>
     </Formik>
   );

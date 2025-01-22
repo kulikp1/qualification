@@ -5,17 +5,19 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 const AddSpendModal = () => {
   return (
     <div className={css.spendContainer}>
-      <h2 className={css.spendTitle}>Edit the entered amount of water</h2>
+      <div>
+        <h2 className={css.spendTitle}>Edit the entered amount</h2>
+      </div>
       <div>
         <p className={css.spendDescr}>Correct entered data:</p>
-        <p>Amount of water:</p>
+        <p className={css.amountDescr}>Amount:</p>
         <div className={css.btnContainer}>
-          <button>
-            <CiCirclePlus className={css.btnPlus} />
+          <button className={css.formBtn}>
+            <CiCircleMinus className={css.btnMinus} />
           </button>
           <p className={css.btnAmount}>250 ml</p>
-          <button>
-            <CiCircleMinus className={css.btnMinus} />
+          <button className={css.formBtn}>
+            <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
         <AddSpendForm></AddSpendForm>
