@@ -6,6 +6,7 @@ import SignInPage from "../../pages/SignInPage/SignInPage.jsx";
 import SignUpPage from "../../pages/SignUpPage/SignUpPage.jsx";
 import DeleteModal from "../Modals/DeleteModal/DeleteModal.jsx";
 import LogOutModal from "../Modals/LogOutModal/LogOutModal.jsx";
+import AddSpendModal from "../Modals/AddSpendModal/AddSpendComponent/AddSpendModal.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <SignUpPage></SignUpPage>
       <DeleteModal></DeleteModal>
       <LogOutModal></LogOutModal>
+      <AddSpendModal></AddSpendModal>
     </>
   );
 }

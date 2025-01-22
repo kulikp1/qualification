@@ -1,0 +1,68 @@
+.spendContainer {
+  display: inline-flex;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+}
+
+.spendTitle {
+  width: 347px;
+
+  color: #323f47;
+
+  /* Desktop_tablet/H3 */
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 114.286% */
+  letter-spacing: -0.28px;
+}
+
+.spendDescr {
+  color: #323f47;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btnMinus {
+  width: 43px;
+  height: 43px;
+}
+
+.btnAmount {
+  display: flex;
+  height: 43px;
+  padding: 11px 20px;
+  align-items: flex-start;
+  gap: 10px;
+
+  border-radius: 30px;
+  background: #323f47;
+
+  color: #fff;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22.4px; /* 149.333% */
+}
+.btnPlus {
+  width: 43px;
+  height: 43px;
+}
