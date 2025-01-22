@@ -1,8 +1,8 @@
-import AddSpendForm from "../AddSpendForm/AddSpendForm";
-import css from "./AddSpendModal.module.css";
+import AddSpendForm from "../EditSpendForm/EditSpendComponent";
+import css from "./EditSpendComponent.module.css";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
-const AddSpendModal = () => {
+const EditSpendModal = () => {
   return (
     <div className={css.spendContainer}>
       <div>
@@ -26,4 +26,4 @@ const AddSpendModal = () => {
   );
 };
 
-export default AddSpendModal;
+export default EditSpendModal;

@@ -1,4 +1,4 @@
-import css from "./AddSpendForm.module.css";
+import css from "./EditSpendComponent.module.css";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
