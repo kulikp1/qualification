@@ -19,10 +19,9 @@ function App() {
         <Route path="/signUp" element={<SignUpPage />} />
         <Route path="/signIn" element={<SignInPage />} />
         <Route path="/editSpend" element={<EditSpendModal />} />
-        <Route path="/deleteModal" element={<DeleteModal />} />
-        <Route path="/editSpendModal" element={<EditSpendModal />} />
+        <Route path="/delete" element={<DeleteModal />} />
         <Route path="/userSettings" element={<UserSettingsPage />} />
-        <Route path="/logOutModal" element={<LogOutModal />} />
+        <Route path="/logOut" element={<LogOutModal />} />
         <Route path="/addSpend" element={<AddSpendComponent />} />
         <Route path="/tracker" element={<TrackerPage />} />
         <Route path="*" element={<NotFoundPage />} />
