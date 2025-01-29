@@ -81,3 +81,7 @@ button {
 html::-webkit-scrollbar {
   display: none;
 }
+
+a {
+  text-decoration: none;
+}
