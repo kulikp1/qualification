@@ -61,3 +61,14 @@
 
   margin-top: 12px;
 }
+
+.error {
+  color: #ef5050;
+  color: #ef5050;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+}
