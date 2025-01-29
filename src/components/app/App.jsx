@@ -5,6 +5,7 @@ import HomePage from "../../pages/Homepage/HomePage.jsx";
 // import UserSettingsPage from "../../pages/UserSettingsPage/UserSettingsPage.jsx";
 import SignInPage from "../../pages/SignInPage/SignInPage.jsx";
 import SignUpPage from "../../pages/SignUpPage/SignUpPage.jsx";
+// import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
 // import DeleteModal from "../Modals/DeleteModal/DeleteModal.jsx";
 // import LogOutModal from "../Modals/LogOutModal/LogOutModal.jsx";
 // import EditSpendModal from "../Modals/EditSpendModal/EditSpendComponent/EditSpendComponent.jsx";
@@ -17,7 +18,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signUp" element={<SignUpPage />} />
         <Route path="/signIn" element={<SignInPage />} />
-        <Route path="*" element={<div>NotFound</div>} />
       </Routes>
       {/* 
       
