@@ -1,4 +1,5 @@
 import css from "./WelcomeSection.module.css";
+import { Link } from "react-router-dom";
 
 const WelcomeSection = () => {
   return (
@@ -12,8 +13,12 @@ const WelcomeSection = () => {
         </p>
         <h1 className={css.title}>Record your budget</h1>
         <div className={css.btns}>
-          <button className={css.btnSignUp}>Try tracker</button>
-          <button className={css.btnSignIn}>Sign In</button>
+          <Link to="/signup">
+            <button className={css.btnSignUp}>Try tracker</button>
+          </Link>
+          <Link to="/signIn">
+            <button className={css.btnSignIn}>Sign In</button>
+          </Link>
         </div>
       </div>
     </div>
