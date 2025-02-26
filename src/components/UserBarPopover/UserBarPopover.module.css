@@ -1,7 +1,7 @@
 .popover {
   position: absolute;
-  /* top: 100%;
-  right: 100%; */
+  /* top: 100%; */
+  right: 100%;
   margin-top: 4px;
   display: inline-flex;
   padding: 14px 40px 14px 20px;
@@ -31,7 +31,7 @@
 @media only screen and (min-width: 768px) {
   .popover {
     margin-top: 8px;
-    margin-right: 32px;
+    margin-right: 64px;
     right: 0;
   }
 }
