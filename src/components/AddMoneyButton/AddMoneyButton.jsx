@@ -3,10 +3,10 @@ import styles from "./AddMoneyButton.module.css";
 // import iconPlus from "../../assets/images/icons/icons.svg";
 import Modal from "../Modal/Modal";
 import AddSpendModal from "../Modals/AddSpendModal/AddSpendComponent/AddSpendComponent";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const AddMoneyButton = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -25,7 +25,7 @@ const AddMoneyButton = () => {
             <use href={`${iconPlus}#icon-plus`}></use>
           </svg> */}
         </div>
-        <span className={styles.text}>{t("add_water")}</span>
+        <span className={styles.text}>{"add_water"}</span>
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <AddSpendModal onClose={closeModal} />
