@@ -4,12 +4,12 @@ import userAvatar from "../../assets/homePageAssets/pre-avatar.png";
 import { BsUpload } from "react-icons/bs";
 import SettingsForm from "./SettingsForm/SettingsForm";
 
-const UserSettingsPage = () => {
+const UserSettingsPage = ({ onClose }) => {
   return (
     <div className={css.settingsContainer}>
       <div className={css.settingsTitle}>
         <h2 className={css.settingsTitleItem}>Setting</h2>
-        <button className={css.closeBtn}>
+        <button className={css.closeBtn} onClick={onClose}>
           <IoClose className={css.closeBtnItem} />
         </button>
       </div>
