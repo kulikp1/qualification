@@ -10,10 +10,13 @@ import DeleteModal from "../Modals/DeleteModal/DeleteModal.jsx";
 import LogOutModal from "../Modals/LogOutModal/LogOutModal.jsx";
 import EditSpendModal from "../Modals/EditSpendModal/EditSpendComponent/EditSpendComponent.jsx";
 import AddSpendComponent from "../Modals/AddSpendModal/AddSpendComponent/AddSpendComponent.jsx";
+// import css from "./App.css";
+import SharedLayout from "../SharedLayout/SharedLayout.jsx";
 
 function App() {
   return (
-    <div>
+    // <div className={css.appContainer}>
+    <SharedLayout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signUp" element={<SignUpPage />} />
@@ -26,7 +29,8 @@ function App() {
         <Route path="/tracker" element={<TrackerPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </div>
+    </SharedLayout>
+    // </div>
   );
 }
 
