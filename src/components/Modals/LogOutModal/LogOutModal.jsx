@@ -1,6 +1,6 @@
 import css from "./LogOutModal.module.css";
 
-const LogOutModal = () => {
+const LogOutModal = ({ onClose }) => {
   return (
     <div className={css.logOutContainer}>
       <h1 className={css.logOutTitle}>Log out</h1>
@@ -8,7 +8,9 @@ const LogOutModal = () => {
 
       <div className={css.logOutBtns}>
         <button className={css.btnLogOut}>Log out</button>
-        <button className={css.btnCancel}>Cancel </button>
+        <button className={css.btnCancel} onClick={onClose}>
+          Cancel{" "}
+        </button>
       </div>
     </div>
   );
