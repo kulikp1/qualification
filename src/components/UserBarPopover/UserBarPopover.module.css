@@ -1,0 +1,92 @@
+.popover {
+  position: absolute;
+  /* top: 100%;
+  right: 100%; */
+  margin-top: 4px;
+  display: inline-flex;
+  padding: 14px 40px 14px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  overflow: hidden;
+  transform: translateY(-5px);
+  transition: max-height 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.popoverVisible {
+  max-height: 200px;
+  transform: translateY(0);
+}
+.hidden {
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+@media only screen and (min-width: 768px) {
+  .popover {
+    margin-top: 8px;
+    margin-right: 32px;
+    right: 0;
+  }
+}
+
+.button,
+.buttonOut {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.286em;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.button {
+  color: #323f47;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.buttonOut {
+  color: rgba(50, 63, 71, 0.4);
+}
+
+.buttonOut:hover {
+  color: #323f47;
+  cursor: pointer;
+}
+
+.icon,
+.iconOut {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.icon {
+  stroke: #323f47;
+}
+
+.button:hover .icon {
+  cursor: pointer;
+}
+
+.iconOut {
+  stroke: rgba(50, 63, 71, 0.4);
+}
+
+.buttonOut:hover .iconOut {
+  stroke: #323f47;
+  cursor: pointer;
+}

@@ -1,8 +1,20 @@
 import css from "./UserInfo.module.css";
 import avatar from "../../assets/homePageAssets/pre-avatar.png";
 import { SlArrowDown } from "react-icons/sl";
+import UserBarPopover from "../UserBarPopover/UserBarPopover";
+import { useState } from "react";
 
 const UserInfo = () => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  const togglePopover = () => {
+    setIsPopoverOpen((prev) => !prev);
+  };
+
+  const closePopover = () => {
+    setIsPopoverOpen(false);
+  };
+
   return (
     <div className={css.pageContainer}>
       <div className={css.Container}>
@@ -13,9 +25,13 @@ const UserInfo = () => {
         <div className={css.userItems}>
           <h3>Pavlo</h3>
           <img src={avatar} alt="avatar" className={css.avatar} />
-          <SlArrowDown className={css.icon} />
+
+          <button onClick={togglePopover}>
+            <SlArrowDown className={css.icon} />
+          </button>
         </div>
       </div>
+      <UserBarPopover isVisible={isPopoverOpen} onClose={closePopover} />
     </div>
   );
 };
