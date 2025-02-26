@@ -11,7 +11,8 @@
   display: flex;
   justify-content: space-between;
 
-  margin-left: 32px;
+  /* margin-left: 32px; */
+  padding: 0 32px;
   margin-top: 40px;
 }
 .descr {
