@@ -1,5 +1,8 @@
 .settingsContainer {
-  width: 840px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 620px;
 }
 .settingsTitle {
   display: flex;
