@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./AddWaterButton.module.css";
-import iconPlus from "../../assets/images/icons/icons.svg";
+import styles from "./AddMoneyButton.module.css";
+// import iconPlus from "../../assets/images/icons/icons.svg";
 import Modal from "../Modal/Modal";
 import AddSpendModal from "../Modals/AddSpendModal/AddSpendComponent/AddSpendComponent";
 import { useTranslation } from "react-i18next";
@@ -21,9 +21,9 @@ const AddMoneyButton = () => {
     <>
       <button className={styles.addWaterButton}>
         <div className={styles.containerSvg} onClick={openModal}>
-          <svg className={styles.icon}>
+          {/* <svg className={styles.icon}>
             <use href={`${iconPlus}#icon-plus`}></use>
-          </svg>
+          </svg> */}
         </div>
         <span className={styles.text}>{t("add_water")}</span>
       </button>
