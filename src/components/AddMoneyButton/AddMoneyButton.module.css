@@ -1,0 +1,48 @@
+.addWaterButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  color: #323f47;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5em;
+  letter-spacing: -0.16px;
+  padding: 0;
+  background: none;
+}
+
+.containerSvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #9be1a0;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.containerSvg:hover {
+  background-color: #323f47;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  stroke: #323f47;
+  fill: transparent;
+  transition: stroke 0.3s ease;
+}
+
+.icon:hover {
+  stroke: #fff;
+}
+
+.text {
+  font-weight: bold;
+  pointer-events: none;
+}
