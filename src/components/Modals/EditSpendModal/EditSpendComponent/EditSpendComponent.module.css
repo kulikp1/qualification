@@ -79,6 +79,8 @@
   font-style: normal;
   font-weight: 700;
   line-height: 22.4px; /* 149.333% */
+  min-width: 92px;
+  justify-content: center;
 }
 .btnPlus {
   width: 43px;
