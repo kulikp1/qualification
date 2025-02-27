@@ -90,3 +90,9 @@
   stroke: #323f47;
   cursor: pointer;
 }
+
+.popoverImg {
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+}

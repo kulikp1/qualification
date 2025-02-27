@@ -1,10 +1,11 @@
 import styles from "./UserBarPopover.module.css";
 // import iconMenu from "../../assets/images/icons/icons.svg";
+import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
+
 import Modal from "../Modal/Modal";
 import UserSettingsPage from "../UserSettingsPage/UserSettingsPage";
 import LogOutModal from "../Modals/LogOutModal/LogOutModal";
 import { useState, useRef, useEffect } from "react";
-// import { useTranslation } from "react-i18next";
 
 const UserBarPopover = ({ isVisible, onClose }) => {
   //   const { t } = useTranslation();
@@ -41,15 +42,12 @@ const UserBarPopover = ({ isVisible, onClose }) => {
       }`}
     >
       <button className={styles.button} onClick={openSettingsModal}>
-        {/* <svg className={styles.icon}>
-          <use href={`${iconMenu}#icon-settings`}></use>
-        </svg> */}
+        <IoSettingsOutline className={styles.popoverImg} />
         {"Settings"}
       </button>
       <button className={styles.buttonOut} onClick={openLogOutModal}>
-        {/* <svg className={styles.iconOut}>
-          <use href={`${iconMenu}#icon-log-out`}></use>
-        </svg> */}
+        <IoLogOutOutline className={styles.popoverImg} />
+
         {"Log out"}
       </button>
 
