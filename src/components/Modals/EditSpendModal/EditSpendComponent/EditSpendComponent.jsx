@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import AddSpendForm from "../EditSpendForm/EditSpendComponent";
 import css from "./EditSpendComponent.module.css";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
@@ -32,7 +31,8 @@ const EditSpendModal = () => {
             <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
-        <AddSpendForm></AddSpendForm>
+        {/* Передаємо amount та setAmount у форму */}
+        <AddSpendForm amount={amount} setAmount={setAmount} />
       </div>
     </div>
   );
