@@ -5,11 +5,13 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
 const AddSpendComponent = () => {
   const [amount, setAmount] = useState(50); // Початкове значення
+
   const increaseAmount = () => {
     setAmount((prev) => prev + 10); // Збільшення на 10 мл
   };
+
   const decreaseAmount = () => {
-    setAmount((prev) => (prev > 10 ? prev - 10 : prev)); // Зменшення на 10 мл, але не менше 10 мл
+    setAmount((prev) => (prev > 10 ? prev - 10 : prev)); // Мінімальне значення — 10 мл
   };
 
   return (
@@ -29,7 +31,7 @@ const AddSpendComponent = () => {
             <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
-        <AddSpendForm></AddSpendForm>
+        <AddSpendForm amount={amount} />
       </div>
     </div>
   );

@@ -65,7 +65,7 @@
 
 .btnAmount {
   display: flex;
-  min-width: 90px;
+  min-width: 100px;
   height: 43px;
   padding: 11px 20px;
   justify-content: center;
