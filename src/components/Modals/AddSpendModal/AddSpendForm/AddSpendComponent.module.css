@@ -39,6 +39,15 @@
 }
 
 .saveBtn {
+  color: #323f47;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+
   display: flex;
   padding: 18px 50px;
   justify-content: center;
@@ -49,4 +58,10 @@
   background: var(--Accent, #9be1a0);
 
   margin-top: 24px;
+  transition: all 0.2s ease-in-out;
+}
+
+.saveBtn:hover {
+  background: #87d28d;
+  transition: all 0.2s ease-in-out;
 }
