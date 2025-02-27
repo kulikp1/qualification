@@ -34,6 +34,7 @@ const SignInForm = () => {
               name="email"
               type="email"
               className={css.inputField}
+              placeholder="Enter your email"
             />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
@@ -45,6 +46,7 @@ const SignInForm = () => {
               name="password"
               type="password"
               className={css.inputField}
+              placeholder="Enter your password"
             />
             <ErrorMessage
               name="password"

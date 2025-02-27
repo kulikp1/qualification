@@ -35,6 +35,8 @@
   border: 1px solid rgba(47, 47, 47, 0.15);
   margin-top: 10px;
   outline: none;
+  font-size: 16px;
+  color: #2f2f2f99;
 
   background-color: #f0eff4;
 }
