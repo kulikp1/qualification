@@ -35,14 +35,6 @@ const Category = () => {
 
   return (
     <div className={css.container}>
-      <button className={css.changeBtn} onClick={openEditModal}>
-        <FaPencil />
-      </button>
-
-      <button className={css.deleteBtn} onClick={openDeleteModal}>
-        <RiDeleteBin6Line />
-      </button>
-
       <h1 className={css.title}>Category</h1>
       <div className={css.categoryName}>
         <AiOutlineTransaction className={css.icon} />
@@ -51,6 +43,15 @@ const Category = () => {
           {/* <h2 className={css.categoryDescr}>Shop</h2> */}
           <p className={css.amount}>100$</p>
         </div>
+      </div>
+      <div className={css.btnContainer}>
+        <button className={css.deleteBtn} onClick={openDeleteModal}>
+          <RiDeleteBin6Line className={css.changeIcon} />
+        </button>
+
+        <button className={css.changeBtn} onClick={openEditModal}>
+          <FaPencil className={css.changeIcon} />
+        </button>
       </div>
       {isEditModalOpen && (
         <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>

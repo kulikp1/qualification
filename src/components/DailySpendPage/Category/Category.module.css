@@ -12,27 +12,27 @@
 
   margin-top: 50px;
 
-  position: relative;
+  /* position: relative; */
 }
-
+.btnContainer {
+  margin: 10px 0 5px;
+  display: flex;
+  gap: 10px;
+}
 .changeBtn {
-  width: 10px;
-  height: 10px;
-
-  position: absolute;
-  top: 10px;
-  right: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .deleteBtn {
-  width: 10px;
-  height: 10px;
-
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  width: 20px;
+  height: 20px;
 }
 
+.changeIcon {
+  width: 20px;
+  height: 20px;
+}
 .title {
   font-family: Poppins;
   font-size: 18px;
