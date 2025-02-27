@@ -62,6 +62,9 @@
   margin-left: 64px;
   transition: all 0.7s ease-in-out;
   gap: 16px;
+
+  color: #323f47;
+  text-align: center;
 }
 
 .btnSignUp {
@@ -75,6 +78,13 @@
   border-radius: 30px;
   background: var(--Accent, #9be1a0);
   cursor: pointer;
+
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5em;
+  letter-spacing: -0.01em;
 }
 
 .btnSignUp:hover {
@@ -94,6 +104,13 @@
   border: 1px solid #323f47;
   cursor: pointer;
   transition: all 0.7s ease-in-out;
+
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5em;
+  letter-spacing: -0.01em;
 }
 
 .btnSignIn:hover {
