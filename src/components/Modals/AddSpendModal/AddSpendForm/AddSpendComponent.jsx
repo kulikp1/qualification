@@ -36,6 +36,24 @@ const AddSpendForm = ({ amount, setAmount }) => {
           <Form>
             <div>
               <div className={css.formContainer}>
+                <label className={css.valueDescr} htmlFor="category">
+                  Enter Category
+                </label>
+                <Field
+                  className={css.formField}
+                  type="text"
+                  id="category"
+                  name="category"
+                  placeholder="Shop"
+                />
+                <ErrorMessage
+                  name="category"
+                  component="div"
+                  style={{ color: "red" }}
+                />
+              </div>
+
+              <div className={css.formContainer}>
                 <label className={css.formDescr} htmlFor="recordingTime">
                   Recording time:
                 </label>
