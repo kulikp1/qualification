@@ -1,6 +1,6 @@
 import css from "./DeleteModal.module.css";
 
-const DeleteModal = () => {
+const DeleteModal = ({ onClose }) => {
   return (
     <div className={css.deleteContainer}>
       <h1 className={css.deleteTitle}>Delete entry</h1>
@@ -10,7 +10,9 @@ const DeleteModal = () => {
 
       <div className={css.deleteBtns}>
         <button className={css.btnDelete}>Delete</button>
-        <button className={css.btnCancel}>Cancel </button>
+        <button className={css.btnCancel} onClick={onClose}>
+          Cancel
+        </button>
       </div>
     </div>
   );

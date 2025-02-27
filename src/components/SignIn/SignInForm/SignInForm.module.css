@@ -65,12 +65,12 @@
   letter-spacing: -0.16px;
 
   margin-top: 12px;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .submitBtn:hover {
   background: #87d28d;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .error {
