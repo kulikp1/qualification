@@ -7,11 +7,11 @@ const AddSpendComponent = () => {
   const [amount, setAmount] = useState(50); // Початкове значення
 
   const increaseAmount = () => {
-    setAmount((prev) => prev + 10); // Збільшення на 10 мл
+    setAmount((prev) => prev + 10);
   };
 
   const decreaseAmount = () => {
-    setAmount((prev) => (prev > 10 ? prev - 10 : prev)); // Мінімальне значення — 10 мл
+    setAmount((prev) => (prev > 10 ? prev - 10 : prev));
   };
 
   return (
@@ -31,7 +31,7 @@ const AddSpendComponent = () => {
             <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
-        <AddSpendForm amount={amount} />
+        <AddSpendForm amount={amount} setAmount={setAmount} />
       </div>
     </div>
   );

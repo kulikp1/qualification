@@ -1,15 +1,9 @@
-// import { useEffect } from "react";
 import css from "./AddSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const AddSpendForm = ({ amount }) => {
-  // Схема валідації
+const AddSpendForm = ({ amount, setAmount }) => {
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .required("Це поле є обов'язковим")
-      .min(2, "Мінімум 2 символи")
-      .max(50, "Максимум 50 символів"),
     amount: Yup.number()
       .required("Введіть значення")
       .min(10, "Мінімальне значення 10")
@@ -18,23 +12,25 @@ const AddSpendForm = ({ amount }) => {
 
   return (
     <Formik
-      initialValues={{
-        name: "",
-        amount: amount.toString(),
-      }}
+      initialValues={{ amount: amount.toString() }}
       validationSchema={validationSchema}
-      enableReinitialize // Дозволяє оновлення значень при зміні пропсів
+      enableReinitialize
       onSubmit={(values, { resetForm }) => {
         console.log("Введені дані:", values);
         resetForm();
       }}
     >
-      {({ setFieldValue, values }) => {
-        // Оновлюємо значення amount у формі при зміні пропсу amount
+      {({ values, setFieldValue }) => {
         () => {
           setFieldValue("amount", amount.toString());
         },
           [amount, setFieldValue];
+
+        const handleInputChange = (e) => {
+          const newValue = e.target.value.replace(/\D/, ""); // Видаляємо всі нечислові символи
+          setAmount(newValue ? parseInt(newValue) : 0); // Оновлюємо useState
+          setFieldValue("amount", newValue); // Оновлюємо Formik
+        };
 
         return (
           <Form>
@@ -56,7 +52,6 @@ const AddSpendForm = ({ amount }) => {
                   style={{ color: "red" }}
                 />
               </div>
-
               <div className={css.formContainer}>
                 <label className={css.valueDescr} htmlFor="amount">
                   Enter the value of spend:
@@ -66,8 +61,8 @@ const AddSpendForm = ({ amount }) => {
                   type="text"
                   id="amount"
                   name="amount"
-                  value={values.amount} // Синхронізація з Formik state
-                  readOnly // Забороняємо зміну вручну
+                  value={values.amount}
+                  onChange={handleInputChange} // Додаємо обробник змін
                 />
                 <ErrorMessage
                   name="amount"
@@ -76,7 +71,6 @@ const AddSpendForm = ({ amount }) => {
                 />
               </div>
             </div>
-
             <button className={css.saveBtn} type="submit">
               Save
             </button>
