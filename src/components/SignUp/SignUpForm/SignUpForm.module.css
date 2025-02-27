@@ -59,7 +59,13 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
 
+  transition: all 0.7s ease-in-out;
   margin-top: 12px;
+}
+
+.submitBtn:hover {
+  background: #87d28d;
+  transition: all 0.7s ease-in-out;
 }
 
 .error {

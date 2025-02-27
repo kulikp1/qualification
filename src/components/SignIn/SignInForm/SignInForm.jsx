@@ -54,7 +54,7 @@ const SignInForm = () => {
           </div>
 
           <button type="submit" className={css.submitBtn}>
-            Save
+            Sign In
           </button>
         </Form>
       )}

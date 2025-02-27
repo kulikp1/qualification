@@ -60,7 +60,7 @@
   align-items: center;
   margin-top: 32px;
   margin-left: 64px;
-
+  transition: all 0.7s ease-in-out;
   gap: 16px;
 }
 
@@ -80,6 +80,7 @@
 .btnSignUp:hover {
   border-radius: 30px;
   background: #87d28d;
+  transition: all 0.7s ease-in-out;
 }
 
 .btnSignIn {
@@ -92,6 +93,7 @@
   border-radius: 30px;
   border: 1px solid #323f47;
   cursor: pointer;
+  transition: all 0.7s ease-in-out;
 }
 
 .btnSignIn:hover {
