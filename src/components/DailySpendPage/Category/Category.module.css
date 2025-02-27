@@ -6,11 +6,22 @@
   background: #fff;
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
   display: flex;
-  padding: 17px 18px;
+  padding: 14px 16px;
   flex-direction: column;
   width: 230px;
 
   margin-top: 50px;
+
+  position: relative;
+}
+
+.changeBtn {
+  width: 13px;
+  height: 13px;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .title {
@@ -51,7 +62,7 @@
 .amount {
   color: #2f2f2f;
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 17px;
 
   font-style: normal;
   margin-bottom: 0px;
@@ -59,5 +70,6 @@
 }
 .categoryName {
   display: flex;
-  flex-direction: column;
+  gap: 5px;
+  /* flex-direction: column; */
 }
