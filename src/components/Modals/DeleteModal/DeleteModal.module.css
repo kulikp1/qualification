@@ -91,3 +91,15 @@
   color: #323f47;
   transition: all 0.7s ease-in-out;
 }
+
+.close {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+}
+
+.closeBtnItem {
+  width: 28px;
+  height: 28px;
+}
