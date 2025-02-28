@@ -1,19 +1,38 @@
+import { useState, useRef, useEffect } from "react";
 import css from "./UserInfo.module.css";
 import avatar from "../../assets/homePageAssets/pre-avatar.png";
 import { SlArrowDown } from "react-icons/sl";
 import UserBarPopover from "../UserBarPopover/UserBarPopover";
-import { useState } from "react";
 
 const UserInfo = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const popoverRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const togglePopover = () => {
+  const togglePopover = (event) => {
+    event.stopPropagation(); // Зупиняємо спливання події
     setIsPopoverOpen((prev) => !prev);
   };
 
-  const closePopover = () => {
-    setIsPopoverOpen(false);
+  const handleClickOutside = (event) => {
+    if (
+      popoverRef.current &&
+      !popoverRef.current.contains(event.target) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target)
+    ) {
+      setIsPopoverOpen(false);
+    }
   };
+
+  useEffect(() => {
+    if (isPopoverOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isPopoverOpen]);
 
   return (
     <div className={css.pageContainer}>
@@ -26,7 +45,11 @@ const UserInfo = () => {
           <h3>Pavlo</h3>
           <img src={avatar} alt="avatar" className={css.avatar} />
 
-          <button onClick={togglePopover}>
+          <button
+            ref={buttonRef}
+            onClick={togglePopover}
+            className={css.button}
+          >
             <SlArrowDown
               className={css.icon}
               style={{
@@ -37,7 +60,12 @@ const UserInfo = () => {
           </button>
         </div>
       </div>
-      <UserBarPopover isVisible={isPopoverOpen} onClose={closePopover} />
+
+      {isPopoverOpen && (
+        <div ref={popoverRef}>
+          <UserBarPopover isVisible={isPopoverOpen} onClose={togglePopover} />
+        </div>
+      )}
     </div>
   );
 };
