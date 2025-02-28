@@ -2,8 +2,9 @@ import { useState } from "react";
 import AddSpendForm from "../AddSpendForm/AddSpendComponent";
 import css from "./AddSpend.module.css";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
+import { IoClose } from "react-icons/io5";
 
-const AddSpendComponent = () => {
+const AddSpendComponent = ({ onClose }) => {
   const [amount, setAmount] = useState(50); // Початкове значення
 
   const increaseAmount = () => {
@@ -16,6 +17,9 @@ const AddSpendComponent = () => {
 
   return (
     <div className={css.spendContainer}>
+      <button className={css.close} onClick={onClose}>
+        <IoClose className={css.closeBtnItem} />
+      </button>
       <div>
         <h2 className={css.spendTitle}>Add spend</h2>
       </div>

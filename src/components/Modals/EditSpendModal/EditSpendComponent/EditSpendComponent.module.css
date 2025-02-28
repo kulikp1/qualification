@@ -86,3 +86,15 @@
   width: 43px;
   height: 43px;
 }
+
+.close {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+}
+
+.closeBtnItem {
+  width: 28px;
+  height: 28px;
+}

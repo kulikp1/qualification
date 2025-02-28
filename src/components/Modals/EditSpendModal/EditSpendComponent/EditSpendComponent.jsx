@@ -2,8 +2,9 @@ import { useState } from "react";
 import AddSpendForm from "../EditSpendForm/EditSpendComponent";
 import css from "./EditSpendComponent.module.css";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
+import { IoClose } from "react-icons/io5";
 
-const EditSpendModal = () => {
+const EditSpendModal = ({ onClose }) => {
   const [amount, setAmount] = useState(250); // Початкове значення
 
   const increaseAmount = () => {
@@ -16,6 +17,9 @@ const EditSpendModal = () => {
 
   return (
     <div className={css.spendContainer}>
+      <button className={css.close} onClick={onClose}>
+        <IoClose className={css.closeBtnItem} />
+      </button>
       <div>
         <h2 className={css.spendTitle}>Edit the entered amount</h2>
       </div>
