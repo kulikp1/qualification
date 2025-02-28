@@ -27,7 +27,13 @@ const UserInfo = () => {
           <img src={avatar} alt="avatar" className={css.avatar} />
 
           <button onClick={togglePopover}>
-            <SlArrowDown className={css.icon} />
+            <SlArrowDown
+              className={css.icon}
+              style={{
+                transform: isPopoverOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.3s ease",
+              }}
+            />
           </button>
         </div>
       </div>
