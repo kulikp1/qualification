@@ -10,7 +10,7 @@ const UserInfo = () => {
   const buttonRef = useRef(null);
 
   const togglePopover = (event) => {
-    event.stopPropagation(); // Зупиняємо спливання події
+    event.stopPropagation();
     setIsPopoverOpen((prev) => !prev);
   };
 
