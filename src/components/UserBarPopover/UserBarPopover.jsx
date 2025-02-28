@@ -1,5 +1,4 @@
 import styles from "./UserBarPopover.module.css";
-// import iconMenu from "../../assets/images/icons/icons.svg";
 import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 
 import Modal from "../Modal/Modal";
@@ -8,7 +7,6 @@ import LogOutModal from "../Modals/LogOutModal/LogOutModal";
 import { useState, useRef, useEffect } from "react";
 
 const UserBarPopover = ({ isVisible, onClose }) => {
-  //   const { t } = useTranslation();
   const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
   const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
   const popoverRef = useRef(null);
