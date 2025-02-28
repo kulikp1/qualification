@@ -27,9 +27,9 @@ const AddSpendForm = ({ amount, setAmount }) => {
           [amount, setFieldValue];
 
         const handleInputChange = (e) => {
-          const newValue = e.target.value.replace(/\D/, ""); // Видаляємо всі нечислові символи
-          setAmount(newValue ? parseInt(newValue) : 0); // Оновлюємо useState
-          setFieldValue("amount", newValue); // Оновлюємо Formik
+          const newValue = e.target.value.replace(/\D/, "");
+          setAmount(newValue ? parseInt(newValue) : 0);
+          setFieldValue("amount", newValue);
         };
 
         return (
