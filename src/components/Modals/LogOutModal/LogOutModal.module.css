@@ -66,6 +66,11 @@
   letter-spacing: -0.16px;
 }
 
+.btnLogOut:hover {
+  background: #87d28d;
+  transition: all 0.2s ease-in-out;
+}
+
 .btnCancel {
   display: flex;
   padding: 18px 59px;
