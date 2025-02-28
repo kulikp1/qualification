@@ -90,3 +90,8 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
 }
+
+.btnCancel:hover {
+  color: #323f47;
+  transition: all 0.7s ease-in-out;
+}
