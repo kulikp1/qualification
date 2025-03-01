@@ -122,8 +122,10 @@ const spendSlice = createSlice({
         state.error = null;
       })
       .addCase(logoutAction, (state) => {
-        state = initialState.spend;
-      }),
+    state.items = initialState.spend.items;
+    state.loading = initialState.spend.loading;
+    state.error = initialState.spend.error;
+})
 });
 
 export const { changeActualDate } = spendSlice.actions;
