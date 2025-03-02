@@ -1,12 +1,20 @@
 .signInContainer {
-  width: 672px;
-  height: 736px;
+  width: 343px;
+  height: 780px;
   flex-shrink: 0;
   border-radius: 30px;
   background: #f0eff4;
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (min-width: 1440px) {
+  .signInContainer {
+    width: 672px;
+    height: 736px;
+  }
+}
+
 .logo {
   color: #323f47;
   /* text-align: center; */
