@@ -36,25 +36,25 @@
 }
 
 .avatar {
-  width: 28px; /* Розмір аватара */
-  height: 28px; /* Розмір аватара */
+  width: 28px;
+  height: 28px;
 
-  border-radius: 50%; /* Робимо коло */
-  border: 3px solid #fff; /* Білий обвід */
-  object-fit: cover; /* Коректне відображення зображення */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тінь для аватарів */
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
 
   margin-left: -15px;
-  z-index: 1; /* Для контролю порядку шарів */
+  z-index: 1;
 }
 
 .avatar:nth-child(2) {
-  z-index: 2; /* Другий аватар поверх першого */
+  z-index: 2;
 }
 
 .avatar:nth-child(3) {
-  z-index: 3; /* Третій аватар поверх другого */
+  z-index: 3;
 }
 
 .text {
@@ -72,7 +72,7 @@ h2 {
 }
 
 .highlight {
-  color: #76c893; /* Зелений колір для слова "happy" */
+  color: #76c893;
 }
 
 /* DESKTOP */
