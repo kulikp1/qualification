@@ -13,38 +13,32 @@
   background: url(../../../assets/homePageAssets/background1.jpg);
 }
 
-@media only screen and (min-width: 1440px) {
-  .mainContainer {
-    width: 672px;
-    height: 736px;
-  }
-}
-
 .avatarContainer {
   display: flex;
   gap: 4px;
 
-  width: 320px;
+  width: 160px;
 
-  margin-top: 537px;
+  margin-top: 219px;
   align-items: center;
 
   border-radius: 30px;
   background: #fff;
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 14px;
 }
+
 .avatars {
   display: flex;
   align-items: center;
-  gap: -10px; /* Негативний відступ для перекриття аватарів */
-  padding-left: 35px;
+  gap: -10px;
+  padding-left: 14px;
 }
 
 .avatar {
-  width: 60px; /* Розмір аватара */
-  height: 60px; /* Розмір аватара */
+  width: 28px; /* Розмір аватара */
+  height: 28px; /* Розмір аватара */
+
   border-radius: 50%; /* Робимо коло */
   border: 3px solid #fff; /* Білий обвід */
   object-fit: cover; /* Коректне відображення зображення */
@@ -70,11 +64,52 @@
 }
 
 h2 {
-  font-size: 24px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 700;
-  margin: 0;
+  line-height: 14px;
 }
 
 .highlight {
   color: #76c893; /* Зелений колір для слова "happy" */
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1440px) {
+  .mainContainer {
+    width: 672px;
+    height: 736px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .avatarContainer {
+    width: 320px;
+
+    margin-top: 537px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .avatars {
+    padding-left: 30px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
 }
