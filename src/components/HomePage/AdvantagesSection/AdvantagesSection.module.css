@@ -10,7 +10,7 @@
   flex-shrink: 0;
 
   border-radius: 30px;
-  background: url(../../../assets/homePageAssets/background1.jpg);
+  background: url(../../../assets/homePageAssets/backMobile.jpg);
 }
 
 .avatarContainer {
@@ -80,13 +80,14 @@ h2 {
   .mainContainer {
     width: 672px;
     height: 736px;
+    background: url(../../../assets/homePageAssets/background1.jpg);
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .avatarContainer {
-    width: 320px;
-
+    width: 350px;
+    height: 95px;
     margin-top: 537px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -111,5 +112,6 @@ h2 {
     font-size: 24px;
     font-weight: 700;
     margin: 0;
+    line-height: 22.4px;
   }
 }
