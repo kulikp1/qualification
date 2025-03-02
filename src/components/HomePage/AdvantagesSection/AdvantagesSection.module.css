@@ -1,7 +1,7 @@
 .mainContainer {
   position: relative;
-  width: 672px;
-  height: 736px;
+  width: 343px;
+  height: 411px;
 
   padding-top: 0;
   padding-right: 32px;
@@ -12,6 +12,14 @@
   border-radius: 30px;
   background: url(../../../assets/homePageAssets/background1.jpg);
 }
+
+@media only screen and (min-width: 1440px) {
+  .mainContainer {
+    width: 672px;
+    height: 736px;
+  }
+}
+
 .avatarContainer {
   display: flex;
   gap: 4px;

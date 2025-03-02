@@ -1,6 +1,6 @@
 .mainContainer {
-  width: 672px;
-  height: 736px;
+  width: 343px;
+  height: 411px;
   flex-shrink: 0;
   border-radius: 30px;
   background: #f0eff4;
@@ -12,15 +12,35 @@
   color: #323f47;
   /* text-align: center; */
   font-family: Poppins;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 100% */
-  letter-spacing: -0.24px;
+  line-height: 20px; /* 111.111% */
+
+  letter-spacing: -0.18px;
+
   text-transform: uppercase;
 
-  margin-top: 32px;
-  margin-left: 33px;
+  margin-top: 24px;
+  margin-left: 16px;
+  margin-bottom: 0;
+}
+
+.title {
+  width: 311px;
+  color: #323f47;
+
+  /* Desktop_tablet/H1 */
+  font-family: Poppins;
+  font-size: 38px;
+
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -0.38px;
+
+  margin-top: 16px;
+  margin-left: 16px;
   margin-bottom: 0;
 }
 
@@ -33,24 +53,8 @@
   line-height: 24px; /* 150% */
   letter-spacing: 0.96px;
 
-  margin-top: 132px;
-  margin-left: 64px;
-  margin-bottom: 0;
-}
-.title {
-  width: 547px;
-  color: #323f47;
-
-  /* Desktop_tablet/H1 */
-  font-family: Poppins;
-  font-size: 80px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 76px; /* 95% */
-  letter-spacing: -0.8px;
-
-  margin-top: 16px;
-  margin-left: 64px;
+  margin-top: 74px;
+  margin-left: 16px;
   margin-bottom: 0;
 }
 
@@ -59,9 +63,9 @@
   flex-direction: row;
   align-items: center;
   margin-top: 32px;
-  margin-left: 64px;
+  margin-left: 16px;
   transition: all 0.2s ease-in-out;
-  gap: 16px;
+  gap: 10px;
 
   color: #323f47;
   text-align: center;
@@ -69,7 +73,7 @@
 
 .btnSignUp {
   display: flex;
-  padding: 18px 40px;
+  padding: 14px 19px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -80,11 +84,11 @@
   cursor: pointer;
 
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 1.5em;
-  letter-spacing: -0.01em;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -96,7 +100,7 @@
 
 .btnSignIn {
   display: flex;
-  padding: 18px 40px;
+  padding: 14px 28px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -107,15 +111,78 @@
   transition: all 0.2s ease-in-out;
 
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 14px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 1.5em;
-  letter-spacing: -0.01em;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnSignIn {
+    padding: 18px 40px;
+    font-size: 16px;
+    line-height: 1.5em;
+    letter-spacing: -0.01em;
+  }
 }
 
 .btnSignIn:hover {
   border-radius: 30px;
   border: 1px solid #87d28d;
   color: #87d28d;
+}
+
+/* DESKTOP */
+
+@media only screen and (min-width: 1440px) {
+  .mainContainer {
+    width: 672px;
+    height: 736px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logo {
+    margin-left: 64px;
+    margin-left: 33px;
+    margin-top: 32px;
+    font-size: 24px;
+    line-height: 24px; /* 100% */
+    letter-spacing: -0.24px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    width: 547px;
+    font-size: 80px;
+    line-height: 76px; /* 95% */
+    letter-spacing: -0.8px;
+    margin-left: 64px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .descr {
+    margin-top: 132px;
+    margin-left: 64px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btns {
+    margin-left: 64px;
+    gap: 16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnSignUp {
+    padding: 18px 40px;
+    font-size: 16px;
+    line-height: 1.5em;
+    letter-spacing: -0.01em;
+  }
 }
