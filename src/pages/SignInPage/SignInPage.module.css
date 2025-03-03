@@ -1,7 +1,9 @@
-.signInPageContainer {
-  display: flex;
-  padding: 32px;
-  gap: 32px;
+@media only screen and (min-width: 1440px) {
+  .signInPageContainer {
+    display: flex;
+    padding: 32px;
+    gap: 32px;
+  }
 }
 
 .signInAdv {
