@@ -11,15 +11,15 @@
   color: #323f47;
   /* text-align: center; */
   font-family: Poppins;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px; /* 100% */
   letter-spacing: -0.24px;
   text-transform: uppercase;
 
-  margin-top: 32px;
-  margin-left: 33px;
+  margin-top: 24px;
+  margin-left: 16px;
   margin-bottom: 0;
 }
 .formContainer {
@@ -45,5 +45,14 @@
   .signInContainer {
     width: 672px;
     height: 736px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logo {
+    font-size: 24px;
+
+    margin-top: 32px;
+    margin-left: 33px;
   }
 }
