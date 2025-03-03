@@ -23,7 +23,7 @@
   margin-bottom: 0;
 }
 .formContainer {
-  margin: 113px 118px 169px 118px;
+  margin: 136px 16px 169px 16px;
 }
 .formDescr {
   color: #323f47;
@@ -54,5 +54,11 @@
 
     margin-top: 32px;
     margin-left: 33px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .formContainer {
+    margin: 113px 118px 169px 118px;
   }
 }
