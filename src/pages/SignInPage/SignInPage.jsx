@@ -6,7 +6,9 @@ export default function SignInPage() {
   return (
     <div className={styles.signInPageContainer}>
       <SignInPageComponent />
-      <AdvantagesSection />
+      <div className={styles.signInAdv}>
+        <AdvantagesSection />
+      </div>
     </div>
   );
 }
