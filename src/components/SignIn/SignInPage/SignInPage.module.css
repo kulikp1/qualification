@@ -9,12 +9,12 @@
 }
 .logo {
   color: #323f47;
-  /* text-align: center; */
+
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 100% */
+  line-height: 24px;
   letter-spacing: -0.24px;
   text-transform: uppercase;
 
@@ -28,13 +28,12 @@
 .formDescr {
   color: #323f47;
 
-  /* Desktop_tablet/H2 */
   font-family: Poppins;
   font-size: 32px;
 
   font-style: normal;
   font-weight: 700;
-  line-height: 32px; /* 100% */
+  line-height: 32px;
   letter-spacing: -0.32px;
 }
 .formComponent {
