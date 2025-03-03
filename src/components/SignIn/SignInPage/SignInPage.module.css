@@ -30,11 +30,12 @@
 
   /* Desktop_tablet/H2 */
   font-family: Poppins;
-  font-size: 36px;
+  font-size: 32px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 38px; /* 105.556% */
-  letter-spacing: -0.36px;
+  line-height: 32px; /* 100% */
+  letter-spacing: -0.32px;
 }
 .formComponent {
   margin-top: 32px;
@@ -60,5 +61,13 @@
 @media only screen and (min-width: 1440px) {
   .formContainer {
     margin: 113px 118px 169px 118px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .formDescr {
+    font-size: 36px;
+    line-height: 38px; /* 105.556% */
+    letter-spacing: -0.36px;
   }
 }
