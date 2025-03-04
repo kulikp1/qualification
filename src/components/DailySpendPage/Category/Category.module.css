@@ -93,3 +93,22 @@
     margin-top: 50px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .amount {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+}
