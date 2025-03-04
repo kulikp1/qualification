@@ -100,3 +100,20 @@
     font-size: 25px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .categories {
+    gap: 20px;
+    padding: 0 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .moneyImg {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin-left: 64px;
+    margin-top: 50px;
+  }
+}
