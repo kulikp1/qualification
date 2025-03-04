@@ -81,3 +81,22 @@
     letter-spacing: -0.24px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .mainSpendsContainer {
+    margin-left: 64px;
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .descr {
+    font-size: 25px;
+  }
+}
