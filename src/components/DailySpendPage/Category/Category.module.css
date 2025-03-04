@@ -112,3 +112,17 @@
     height: 30px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .changeBtn {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .deleteBtn {
+    width: 20px;
+    height: 20px;
+  }
+}
