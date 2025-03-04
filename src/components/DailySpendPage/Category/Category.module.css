@@ -126,3 +126,10 @@
     height: 20px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .changeIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
