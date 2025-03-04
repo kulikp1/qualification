@@ -8,34 +8,35 @@
   display: flex;
   padding: 16px;
   flex-direction: column;
-  width: 230px;
+  width: 90px;
 
-  margin-top: 50px;
-
-  /* position: relative; */
+  margin-top: 25px;
 }
+
 .btnContainer {
   margin: 10px 0 5px;
   display: flex;
   gap: 10px;
 }
+
 .changeBtn {
-  width: 20px;
-  height: 20px;
+  width: 7px;
+  height: 7px;
 }
 
 .deleteBtn {
-  width: 20px;
-  height: 20px;
+  width: 7px;
+  height: 7px;
 }
 
 .changeIcon {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
+
 .title {
   font-family: Poppins;
-  font-size: 18px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
   letter-spacing: -0.8px;
@@ -51,10 +52,11 @@
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   fill: #1cb626;
 }
+
 .categorySpend {
   display: flex;
   gap: 4px;
@@ -71,12 +73,13 @@
 .amount {
   color: #2f2f2f;
   font-family: Poppins;
-  font-size: 17px;
+  font-size: 13px;
 
   font-style: normal;
   margin-bottom: 0px;
   margin-top: 0px;
 }
+
 .categoryName {
   display: flex;
   gap: 5px;
