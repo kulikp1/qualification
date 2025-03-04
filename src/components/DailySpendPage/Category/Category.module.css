@@ -85,3 +85,11 @@
   gap: 5px;
   /* flex-direction: column; */
 }
+
+/* DESKTOP */
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 230px;
+    margin-top: 50px;
+  }
+}
