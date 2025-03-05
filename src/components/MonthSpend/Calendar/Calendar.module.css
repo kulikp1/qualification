@@ -1,9 +1,17 @@
 .addItem {
-  margin: 24px 32px 0 32px;
+  margin: 24px 20px 0 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 43px;
+  gap: 15px;
 }
 .gray {
   background: rgba(50, 63, 71, 0.2);
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 1440px) {
+  .addItem {
+    margin: 24px 32px 0 32px;
+  }
 }
