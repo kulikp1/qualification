@@ -1,7 +1,7 @@
 .nameContainer {
   color: #323f47;
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 450;
   line-height: 38px; /* 105.556% */
@@ -9,4 +9,10 @@
 
   display: flex;
   align-items: center;
+}
+
+@media only screen and (min-width: 1440px) {
+  .nameContainer {
+    font-size: 28px;
+  }
 }
