@@ -11,7 +11,7 @@
 .spendItems {
   display: flex;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 20px;
   margin-top: 30px;
   align-items: center;
 }
@@ -33,9 +33,10 @@
 .btnItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-right: 32px;
+  margin-right: 20px;
+  gap: 5px;
 }
+
 .addBtn {
   cursor: pointer;
   width: 30px;
@@ -46,6 +47,7 @@
 
   border-radius: 30px;
 }
+
 .addBtnText {
   margin: 0;
 }
@@ -53,6 +55,11 @@
   margin: 24px 32px 0 32px;
 }
 
+@media only screen and (min-width: 1440px) {
+  .calendarContainer {
+    margin: 24px 20px 0 20px;
+  }
+}
 /* DESKTOP */
 @media only screen and (min-width: 1440px) {
   .Container {
@@ -73,5 +80,12 @@
     font-size: 32px;
     line-height: 38px; /* 105.556% */
     letter-spacing: -0.36px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnItem {
+    gap: 10px;
+    margin-right: 32px;
   }
 }
