@@ -5,7 +5,7 @@
 
   display: flex;
   width: 38px;
-  padding: 7px 15px;
+  padding: 5px 11px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -20,4 +20,11 @@
 
   border-radius: 30px;
   background: #fff;
+}
+
+@media only screen and (min-width: 1440px) {
+  .calendarItem {
+    padding: 7px 15px;
+    width: 38px;
+  }
 }
