@@ -30,14 +30,6 @@
   margin: 0px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .descr {
-    font-size: 32px;
-    line-height: 38px; /* 105.556% */
-    letter-spacing: -0.36px;
-  }
-}
-
 .btnItem {
   display: flex;
   align-items: center;
@@ -73,5 +65,13 @@
   .spendItems {
     padding: 0 32px;
     margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .descr {
+    font-size: 32px;
+    line-height: 38px; /* 105.556% */
+    letter-spacing: -0.36px;
   }
 }
