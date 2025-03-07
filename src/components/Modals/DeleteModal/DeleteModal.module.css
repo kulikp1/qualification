@@ -2,6 +2,8 @@
   display: inline-flex;
   padding: 40px 14px;
 
+  width: 344px;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -38,14 +40,6 @@
 
   font-style: normal;
   font-weight: 400;
-}
-
-@media only screen and (min-width: 1440px) {
-  .deleteDescr {
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.18px;
-  }
 }
 
 .deleteBtns {
@@ -123,6 +117,7 @@
 @media only screen and (min-width: 1440px) {
   .deleteContainer {
     padding: 40px;
+    width: 516px;
   }
 }
 
@@ -138,5 +133,12 @@
 
     line-height: 32px;
     letter-spacing: -0.28px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .deleteDescr {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
   }
 }
