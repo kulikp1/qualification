@@ -51,7 +51,7 @@
 .btnDelete {
   display: flex;
   width: 170px;
-  padding: 18px 67px;
+  padding: 14px 129px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -62,12 +62,15 @@
   color: #323f47;
   text-align: center;
   font-family: Poppins;
-  font-size: 16px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.16px;
+
   transition: all 0.2s ease-in-out;
+
+  font-size: 14px;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
 }
 
 .btnDelete:hover {
@@ -88,11 +91,12 @@
   color: rgba(50, 63, 71, 0.3);
   text-align: center;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.16px;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+
   transition: all 0.7s ease-in-out;
 }
 
@@ -140,5 +144,23 @@
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -0.18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnDelete {
+    padding: 18px 67px;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnCancel {
+    padding: 18px 67px;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
   }
 }
