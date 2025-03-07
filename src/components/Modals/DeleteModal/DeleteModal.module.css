@@ -36,7 +36,14 @@
 
 .deleteBtns {
   display: flex;
+  flex-direction: column;
   gap: 10px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .deleteBtns {
+    flex-direction: row;
+  }
 }
 
 .btnDelete {
