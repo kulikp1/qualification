@@ -87,14 +87,23 @@
   padding: 0;
   background-color: #fff;
 }
+
 .btnContainer {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .btnMinus {
-  width: 43px;
-  height: 43px;
+  width: 40px;
+  height: 40px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnMinus {
+    width: 43px;
+    height: 43px;
+  }
 }
 
 .btnAmount {
@@ -117,8 +126,15 @@
   justify-content: center;
 }
 .btnPlus {
-  width: 43px;
-  height: 43px;
+  width: 40px;
+  height: 40px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnPlus {
+    width: 43px;
+    height: 43px;
+  }
 }
 
 .close {
