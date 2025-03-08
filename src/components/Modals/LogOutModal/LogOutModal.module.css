@@ -10,7 +10,7 @@
   background: #fff;
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
 
-  /* padding: 40px 14px; */
+  padding: 40px 14px;
 
   width: 344px;
 
@@ -39,6 +39,7 @@
 
   /* margin-top: 40px; */
 }
+
 .logOutDescr {
   width: 436px;
 
@@ -54,7 +55,14 @@
 
 .logOutBtns {
   display: flex;
+  flex-direction: column;
   gap: 10px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .logOutBtns {
+    flex-direction: row;
+  }
 }
 
 .btnLogOut {
