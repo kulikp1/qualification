@@ -13,12 +13,6 @@
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
 }
 
-@media only screen and (min-width: 1440px) {
-  .spendContainer {
-    width: 507px;
-  }
-}
-
 .spendTitle {
   width: 347px;
 
@@ -33,14 +27,6 @@
   letter-spacing: -0.2px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .spendTitle {
-    font-size: 28px;
-    line-height: 32px; /* 114.286% */
-    letter-spacing: -0.28px;
-  }
-}
-
 .spendDescr {
   color: #323f47;
   font-family: Poppins;
@@ -51,14 +37,6 @@
 
   font-style: normal;
   font-weight: 700;
-}
-
-@media only screen and (min-width: 1440px) {
-  .spendDescr {
-    font-size: 18px;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: -0.18px;
-  }
 }
 
 .amountDescr {
@@ -75,14 +53,6 @@
   margin-bottom: 8px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .amountDescr {
-    font-size: 16px;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-  }
-}
-
 .formBtn {
   padding: 0;
   background-color: #fff;
@@ -97,13 +67,6 @@
 .btnMinus {
   width: 40px;
   height: 40px;
-}
-
-@media only screen and (min-width: 1440px) {
-  .btnMinus {
-    width: 43px;
-    height: 43px;
-  }
 }
 
 .btnAmount {
@@ -126,22 +89,9 @@
   justify-content: center;
 }
 
-@media only screen and (min-width: 1440px) {
-  .btnAmount {
-    height: 43px;
-  }
-}
-
 .btnPlus {
   width: 40px;
   height: 40px;
-}
-
-@media only screen and (min-width: 1440px) {
-  .btnPlus {
-    width: 43px;
-    height: 43px;
-  }
 }
 
 .close {
@@ -154,6 +104,57 @@
 .closeBtnItem {
   width: 24px;
   height: 24px;
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1440px) {
+  .spendContainer {
+    width: 507px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .spendTitle {
+    font-size: 28px;
+    line-height: 32px; /* 114.286% */
+    letter-spacing: -0.28px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .spendDescr {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .amountDescr {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnMinus {
+    width: 43px;
+    height: 43px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnAmount {
+    height: 43px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnPlus {
+    width: 43px;
+    height: 43px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
