@@ -18,13 +18,6 @@
   /* height: 164px; */
 }
 
-@media only screen and (min-width: 1440px) {
-  .logOutContainer {
-    padding: 40px;
-    width: 516px;
-  }
-}
-
 .logOutTitle {
   /* width: 316px; */
 
@@ -41,14 +34,6 @@
   /* margin-top: 40px; */
 }
 
-@media only screen and (min-width: 1440px) {
-  .logOutTitle {
-    font-size: 28px;
-    line-height: 32px; /* 114.286% */
-    letter-spacing: -0.28px;
-  }
-}
-
 .logOutDescr {
   width: 296px;
 
@@ -63,26 +48,10 @@
   letter-spacing: -0.14px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .logOutDescr {
-    width: 436px;
-
-    font-size: 18px;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: -0.18px;
-  }
-}
-
 .logOutBtns {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-@media only screen and (min-width: 1440px) {
-  .logOutBtns {
-    flex-direction: row;
-  }
 }
 
 .btnLogOut {
@@ -106,15 +75,6 @@
 
   font-style: normal;
   font-weight: 700;
-}
-
-@media only screen and (min-width: 1440px) {
-  .btnLogOut {
-    padding: 18px 57px;
-    font-size: 16px;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-  }
 }
 
 .btnLogOut:hover {
@@ -144,15 +104,6 @@
   font-weight: 700;
 }
 
-@media only screen and (min-width: 1440px) {
-  .btnCancel {
-    padding: 18px 59px;
-    font-size: 16px;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-  }
-}
-
 .btnCancel:hover {
   color: #323f47;
   transition: all 0.7s ease-in-out;
@@ -168,6 +119,57 @@
 .closeBtnItem {
   width: 24px;
   height: 24px;
+}
+
+/* DESKTOP */
+
+@media only screen and (min-width: 1440px) {
+  .logOutContainer {
+    padding: 40px;
+    width: 516px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logOutTitle {
+    font-size: 28px;
+    line-height: 32px; /* 114.286% */
+    letter-spacing: -0.28px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logOutDescr {
+    width: 436px;
+
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logOutBtns {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnLogOut {
+    padding: 18px 57px;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnCancel {
+    padding: 18px 59px;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
