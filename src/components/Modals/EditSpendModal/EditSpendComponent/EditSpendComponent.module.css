@@ -108,7 +108,7 @@
 
 .btnAmount {
   display: flex;
-  height: 43px;
+  height: 40px;
   padding: 11px 20px;
   align-items: flex-start;
   gap: 10px;
@@ -125,6 +125,13 @@
   min-width: 92px;
   justify-content: center;
 }
+
+@media only screen and (min-width: 1440px) {
+  .btnAmount {
+    height: 43px;
+  }
+}
+
 .btnPlus {
   width: 40px;
   height: 40px;
