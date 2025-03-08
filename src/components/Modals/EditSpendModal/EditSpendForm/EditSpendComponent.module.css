@@ -30,14 +30,22 @@
 
 .formField {
   display: flex;
-  padding: 16px 0px 16px 16px;
+  padding: 14px 0px 14px 14px;
   align-items: flex-start;
   gap: 10px;
-  width: 390px;
+  width: 325px;
+
   border-radius: 15px;
   border: 1px solid rgba(47, 47, 47, 0.15);
 
   outline: none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .formField {
+    padding: 16px 0px 16px 16px;
+    width: 390px;
+  }
 }
 
 .formField:focus {
