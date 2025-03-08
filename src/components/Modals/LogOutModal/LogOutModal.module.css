@@ -10,8 +10,19 @@
   background: #fff;
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
 
+  /* padding: 40px 14px; */
+
+  width: 344px;
+
   /* width: 436px; */
   /* height: 164px; */
+}
+
+@media only screen and (min-width: 1440px) {
+  .logOutContainer {
+    padding: 40px;
+    width: 516px;
+  }
 }
 
 .logOutTitle {
