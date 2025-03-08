@@ -5,27 +5,47 @@
 .formDescr {
   color: #2f2f2f;
   font-family: Poppins;
-  font-size: 16px;
+
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.16px;
+
+  font-size: 14px;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
 
   margin-top: 16px;
   margin-bottom: 8px;
 }
 
+@media only screen and (min-width: 1440px) {
+  .formDescr {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
 .valueDescr {
   color: #323f47;
   font-family: Poppins;
-  font-size: 18px;
+
+  font-size: 16px;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.16px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
-  letter-spacing: -0.18px;
 
   margin-top: 24px;
   margin-bottom: 8px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .valueDescr {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
 }
 
 .formField {
