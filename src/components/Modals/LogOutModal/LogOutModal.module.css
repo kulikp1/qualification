@@ -166,6 +166,13 @@
 }
 
 .closeBtnItem {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .closeBtnItem {
+    width: 28px;
+    height: 28px;
+  }
 }
