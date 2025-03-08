@@ -17,14 +17,6 @@
   margin-bottom: 8px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .formDescr {
-    font-size: 16px;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-  }
-}
-
 .valueDescr {
   color: #323f47;
   font-family: Poppins;
@@ -40,14 +32,6 @@
   margin-bottom: 8px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .valueDescr {
-    font-size: 18px;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: -0.18px;
-  }
-}
-
 .formField {
   display: flex;
   padding: 14px 0px 14px 14px;
@@ -59,13 +43,6 @@
   border: 1px solid rgba(47, 47, 47, 0.15);
 
   outline: none;
-}
-
-@media only screen and (min-width: 1440px) {
-  .formField {
-    padding: 16px 0px 16px 16px;
-    width: 390px;
-  }
 }
 
 .formField:focus {
@@ -97,15 +74,40 @@
   margin-top: 24px;
 }
 
+.saveBtn:hover {
+  background: #87d28d;
+  transition: all 0.2s ease-in-out;
+}
+
+/* DESKTOP */
+
 @media only screen and (min-width: 1440px) {
-  .saveBtn {
+  .formDescr {
     font-size: 16px;
     line-height: 24px; /* 150% */
     letter-spacing: -0.16px;
   }
 }
 
-.saveBtn:hover {
-  background: #87d28d;
-  transition: all 0.2s ease-in-out;
+@media only screen and (min-width: 1440px) {
+  .valueDescr {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .formField {
+    padding: 16px 0px 16px 16px;
+    width: 390px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .saveBtn {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
 }
