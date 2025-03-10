@@ -14,14 +14,25 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media only screen and (min-width: 1440px) {
+  .settingsTitleItem {
+    font-size: 28px;
+    line-height: 32px; /* 114.286% */
+    letter-spacing: -0.28px;
+  }
+}
+
 .settingsTitleItem {
   color: #323f47;
   font-family: Poppins;
-  font-size: 28px;
+
+  font-size: 20px;
+  line-height: 24px; /* 120% */
+  letter-spacing: -0.2px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 32px; /* 114.286% */
-  letter-spacing: -0.28px;
 }
 .closeBtn {
   cursor: pointer;
