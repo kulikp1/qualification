@@ -85,14 +85,6 @@
   font-weight: 700;
 }
 
-@media only screen and (min-width: 1440px) {
-  .settingsControllerDescr {
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.18px;
-  }
-}
-
 /* DESKTOP */
 @media only screen and (min-width: 1440px) {
   .settingsContainer {
@@ -133,5 +125,13 @@
     font-size: 16px;
     line-height: 24px; /* 150% */
     letter-spacing: -0.16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .settingsControllerDescr {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
   }
 }
