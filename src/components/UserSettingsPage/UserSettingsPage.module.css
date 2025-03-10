@@ -5,29 +5,11 @@
   width: 403px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .settingsContainer {
-    width: 620px;
-  }
-}
 .settingsTitle {
   margin-top: 20px;
 
   display: flex;
   justify-content: space-between;
-}
-@media only screen and (min-width: 1440px) {
-  .settingsTitle {
-    margin-top: 0px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .settingsTitleItem {
-    font-size: 28px;
-    line-height: 32px; /* 114.286% */
-    letter-spacing: -0.28px;
-  }
 }
 
 .settingsTitleItem {
@@ -50,13 +32,6 @@
   height: 24px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .closeBtnItem {
-    width: 28px;
-    height: 28px;
-  }
-}
-
 .avatarItems {
   display: flex;
   flex-direction: column;
@@ -70,13 +45,6 @@
   height: 75px;
 
   border-radius: 100px;
-}
-
-@media only screen and (min-width: 1440px) {
-  .avatar {
-    width: 100px;
-    height: 100px;
-  }
 }
 
 .avatarItem {
@@ -101,14 +69,6 @@
   letter-spacing: -0.14px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .avatarDescr {
-    font-size: 16px;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-  }
-}
-
 .settingsController {
   margin: 40px 0 40px 0;
 }
@@ -123,4 +83,47 @@
   font-weight: 700;
   line-height: 24px; /* 133.333% */
   letter-spacing: -0.18px;
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1440px) {
+  .settingsContainer {
+    width: 620px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .settingsTitle {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .settingsTitleItem {
+    font-size: 28px;
+    line-height: 32px; /* 114.286% */
+    letter-spacing: -0.28px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .closeBtnItem {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .avatarDescr {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
 }
