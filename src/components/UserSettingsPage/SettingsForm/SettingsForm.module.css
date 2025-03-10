@@ -31,13 +31,23 @@
 
   color: #323f47;
   font-family: Poppins;
-  font-size: 18px;
+
+  font-size: 16px;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.16px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
-  letter-spacing: -0.18px;
 
   margin-top: 24px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .inputGroupEmail {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
 }
 
 .inputGroupEmail {
@@ -48,13 +58,23 @@
 
   color: #323f47;
   font-family: Poppins;
-  font-size: 18px;
+
+  font-size: 16px;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.16px;
+
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
-  letter-spacing: -0.18px;
 
   margin-top: 14px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .inputGroupEmail {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
 }
 
 .inputField {
