@@ -9,6 +9,11 @@ const UserInfo = () => {
   const popoverRef = useRef(null);
   const buttonRef = useRef(null);
 
+  // Функція для перевірки, чи клік був у модальному вікні
+  const isClickInsideModal = (event) => {
+    return event.target.closest(".modal-open");
+  };
+
   const togglePopover = (event) => {
     event.stopPropagation();
     setIsPopoverOpen((prev) => !prev);
@@ -19,7 +24,8 @@ const UserInfo = () => {
       popoverRef.current &&
       !popoverRef.current.contains(event.target) &&
       buttonRef.current &&
-      !buttonRef.current.contains(event.target)
+      !buttonRef.current.contains(event.target) &&
+      !isClickInsideModal(event) // Оновлена перевірка
     ) {
       setIsPopoverOpen(false);
     }
@@ -27,11 +33,11 @@ const UserInfo = () => {
 
   useEffect(() => {
     if (isPopoverOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("click", handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [isPopoverOpen]);
 
   return (
