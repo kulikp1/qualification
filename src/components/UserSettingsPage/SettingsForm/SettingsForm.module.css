@@ -4,13 +4,23 @@
 
   color: #2f2f2f;
   font-family: Poppins;
-  font-size: 16px;
+
+  font-size: 14px;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: -0.16px;
 
   margin-top: 14px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .radioGroup {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+  }
 }
 
 .inputGroupName {
