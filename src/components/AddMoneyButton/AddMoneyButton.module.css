@@ -33,9 +33,7 @@
 .icon {
   width: 22px;
   height: 22px;
-  /* stroke: #323f47; */
   color: #323f47;
-  /* fill: transparent; */
   transition: stroke 0.3s ease;
 }
 
@@ -44,7 +42,6 @@
 }
 
 .text {
-  /* font-weight: bold; */
   pointer-events: none;
 
   color: #323f47;
@@ -53,6 +50,6 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   letter-spacing: -0.16px;
 }
