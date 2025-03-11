@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: 700;
 
-  line-height: 20px; /* 111.111% */
+  line-height: 20px;
   letter-spacing: -0.18px;
 
   text-transform: uppercase;
@@ -38,7 +38,7 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 76px; /* 95% */
+  line-height: 76px;
   letter-spacing: -0.8px;
 
   margin-bottom: 0;
@@ -50,7 +50,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   letter-spacing: 0.96px;
 }
 
@@ -77,7 +77,7 @@
 @media only screen and (min-width: 1440px) {
   .logo {
     font-size: 24px;
-    line-height: 24px; /* 100% */
+    line-height: 24px;
     letter-spacing: -0.24px;
   }
 }
