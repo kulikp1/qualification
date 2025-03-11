@@ -83,7 +83,6 @@
 .categoryName {
   display: flex;
   gap: 5px;
-  /* flex-direction: column; */
 }
 
 /* DESKTOP */
