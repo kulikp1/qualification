@@ -125,7 +125,7 @@
 @media only screen and (min-width: 1440px) {
   .logOutTitle {
     font-size: 28px;
-    line-height: 32px; /* 114.286% */
+    line-height: 32px;
     letter-spacing: -0.28px;
   }
 }
@@ -135,7 +135,7 @@
     width: 436px;
 
     font-size: 18px;
-    line-height: 24px; /* 133.333% */
+    line-height: 24px;
     letter-spacing: -0.18px;
   }
 }
@@ -150,7 +150,7 @@
   .btnLogOut {
     padding: 18px 57px;
     font-size: 16px;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
     letter-spacing: -0.16px;
   }
 }
@@ -159,7 +159,7 @@
   .btnCancel {
     padding: 18px 59px;
     font-size: 16px;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
     letter-spacing: -0.16px;
   }
 }
