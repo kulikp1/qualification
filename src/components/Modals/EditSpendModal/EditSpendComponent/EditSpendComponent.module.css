@@ -23,7 +23,7 @@
   font-weight: 700;
 
   font-size: 20px;
-  line-height: 24px; /* 120% */
+  line-height: 24px;
   letter-spacing: -0.2px;
 }
 
@@ -32,7 +32,7 @@
   font-family: Poppins;
 
   font-size: 16px;
-  line-height: 20px; /* 125% */
+  line-height: 20px;
   letter-spacing: -0.16px;
 
   font-style: normal;
@@ -46,7 +46,7 @@
   font-weight: 400;
 
   font-size: 14px;
-  line-height: 18px; /* 128.571% */
+  line-height: 18px;
   letter-spacing: -0.14px;
 
   margin-top: 20px;
@@ -84,7 +84,7 @@
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  line-height: 22.4px; /* 149.333% */
+  line-height: 22.4px;
   min-width: 92px;
   justify-content: center;
 }
@@ -116,7 +116,7 @@
 @media only screen and (min-width: 1440px) {
   .spendTitle {
     font-size: 28px;
-    line-height: 32px; /* 114.286% */
+    line-height: 32px;
     letter-spacing: -0.28px;
   }
 }
@@ -124,7 +124,7 @@
 @media only screen and (min-width: 1440px) {
   .spendDescr {
     font-size: 18px;
-    line-height: 24px; /* 133.333% */
+    line-height: 24px;
     letter-spacing: -0.18px;
   }
 }
@@ -132,7 +132,7 @@
 @media only screen and (min-width: 1440px) {
   .amountDescr {
     font-size: 16px;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
     letter-spacing: -0.16px;
   }
 }
