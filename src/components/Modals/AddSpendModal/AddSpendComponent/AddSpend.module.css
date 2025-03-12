@@ -9,8 +9,6 @@
   border-radius: 15px;
   background: #fff;
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
-
-  /* width: 507px; */
 }
 
 .spendTitle {
@@ -18,12 +16,11 @@
 
   color: #323f47;
 
-  /* Desktop_tablet/H3 */
   font-family: Poppins;
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
-  line-height: 32px; /* 114.286% */
+  line-height: 32px;
   letter-spacing: -0.28px;
 }
 
@@ -33,7 +30,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
+  line-height: 24px;
   letter-spacing: -0.18px;
 }
 
@@ -43,7 +40,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   letter-spacing: -0.16px;
 
   margin-top: 20px;
@@ -80,7 +77,7 @@
   font-size: 16.5px;
   font-style: normal;
   font-weight: 700;
-  line-height: 22.4px; /* 149.333% */
+  line-height: 22.4px;
 }
 .btnPlus {
   width: 43px;
