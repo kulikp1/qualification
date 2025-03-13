@@ -101,7 +101,7 @@
 @media only screen and (min-width: 1440px) {
   .settingsTitleItem {
     font-size: 28px;
-    line-height: 32px; /* 114.286% */
+    line-height: 32px;
     letter-spacing: -0.28px;
   }
 }
@@ -123,7 +123,7 @@
 @media only screen and (min-width: 1440px) {
   .avatarDescr {
     font-size: 16px;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
     letter-spacing: -0.16px;
   }
 }
