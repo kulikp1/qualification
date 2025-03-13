@@ -66,7 +66,7 @@
 @media only screen and (min-width: 1440px) {
   .formDescr {
     font-size: 36px;
-    line-height: 38px; /* 105.556% */
+    line-height: 38px;
     letter-spacing: -0.36px;
   }
 }
