@@ -1,6 +1,5 @@
 .popover {
   position: absolute;
-  /* top: 100%; */
   right: 100%;
   margin-top: 4px;
   display: inline-flex;
