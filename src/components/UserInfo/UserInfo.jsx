@@ -9,7 +9,6 @@ const UserInfo = () => {
   const popoverRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // Функція для перевірки, чи клік був у модальному вікні
   const isClickInsideModal = (event) => {
     return event.target.closest(".modal-open");
   };
@@ -25,7 +24,7 @@ const UserInfo = () => {
       !popoverRef.current.contains(event.target) &&
       buttonRef.current &&
       !buttonRef.current.contains(event.target) &&
-      !isClickInsideModal(event) // Оновлена перевірка
+      !isClickInsideModal(event)
     ) {
       setIsPopoverOpen(false);
     }
