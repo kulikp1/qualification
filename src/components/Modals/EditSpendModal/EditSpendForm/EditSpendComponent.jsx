@@ -6,7 +6,7 @@ import * as Yup from "yup";
 const AddSpendForm = ({ amount, setAmount }) => {
   const initialValues = {
     name: "",
-    amount: amount, // Передаємо початкове значення
+    amount: amount,
   };
 
   const validationSchema = Yup.object({
