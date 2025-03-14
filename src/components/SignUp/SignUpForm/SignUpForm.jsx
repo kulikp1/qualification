@@ -1,16 +1,18 @@
 import css from "./SignUpForm.module.css";
-import * as Yup from "yup";
+import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const SignInForm = () => {
-  const validationSchema = Yup.object({
-    password: Yup.string()
+  const validationSchema = yup.object({
+    password: yup
+      .string()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
-    email: Yup.string()
+    email: yup
+      .string()
       .email("Invalid email format")
       .required("Email is required"),
-    gender: Yup.string().required("Please select a gender"),
+    gender: yup.string().required("Please select a gender"),
   });
 
   return (
