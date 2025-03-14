@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {axiosInstance} from '../../services/api.js'
 
-// Операція для додвання порції води в поточний день
+// Операція для додвання витрат в поточний день
 export const addSpendItem = createAsyncThunk(
   "spend/addSpendItem",
   async ({ newSpendItem, selectedDate }, thunkAPI) => {
@@ -17,7 +17,7 @@ export const addSpendItem = createAsyncThunk(
   }
 );
 
-// Операція для видалення порції води
+// Операція для видалення витрат
 export const deleteSpendItem = createAsyncThunk(
   "spend/deleteItem",
   async (spendItemId, thunkAPI) => {
@@ -31,7 +31,7 @@ export const deleteSpendItem = createAsyncThunk(
   }
 );
 
-// Операція для редагування порції води
+// Операція для редагування витрат
 export const editSpendItem = createAsyncThunk(
   "spend/editSpendItem",
   async (spendItemToEdit, thunkAPI) => {
