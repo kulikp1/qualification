@@ -5,7 +5,7 @@ import {
   axiosInstance,
 } from "../../services/api.js";
 
-// Операція для реєстрації користувача
+// Операція для реєстрації 
 export const register = createAsyncThunk(
   "user/register",
   async (userData, thunkAPI) => {
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
   }
 );
 
-// Операція для логіну користувача
+// Операція для логіну 
 export const logIn = createAsyncThunk(
   "user/login",
   async (userData, thunkAPI) => {
@@ -35,7 +35,7 @@ export const logIn = createAsyncThunk(
   }
 );
 
-// Операція для логауту користувача
+// Операція для логауту 
 export const logOut = createAsyncThunk("user/logout", async (_, thunkAPI) => {
   try {
     const response = await axiosInstance.post("/auth/logout");
@@ -46,7 +46,7 @@ export const logOut = createAsyncThunk("user/logout", async (_, thunkAPI) => {
   }
 });
 
-// Операція для оновлення доступу користувача
+// Операція для оновлення доступу 
 export const refreshUser = createAsyncThunk(
   "user/refresh",
   async (_, thunkAPI) => {
@@ -87,7 +87,7 @@ export const getUserData = createAsyncThunk(
   }
 );
 
-// Операція для зміни інформації про користувача
+// Операція для зміни інформації
 export const updateUserData = createAsyncThunk(
   "user/updateUserData",
   async (userDataToUpdate, thunkAPI) => {
@@ -103,7 +103,7 @@ export const updateUserData = createAsyncThunk(
   }
 );
 
-// Операція для зміни аватару користувача
+// Операція для зміни аватару 
 export const updateUserAvatar = createAsyncThunk(
   "user/updateAvatar",
   async (newAvatar, thunkAPI) => {
@@ -144,7 +144,7 @@ export const logInWithGoogle = createAsyncThunk(
   }
 );
 
-// для зміни паролю користувача
+// для зміни паролю 
 export const sendResetPassword = createAsyncThunk(
   "user/resetPassword",
   async (email, { rejectWithValue }) => {
