@@ -1,5 +1,5 @@
 import css from "./SignUpForm.module.css";
-import * as yup from "yup";
+import yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const SignInForm = () => {
