@@ -1,8 +1,14 @@
 import css from "./SignInForm.module.css";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
+  const [serverError, setServerError] = useState("");
+  const navigate = useNavigate();
+
   const validationSchema = yup.object({
     password: yup
       .string()
@@ -12,22 +18,36 @@ const SignInForm = () => {
       .string()
       .email("Invalid email format")
       .required("Email is required"),
-    gender: yup.string().required("Please select a gender"),
   });
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    setServerError("");
+    try {
+      const res = await axios.post("http://localhost:3000/auth/login", values);
+      console.log("Login successful:", res.data);
+      // localStorage.setItem("token", res.data.token); // опціонально
+      navigate("/tracker");
+    } catch (err) {
+      if (err.response?.data?.message) {
+        setServerError(err.response.data.message);
+      } else {
+        setServerError("Login failed. Please try again.");
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <Formik
       initialValues={{
         password: "",
         email: "",
-        gender: "",
       }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log("Form Values:", values);
-      }}
+      onSubmit={handleSubmit}
     >
-      {() => (
+      {({ isSubmitting }) => (
         <Form className={css.signInFormContainer}>
           <div className={css.inputGroupEmail}>
             <label htmlFor="email">Email</label>
@@ -57,8 +77,15 @@ const SignInForm = () => {
             />
           </div>
 
-          <button type="submit" className={css.submitBtn}>
-            Sign In
+          {/* Показуємо помилку з бекенду під полями */}
+          {serverError && <div className={css.error}>{serverError}</div>}
+
+          <button
+            type="submit"
+            className={css.submitBtn}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Signing in..." : "Sign In"}
           </button>
         </Form>
       )}

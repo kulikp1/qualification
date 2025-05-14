@@ -34,13 +34,18 @@ const SignUpForm = () => {
       });
 
       console.log("Registered:", res.data);
-      // Якщо потрібно — збережи токен або виконай редірект
+      // Якщо бекенд повертає токен або щось важливе — можеш зберегти:
       // localStorage.setItem("token", res.data.token);
       resetForm();
-      navigate("/tracker");
+      navigate("/tracker"); // редірект після успішної реєстрації
     } catch (err) {
       if (err.response?.data?.message) {
-        setServerError(err.response.data.message);
+        // Якщо це ConflictError (наприклад, email вже зареєстровано)
+        if (err.response.status === 409) {
+          setServerError("Email is already in use.");
+        } else {
+          setServerError(err.response.data.message);
+        }
       } else {
         setServerError("Registration failed. Please try again.");
       }
@@ -105,6 +110,7 @@ const SignUpForm = () => {
             />
           </div>
 
+          {/* Помилка з бекенду */}
           {serverError && <div className={css.error}>{serverError}</div>}
 
           <button
