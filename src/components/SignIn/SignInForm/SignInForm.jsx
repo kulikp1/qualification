@@ -25,7 +25,7 @@ const SignInForm = () => {
     try {
       const res = await axios.post("http://localhost:3000/auth/login", values);
       console.log("Login successful:", res.data);
-      // localStorage.setItem("token", res.data.token); // опціонально
+      localStorage.setItem("token", res.data.token);
       navigate("/tracker");
     } catch (err) {
       if (err.response?.data?.message) {
@@ -77,7 +77,6 @@ const SignInForm = () => {
             />
           </div>
 
-          {/* Показуємо помилку з бекенду під полями */}
           {serverError && <div className={css.error}>{serverError}</div>}
 
           <button

@@ -1,14 +1,19 @@
-// src/components/PrivateRoute/PrivateRoute.jsx
 import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const PrivateRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
+  const [isAuthorized, setIsAuthorized] = useState(null); // спочатку невідомо
 
-  if (!token) {
-    return <Navigate to="/signIn" replace />;
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthorized(!!token);
+  }, []);
+
+  if (isAuthorized === null) {
+    return <div>Loading...</div>;
   }
 
-  return children;
+  return isAuthorized ? children : <Navigate to="/signIn" replace />;
 };
 
 export default PrivateRoute;
