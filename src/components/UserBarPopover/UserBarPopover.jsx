@@ -5,16 +5,23 @@ import Modal from "../Modal/Modal";
 import UserSettingsPage from "../UserSettingsPage/UserSettingsPage";
 import LogOutModal from "../Modals/LogOutModal/LogOutModal";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserBarPopover = ({ isVisible, onClose }) => {
   const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
   const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
   const popoverRef = useRef(null);
+  const navigate = useNavigate();
 
   const openSettingsModal = () => setSettingsModalOpen(true);
   const closeSettingsModal = () => setSettingsModalOpen(false);
   const openLogOutModal = () => setLogOutModalOpen(true);
   const closeLogOutModal = () => setLogOutModalOpen(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/signin");
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -45,7 +52,6 @@ const UserBarPopover = ({ isVisible, onClose }) => {
       </button>
       <button className={styles.buttonOut} onClick={openLogOutModal}>
         <IoLogOutOutline className={styles.popoverImg} />
-
         {"Log out"}
       </button>
 
@@ -61,7 +67,7 @@ const UserBarPopover = ({ isVisible, onClose }) => {
 
       {isLogOutModalOpen && (
         <Modal isOpen={isLogOutModalOpen} onClose={closeLogOutModal}>
-          <LogOutModal onClose={closeLogOutModal} />
+          <LogOutModal onClose={closeLogOutModal} onLogout={handleLogout} />
         </Modal>
       )}
     </div>
