@@ -3,9 +3,11 @@ import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
   const [serverError, setServerError] = useState("");
+  const navigate = useNavigate();
 
   const validationSchema = yup.object({
     email: yup
@@ -35,7 +37,7 @@ const SignUpForm = () => {
       // Якщо потрібно — збережи токен або виконай редірект
       // localStorage.setItem("token", res.data.token);
       resetForm();
-      alert("Registration successful!");
+      navigate("/tracker");
     } catch (err) {
       if (err.response?.data?.message) {
         setServerError(err.response.data.message);
