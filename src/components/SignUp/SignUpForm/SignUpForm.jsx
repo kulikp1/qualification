@@ -34,13 +34,11 @@ const SignUpForm = () => {
       });
 
       console.log("Registered:", res.data);
-      // Якщо бекенд повертає токен або щось важливе — можеш зберегти:
-      // localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", res.data.token);
       resetForm();
-      navigate("/tracker"); // редірект після успішної реєстрації
+      navigate("/tracker");
     } catch (err) {
       if (err.response?.data?.message) {
-        // Якщо це ConflictError (наприклад, email вже зареєстровано)
         if (err.response.status === 409) {
           setServerError("Email is already in use.");
         } else {
