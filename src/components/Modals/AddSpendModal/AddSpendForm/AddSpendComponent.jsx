@@ -1,7 +1,7 @@
 import css from "./AddSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios"; // ✅ імпорт axios
+import axios from "axios";
 
 const AddSpendForm = ({ amount, setAmount }) => {
   const validationSchema = Yup.object({
@@ -9,9 +9,18 @@ const AddSpendForm = ({ amount, setAmount }) => {
       .required("Введіть значення")
       .min(10, "Мінімальне значення 10")
       .max(500, "Максимальне значення 500"),
+    category: Yup.string()
+      .required("Оберіть категорію")
+      .min(2, "Мінімум 2 символи"),
+    recordingTime: Yup.string()
+      .required("Введіть час запису")
+      .matches(
+        /^([01]\d|2[0-3]):([0-5]\d)$/,
+        "Невірний формат часу (наприклад 14:30)"
+      ),
   });
 
-  const token = localStorage.getItem("token"); // або sessionStorage
+  const token = localStorage.getItem("token");
   const todayDate = new Date().toISOString().slice(0, 10);
 
   return (
@@ -30,9 +39,10 @@ const AddSpendForm = ({ amount, setAmount }) => {
           const response = await axios.post(
             "http://localhost:3000/money/",
             {
-              value: Number(values.amount), // назва поля як у схемі
-              time: values.recordingTime, // перейменував поле
+              value: Number(values.amount),
+              time: values.recordingTime,
               date: todayDate,
+              category: values.category,
             },
             {
               headers: {
@@ -89,7 +99,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
                   type="text"
                   id="recordingTime"
                   name="recordingTime"
-                  placeholder="7:00"
+                  placeholder="14:30"
                 />
                 <ErrorMessage
                   name="recordingTime"
