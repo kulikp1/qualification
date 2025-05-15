@@ -55,10 +55,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
           resetForm();
           setAmount(0);
         } catch (error) {
-          console.error(
-            "❌ Помилка при відправці:",
-            error.response?.data || error.message
-          );
+          console.error(error.response?.data || error.message);
         }
       }}
     >
