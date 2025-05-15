@@ -12,6 +12,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
   });
 
   const token = localStorage.getItem("token"); // або sessionStorage
+  const todayDate = new Date().toISOString().slice(0, 10);
 
   return (
     <Formik
@@ -29,9 +30,9 @@ const AddSpendForm = ({ amount, setAmount }) => {
           const response = await axios.post(
             "http://localhost:3000/money/",
             {
-              amount: Number(values.amount),
-              category: values.category,
-              recordingTime: values.recordingTime,
+              value: Number(values.amount), // назва поля як у схемі
+              time: values.recordingTime, // перейменував поле
+              date: todayDate,
             },
             {
               headers: {
