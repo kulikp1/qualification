@@ -8,7 +8,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
     amount: Yup.number()
       .required("Введіть значення")
       .min(10, "Мінімальне значення 10")
-      .max(500, "Максимальне значення 500"),
+      .max(100000, "Максимальне значення 500"),
     category: Yup.string()
       .required("Оберіть категорію")
       .min(2, "Мінімум 2 символи"),
