@@ -8,7 +8,7 @@ import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
 import EditModal from "../../Modals/EditSpendModal/EditSpendComponent/EditSpendComponent";
 import Modal from "../../Modal/Modal";
 
-const Category = () => {
+const Category = ({ name, amount }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -34,12 +34,12 @@ const Category = () => {
 
   return (
     <div className={css.container}>
-      <h1 className={css.title}>Category</h1>
+      <h1 className={css.title}>{name}</h1>
       <div className={css.categoryName}>
         <AiOutlineTransaction className={css.icon} />
 
         <div className={css.categorySpend}>
-          <p className={css.amount}>100$</p>
+          <p className={css.amount}>{amount}$</p>
         </div>
       </div>
       <div className={css.btnContainer}>
