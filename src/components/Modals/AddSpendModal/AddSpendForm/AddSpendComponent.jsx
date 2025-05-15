@@ -51,7 +51,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
             }
           );
 
-          console.log("✅ Успішно відправлено:", response.data);
+          console.log(response.data);
           resetForm();
           setAmount(0);
         } catch (error) {
