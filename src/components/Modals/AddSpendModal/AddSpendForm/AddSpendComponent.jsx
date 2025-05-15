@@ -1,6 +1,7 @@
 import css from "./AddSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios"; // ✅ імпорт axios
 
 const AddSpendForm = ({ amount, setAmount }) => {
   const validationSchema = Yup.object({
@@ -10,22 +11,47 @@ const AddSpendForm = ({ amount, setAmount }) => {
       .max(500, "Максимальне значення 500"),
   });
 
+  const token = localStorage.getItem("token"); // або sessionStorage
+
   return (
     <Formik
-      initialValues={{ amount: amount.toString() }}
+      initialValues={{
+        amount: amount.toString(),
+        category: "",
+        recordingTime: "",
+      }}
       validationSchema={validationSchema}
       enableReinitialize
-      onSubmit={(values, { resetForm }) => {
+      onSubmit={async (values, { resetForm }) => {
         console.log("Введені дані:", values);
-        resetForm();
+
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/money/",
+            {
+              amount: Number(values.amount),
+              category: values.category,
+              recordingTime: values.recordingTime,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          console.log("✅ Успішно відправлено:", response.data);
+          resetForm();
+          setAmount(0);
+        } catch (error) {
+          console.error(
+            "❌ Помилка при відправці:",
+            error.response?.data || error.message
+          );
+        }
       }}
     >
       {({ values, setFieldValue }) => {
-        () => {
-          setFieldValue("amount", amount.toString());
-        },
-          [amount, setFieldValue];
-
         const handleInputChange = (e) => {
           const newValue = e.target.value.replace(/\D/, "");
           setAmount(newValue ? parseInt(newValue) : 0);
@@ -70,6 +96,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
                   style={{ color: "red" }}
                 />
               </div>
+
               <div className={css.formContainer}>
                 <label className={css.valueDescr} htmlFor="amount">
                   Enter the value of spend:
@@ -80,7 +107,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
                   id="amount"
                   name="amount"
                   value={values.amount}
-                  onChange={handleInputChange} // Додаємо обробник змін
+                  onChange={handleInputChange}
                 />
                 <ErrorMessage
                   name="amount"
