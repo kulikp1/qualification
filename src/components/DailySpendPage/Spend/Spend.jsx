@@ -5,6 +5,8 @@ import money from "../../../assets/spendPageAssets/moneyPhoto.jpg";
 
 const Spend = () => {
   const [spends, setSpends] = useState([]);
+  const [totalValue, setTotalValue] = useState(0);
+  const [dailyNorm, setDailyNorm] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -13,7 +15,7 @@ const Spend = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:3000/money", {
+        const response = await fetch("http://localhost:3000/money/", {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -24,26 +26,23 @@ const Spend = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
-        console.log("Fetched spends data:", data);
+        const result = await response.json();
+        console.log("Fetched spends data:", result);
 
-        // 💡 Спроба обробити різні можливі формати
-        let spendsArray = [];
-
-        if (Array.isArray(data)) {
-          spendsArray = data;
-        } else if (data && Array.isArray(data.spends)) {
-          spendsArray = data.spends;
-        } else {
+        if (!Array.isArray(result.data)) {
           throw new Error("Invalid data format from backend");
         }
 
-        setSpends(spendsArray);
+        setSpends(result.data);
+        setTotalValue(result.totalValue || 0);
+        setDailyNorm(result.dailyNorm || null);
         setError(null);
       } catch (err) {
         console.error("Error fetching spends:", err.message);
         setError(err.message);
         setSpends([]);
+        setTotalValue(0);
+        setDailyNorm(null);
       } finally {
         setLoading(false);
       }
@@ -51,10 +50,6 @@ const Spend = () => {
 
     fetchSpends();
   }, []);
-
-  const totalSpent = Array.isArray(spends)
-    ? spends.reduce((acc, spend) => acc + (spend.value || 0), 0)
-    : 0;
 
   return (
     <div className={css.mainContainer}>
@@ -71,8 +66,14 @@ const Spend = () => {
           <h2 className={css.descr}>Error: {error}</h2>
         ) : (
           <h2 className={css.descr}>
-            Today you spent {totalSpent.toFixed(2)}$ on the following:
+            Today you spent {totalValue.toFixed(2)}$ on the following:
           </h2>
+        )}
+
+        {!loading && !error && dailyNorm !== null && (
+          <p className={css.normText}>
+            Your daily norm is {dailyNorm.toFixed(2)}$
+          </p>
         )}
       </div>
 
@@ -80,7 +81,7 @@ const Spend = () => {
         {spends.length > 0 ? (
           spends.map((spend) => (
             <Category
-              key={spend._id || spend.id}
+              key={spend._id}
               name={spend.category || "Unknown Category"}
               amount={spend.value}
             />
