@@ -15,7 +15,7 @@ const AddSpendForm = ({ amount, setAmount }) => {
     recordingTime: Yup.string()
       .required("Введіть час запису")
       .matches(
-        /^([01]\d|2[0-3]):([0-5]\d)$/,
+        /^([0-9]|1\d|2[0-3]):([0-5]\d)$/,
         "Невірний формат часу (наприклад 14:30)"
       ),
   });
