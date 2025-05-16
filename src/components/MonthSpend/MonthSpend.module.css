@@ -89,3 +89,44 @@
     margin: 24px 20px 0 20px;
   }
 }
+
+.monthSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 16px;
+  color: #323f47;
+}
+
+.arrowBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #323f47;
+  padding: 4px;
+  transition: transform 0.2s ease;
+}
+
+.arrowBtn:hover {
+  transform: scale(1.2);
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1440px) {
+  .monthSwitcher {
+    font-size: 20px;
+    gap: 16px;
+  }
+
+  .arrowBtn {
+    font-size: 24px;
+  }
+}
+
+.monthName {
+  width: 180px;
+  text-align: center;
+}
