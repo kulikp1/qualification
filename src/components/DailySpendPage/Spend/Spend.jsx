@@ -87,7 +87,7 @@ const Spend = () => {
             />
           ))
         ) : !loading && !error ? (
-          <p className={css.noSpendsText}>No spends for today.</p>
+          <p className={css.noSpendsText}></p>
         ) : null}
       </div>
 
