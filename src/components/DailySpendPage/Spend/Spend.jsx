@@ -10,17 +10,25 @@ const Spend = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // 🟢 Отримуємо дату: з localStorage або сьогодні
+  const selectedDate =
+    localStorage.getItem("selectedDate") ||
+    new Date().toISOString().split("T")[0];
+
   useEffect(() => {
     const fetchSpends = async () => {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:3000/money/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `http://localhost:3000/money/day/${selectedDate}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -49,7 +57,7 @@ const Spend = () => {
     };
 
     fetchSpends();
-  }, []);
+  }, [selectedDate]); // 🔁 перезапуск при зміні дати
 
   return (
     <div className={css.mainContainer}>
@@ -66,7 +74,13 @@ const Spend = () => {
           <h2 className={css.descr}>Error: {error}</h2>
         ) : (
           <h2 className={css.descr}>
-            Today you spent {totalValue.toFixed(2)}$ on the following:
+            {selectedDate === new Date().toISOString().split("T")[0]
+              ? "Today"
+              : new Date(selectedDate).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                })}
+            you spent {totalValue.toFixed(2)}$ on the following:
           </h2>
         )}
 
@@ -87,7 +101,7 @@ const Spend = () => {
             />
           ))
         ) : !loading && !error ? (
-          <p className={css.noSpendsText}></p>
+          <p className={css.noSpendsText}>No spends for this day.</p>
         ) : null}
       </div>
 

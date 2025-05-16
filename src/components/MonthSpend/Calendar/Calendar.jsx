@@ -8,7 +8,7 @@ const Calendar = ({ month, year }) => {
   return (
     <div className={css.addItem}>
       {daysArray.map((day) => (
-        <CalendarItem key={day} value={day} />
+        <CalendarItem key={day} value={day} month={month} year={year} />
       ))}
     </div>
   );
