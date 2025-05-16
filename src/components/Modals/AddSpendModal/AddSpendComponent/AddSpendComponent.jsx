@@ -5,7 +5,7 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
 const AddSpendComponent = ({ onClose }) => {
-  const [amount, setAmount] = useState(50); // Початкове значення
+  const [amount, setAmount] = useState(50);
 
   const increaseAmount = () => {
     setAmount((prev) => prev + 10);
@@ -13,6 +13,11 @@ const AddSpendComponent = ({ onClose }) => {
 
   const decreaseAmount = () => {
     setAmount((prev) => (prev > 10 ? prev - 10 : prev));
+  };
+
+  const handleSuccess = () => {
+    onClose(); // Закриває модалку
+    window.location.reload(); // Перезавантажує сторінку
   };
 
   return (
@@ -35,7 +40,11 @@ const AddSpendComponent = ({ onClose }) => {
             <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
-        <AddSpendForm amount={amount} setAmount={setAmount} />
+        <AddSpendForm
+          amount={amount}
+          setAmount={setAmount}
+          onSuccess={handleSuccess}
+        />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const AddSpendForm = ({ amount, setAmount }) => {
+const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
   const validationSchema = Yup.object({
     amount: Yup.number()
       .required("Введіть значення")
@@ -33,8 +33,6 @@ const AddSpendForm = ({ amount, setAmount }) => {
       validationSchema={validationSchema}
       enableReinitialize
       onSubmit={async (values, { resetForm }) => {
-        console.log("Введені дані:", values);
-
         try {
           const response = await axios.post(
             "http://localhost:3000/money/",
@@ -54,6 +52,9 @@ const AddSpendForm = ({ amount, setAmount }) => {
           console.log(response.data);
           resetForm();
           setAmount(0);
+          if (onSuccess) {
+            onSuccess(); // Закриває модалку та перезавантажує сторінку
+          }
         } catch (error) {
           console.error(error.response?.data || error.message);
         }
