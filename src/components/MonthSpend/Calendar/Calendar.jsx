@@ -1,18 +1,20 @@
 import CalendarItem from "../CalendarItem/CalendarItem";
 import css from "./Calendar.module.css";
+
 const Calendar = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth(); // 0 = January, 1 = February...
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
   return (
     <div className={css.addItem}>
-      <CalendarItem value="1" />
-      <CalendarItem value="2" />
-      <CalendarItem value="3" />
-      <CalendarItem value="4" />
-      <CalendarItem value="5" />
-      <CalendarItem value="6" />
-      <CalendarItem value="7" />
-      <CalendarItem value="8" />
-      <CalendarItem value="9" />
-      <CalendarItem value="10" />
+      {daysArray.map((day) => (
+        <CalendarItem key={day} value={day} />
+      ))}
     </div>
   );
 };
