@@ -75,7 +75,7 @@ const Spend = () => {
         ) : (
           <h2 className={css.descr}>
             {selectedDate === new Date().toISOString().split("T")[0]
-              ? "Today"
+              ? "Today "
               : new Date(selectedDate).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",

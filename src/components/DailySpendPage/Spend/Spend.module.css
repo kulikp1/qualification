@@ -58,6 +58,7 @@
   padding: 0 16px;
   display: flex;
   justify-content: center;
+  min-height: 200px; /* або скільки потрібно */
 
   gap: 10px;
 }
@@ -116,4 +117,11 @@
     margin-left: 64px;
     margin-top: 50px;
   }
+}
+
+.noSpendsText {
+  font-size: 24px;
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
