@@ -1,7 +1,20 @@
+import { useEffect } from "react";
 import css from "./AddSpendComponent.module.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+
+const SyncAmountWithFormik = ({ amount }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  useEffect(() => {
+    if (values.amount !== amount.toString()) {
+      setFieldValue("amount", amount.toString());
+    }
+  }, [amount, values.amount, setFieldValue]);
+
+  return null;
+};
 
 const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
   const validationSchema = Yup.object({
@@ -31,7 +44,6 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
         recordingTime: "",
       }}
       validationSchema={validationSchema}
-      enableReinitialize
       onSubmit={async (values, { resetForm }) => {
         try {
           const response = await axios.post(
@@ -53,7 +65,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
           resetForm();
           setAmount(0);
           if (onSuccess) {
-            onSuccess(); // Закриває модалку та перезавантажує сторінку
+            onSuccess();
           }
         } catch (error) {
           console.error(error.response?.data || error.message);
@@ -61,70 +73,72 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
       }}
     >
       {({ values, setFieldValue }) => {
-        const handleInputChange = (e) => {
-          const newValue = e.target.value.replace(/\D/, "");
-          setAmount(newValue ? parseInt(newValue) : 0);
-          setFieldValue("amount", newValue);
+        const handleAmountChange = (e) => {
+          const inputValue = e.target.value.replace(/\D/g, "");
+          setFieldValue("amount", inputValue);
+          setAmount(inputValue);
         };
 
         return (
           <Form>
-            <div>
-              <div className={css.formContainer}>
-                <label className={css.valueDescr} htmlFor="category">
-                  Enter Category
-                </label>
-                <Field
-                  className={css.formField}
-                  type="text"
-                  id="category"
-                  name="category"
-                  placeholder="Shop"
-                />
-                <ErrorMessage
-                  name="category"
-                  component="div"
-                  style={{ color: "red" }}
-                />
-              </div>
+            {/* Синхронізація зовнішнього значення */}
+            <SyncAmountWithFormik amount={amount} />
 
-              <div className={css.formContainer}>
-                <label className={css.formDescr} htmlFor="recordingTime">
-                  Recording time:
-                </label>
-                <Field
-                  className={css.formField}
-                  type="text"
-                  id="recordingTime"
-                  name="recordingTime"
-                  placeholder="14:30"
-                />
-                <ErrorMessage
-                  name="recordingTime"
-                  component="div"
-                  style={{ color: "red" }}
-                />
-              </div>
-
-              <div className={css.formContainer}>
-                <label className={css.valueDescr} htmlFor="amount">
-                  Enter the value of spend:
-                </label>
-                <Field
-                  className={css.formField}
-                  type="text"
-                  id="amount"
-                  name="amount"
-                  value={values.amount}
-                  onChange={handleInputChange}
-                />
-                <ErrorMessage
-                  name="amount"
-                  component="div"
-                  style={{ color: "red" }}
-                />
-              </div>
+            <div className={css.formContainer}>
+              <label className={css.valueDescr} htmlFor="category">
+                Enter Category
+              </label>
+              <Field
+                className={css.formField}
+                type="text"
+                id="category"
+                name="category"
+                placeholder="Shop"
+              />
+              <ErrorMessage
+                name="category"
+                component="div"
+                style={{ color: "red" }}
+              />
             </div>
+
+            <div className={css.formContainer}>
+              <label className={css.formDescr} htmlFor="recordingTime">
+                Recording time:
+              </label>
+              <Field
+                className={css.formField}
+                type="text"
+                id="recordingTime"
+                name="recordingTime"
+                placeholder="14:30"
+              />
+              <ErrorMessage
+                name="recordingTime"
+                component="div"
+                style={{ color: "red" }}
+              />
+            </div>
+
+            <div className={css.formContainer}>
+              <label className={css.valueDescr} htmlFor="amount">
+                Enter the value of spend:
+              </label>
+              <input
+                className={css.formField}
+                type="text"
+                id="amount"
+                name="amount"
+                value={values.amount}
+                onChange={handleAmountChange}
+              />
+              <ErrorMessage
+                name="amount"
+                component="div"
+                style={{ color: "red" }}
+              />
+            </div>
+
             <button className={css.saveBtn} type="submit">
               Save
             </button>
