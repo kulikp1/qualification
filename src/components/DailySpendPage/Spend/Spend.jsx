@@ -10,7 +10,6 @@ const Spend = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 🟢 Отримуємо дату: з localStorage або сьогодні
   const selectedDate =
     localStorage.getItem("selectedDate") ||
     new Date().toISOString().split("T")[0];
