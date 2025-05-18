@@ -35,7 +35,6 @@ const EditSpendModal = ({ onClose }) => {
             <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
-        {/* Передаємо amount та setAmount у форму */}
         <AddSpendForm amount={amount} setAmount={setAmount} />
       </div>
     </div>
