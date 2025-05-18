@@ -14,7 +14,7 @@ const DeleteModal = ({ entryId, onClose, onSuccess }) => {
       });
 
       if (onSuccess) {
-        onSuccess(); // Повідомити про успішне видалення
+        onSuccess();
       }
     } catch (error) {
       console.error(
