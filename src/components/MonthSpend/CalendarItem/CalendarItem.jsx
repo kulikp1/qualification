@@ -8,7 +8,6 @@ const CalendarItem = ({ value, month, year }) => {
 
     localStorage.setItem("selectedDate", selectedDate);
 
-    // Просте рішення — оновити сторінку
     window.location.reload();
   };
 
