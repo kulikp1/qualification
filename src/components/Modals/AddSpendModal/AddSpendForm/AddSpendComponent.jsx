@@ -81,7 +81,6 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
 
         return (
           <Form>
-            {/* Синхронізація зовнішнього значення */}
             <SyncAmountWithFormik amount={amount} />
 
             <div className={css.formContainer}>
