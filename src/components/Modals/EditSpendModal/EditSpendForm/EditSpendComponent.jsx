@@ -1,86 +1,155 @@
+import { useEffect } from "react";
 import css from "./EditSpendComponent.module.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
-const EditSpendForm = ({ amount, setAmount }) => {
-  const initialValues = {
-    name: "",
-    amount: amount,
-  };
+const SyncAmountWithFormik = ({ amount }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  useEffect(() => {
+    if (values.amount !== amount.toString()) {
+      setFieldValue("amount", amount.toString());
+    }
+  }, [amount, values.amount, setFieldValue]);
+
+  return null;
+};
+
+const EditSpendForm = ({
+  amount,
+  setAmount,
+  spendId,
+  onSuccess,
+  initialCategory,
+  initialTime,
+}) => {
+  const token = localStorage.getItem("token");
 
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .required("Це поле є обов'язковим")
-      .min(2, "Мінімум 2 символи")
-      .max(50, "Максимум 50 символів"),
     amount: Yup.number()
-      .required("Вкажіть суму")
-      .min(1, "Сума повинна бути більше 0"),
+      .required("Введіть значення")
+      .min(10, "Мінімальне значення 10")
+      .max(100000, "Максимальне значення 100000"),
+    category: Yup.string()
+      .required("Оберіть категорію")
+      .min(2, "Мінімум 2 символи"),
+    recordingTime: Yup.string()
+      .required("Введіть час запису")
+      .matches(
+        /^([0-9]|1\d|2[0-3]):([0-5]\d)$/,
+        "Невірний формат часу (наприклад 07:30)"
+      ),
   });
-
-  const onSubmit = (values, { resetForm }) => {
-    console.log("Введені дані:", values);
-    resetForm();
-  };
 
   return (
     <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
       enableReinitialize
+      initialValues={{
+        amount: amount.toString(),
+        category: initialCategory,
+        recordingTime: initialTime,
+      }}
+      validationSchema={validationSchema}
+      onSubmit={async (values, { resetForm }) => {
+        if (!spendId) {
+          console.error("❌ spendId відсутній. Неможливо оновити.");
+          return;
+        }
+
+        try {
+          const response = await axios.patch(
+            `http://localhost:3000/money/${spendId}`,
+            {
+              value: Number(values.amount),
+              category: values.category,
+              time: values.recordingTime,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          console.log("✅ Успішно оновлено:", response.data);
+          resetForm();
+          setAmount(0);
+          if (onSuccess) onSuccess();
+        } catch (error) {
+          console.error(
+            "❌ Помилка оновлення:",
+            error.response?.data || error.message
+          );
+        }
+      }}
     >
       {({ values, setFieldValue }) => {
-        () => {
-          setFieldValue("amount", amount);
-        },
-          [amount, setFieldValue];
+        const handleAmountChange = (e) => {
+          const inputValue = e.target.value.replace(/\D/g, "");
+          setFieldValue("amount", inputValue);
+          setAmount(inputValue);
+        };
 
         return (
           <Form>
-            <div>
-              <div className={css.formContainer}>
-                <label className={css.formDescr} htmlFor="amount">
-                  Recording time:
-                </label>
-                <Field
-                  className={css.formField}
-                  type="text"
-                  id="time"
-                  name="time"
-                  placeholder="7:00"
-                />
-                <ErrorMessage
-                  name="time"
-                  component="div"
-                  style={{ color: "red" }}
-                />
-              </div>
+            <SyncAmountWithFormik amount={amount} />
 
-              <div className={css.formContainer}>
-                <label className={css.valueDescr} htmlFor="amount">
-                  Enter the value of spend:
-                </label>
-                <Field
-                  className={css.formField}
-                  type="number"
-                  id="amount"
-                  name="amount"
-                  placeholder="250"
-                  value={values.amount}
-                  onChange={(e) => {
-                    const newValue = Number(e.target.value);
-                    setAmount(newValue);
-                    setFieldValue("amount", newValue);
-                  }}
-                />
-                <ErrorMessage
-                  name="amount"
-                  component="div"
-                  style={{ color: "red" }}
-                />
-              </div>
+            <div className={css.formContainer}>
+              <label className={css.valueDescr} htmlFor="category">
+                Enter Category
+              </label>
+              <Field
+                className={css.formField}
+                type="text"
+                id="category"
+                name="category"
+                placeholder="Shop"
+              />
+              <ErrorMessage
+                name="category"
+                component="div"
+                style={{ color: "red" }}
+              />
             </div>
+
+            <div className={css.formContainer}>
+              <label className={css.formDescr} htmlFor="recordingTime">
+                Recording time:
+              </label>
+              <Field
+                className={css.formField}
+                type="text"
+                id="recordingTime"
+                name="recordingTime"
+                placeholder="14:30"
+              />
+              <ErrorMessage
+                name="recordingTime"
+                component="div"
+                style={{ color: "red" }}
+              />
+            </div>
+
+            <div className={css.formContainer}>
+              <label className={css.valueDescr} htmlFor="amount">
+                Enter the value of spend:
+              </label>
+              <input
+                className={css.formField}
+                type="text"
+                id="amount"
+                name="amount"
+                value={values.amount}
+                onChange={handleAmountChange}
+              />
+              <ErrorMessage
+                name="amount"
+                component="div"
+                style={{ color: "red" }}
+              />
+            </div>
+
             <button className={css.saveBtn} type="submit">
               Save
             </button>

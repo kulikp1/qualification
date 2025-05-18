@@ -1,11 +1,11 @@
 import { useState } from "react";
-import AddSpendForm from "../EditSpendForm/EditSpendComponent";
+import EditSpendForm from "../EditSpendForm/EditSpendComponent";
 import css from "./EditSpendComponent.module.css";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
-const EditSpendModal = ({ onClose }) => {
-  const [amount, setAmount] = useState(250);
+const EditSpendModal = ({ onClose, spendId, initialData }) => {
+  const [amount, setAmount] = useState(initialData?.amount || 0);
 
   const increaseAmount = () => {
     setAmount((prev) => prev + 10);
@@ -35,7 +35,14 @@ const EditSpendModal = ({ onClose }) => {
             <CiCirclePlus className={css.btnPlus} />
           </button>
         </div>
-        <AddSpendForm amount={amount} setAmount={setAmount} />
+        <EditSpendForm
+          amount={amount}
+          setAmount={setAmount}
+          spendId={spendId}
+          onSuccess={onClose}
+          initialCategory={initialData?.category || ""}
+          initialTime={initialData?.recordingTime || ""}
+        />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
 import EditModal from "../../Modals/EditSpendModal/EditSpendComponent/EditSpendComponent";
 import Modal from "../../Modal/Modal";
 
-const Category = ({ id, name, amount, onDeleteSuccess }) => {
+const Category = ({ id, name, amount, recordingTime, onDeleteSuccess }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -46,7 +46,15 @@ const Category = ({ id, name, amount, onDeleteSuccess }) => {
 
       {isEditModalOpen && (
         <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>
-          <EditModal />
+          <EditModal
+            spendId={id}
+            onClose={closeEditModal}
+            initialData={{
+              amount,
+              category: name,
+              recordingTime: recordingTime || "14:30", // Постав дефолт або реальні дані
+            }}
+          />
         </Modal>
       )}
 
