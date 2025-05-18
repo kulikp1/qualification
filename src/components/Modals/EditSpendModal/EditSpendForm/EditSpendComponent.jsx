@@ -2,7 +2,7 @@ import css from "./EditSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const AddSpendForm = ({ amount, setAmount }) => {
+const EditSpendForm = ({ amount, setAmount }) => {
   const initialValues = {
     name: "",
     amount: amount,
@@ -92,4 +92,4 @@ const AddSpendForm = ({ amount, setAmount }) => {
   );
 };
 
-export default AddSpendForm;
+export default EditSpendForm;
