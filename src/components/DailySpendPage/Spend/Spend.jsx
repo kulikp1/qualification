@@ -95,6 +95,7 @@ const Spend = () => {
           spends.map((spend) => (
             <Category
               key={spend._id}
+              id={spend.id}
               name={spend.category || "Unknown Category"}
               amount={spend.value}
             />

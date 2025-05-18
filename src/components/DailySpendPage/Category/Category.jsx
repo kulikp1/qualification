@@ -8,28 +8,21 @@ import DeleteModal from "../../Modals/DeleteModal/DeleteModal";
 import EditModal from "../../Modals/EditSpendModal/EditSpendComponent/EditSpendComponent";
 import Modal from "../../Modal/Modal";
 
-const Category = ({ name, amount }) => {
+const Category = ({ id, name, amount, onDeleteSuccess }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  const openDeleteModal = () => {
-    if (!isDeleteModalOpen) {
-      setIsDeleteModalOpen(true);
+  const openDeleteModal = () => setIsDeleteModalOpen(true);
+  const closeDeleteModal = () => setIsDeleteModalOpen(false);
+
+  const openEditModal = () => setIsEditModalOpen(true);
+  const closeEditModal = () => setIsEditModalOpen(false);
+
+  const handleDeleteSuccess = () => {
+    closeDeleteModal();
+    if (onDeleteSuccess) {
+      onDeleteSuccess(id); // Повідомляє батьківський компонент, що цей запис видалено
     }
-  };
-
-  const closeDeleteModal = () => {
-    setIsDeleteModalOpen(false);
-  };
-
-  const openEditModal = () => {
-    if (!isEditModalOpen) {
-      setIsEditModalOpen(true);
-    }
-  };
-
-  const closeEditModal = () => {
-    setIsEditModalOpen(false);
   };
 
   return (
@@ -37,7 +30,6 @@ const Category = ({ name, amount }) => {
       <h1 className={css.title}>{name}</h1>
       <div className={css.categoryName}>
         <AiOutlineTransaction className={css.icon} />
-
         <div className={css.categorySpend}>
           <p className={css.amount}>{amount}$</p>
         </div>
@@ -51,14 +43,20 @@ const Category = ({ name, amount }) => {
           <FaPencil className={css.changeIcon} />
         </button>
       </div>
+
       {isEditModalOpen && (
         <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>
           <EditModal />
         </Modal>
       )}
+
       {isDeleteModalOpen && (
         <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
-          <DeleteModal onClose={closeDeleteModal} />
+          <DeleteModal
+            entryId={id}
+            onClose={closeDeleteModal}
+            onSuccess={handleDeleteSuccess}
+          />
         </Modal>
       )}
     </div>

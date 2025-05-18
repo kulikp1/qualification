@@ -1,7 +1,29 @@
 import css from "./DeleteModal.module.css";
 import { IoClose } from "react-icons/io5";
+import axios from "axios";
 
-const DeleteModal = ({ onClose }) => {
+const DeleteModal = ({ entryId, onClose, onSuccess }) => {
+  const token = localStorage.getItem("token");
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:3000/money/${entryId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (onSuccess) {
+        onSuccess(); // Повідомити про успішне видалення
+      }
+    } catch (error) {
+      console.error(
+        "Помилка при видаленні:",
+        error.response?.data || error.message
+      );
+    }
+  };
+
   return (
     <div className={css.deleteContainer}>
       <button className={css.close} onClick={onClose}>
@@ -13,7 +35,9 @@ const DeleteModal = ({ onClose }) => {
       </p>
 
       <div className={css.deleteBtns}>
-        <button className={css.btnDelete}>Delete</button>
+        <button className={css.btnDelete} onClick={handleDelete}>
+          Delete
+        </button>
         <button className={css.btnCancel} onClick={onClose}>
           Cancel
         </button>
@@ -21,4 +45,5 @@ const DeleteModal = ({ onClose }) => {
     </div>
   );
 };
+
 export default DeleteModal;
