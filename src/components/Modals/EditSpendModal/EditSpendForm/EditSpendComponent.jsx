@@ -31,7 +31,6 @@ const EditSpendForm = ({ amount, setAmount }) => {
       enableReinitialize
     >
       {({ values, setFieldValue }) => {
-        // Використовуємо useEffect для оновлення значення при зміні amount
         () => {
           setFieldValue("amount", amount);
         },
