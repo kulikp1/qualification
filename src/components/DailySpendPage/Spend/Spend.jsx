@@ -56,7 +56,7 @@ const Spend = () => {
     };
 
     fetchSpends();
-  }, [selectedDate]); // 🔁 перезапуск при зміні дати
+  }, [selectedDate]);
 
   return (
     <div className={css.mainContainer}>
