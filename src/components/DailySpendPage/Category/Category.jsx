@@ -21,7 +21,7 @@ const Category = ({ id, name, amount, onDeleteSuccess }) => {
   const handleDeleteSuccess = () => {
     closeDeleteModal();
     if (onDeleteSuccess) {
-      onDeleteSuccess(id); // Повідомляє батьківський компонент, що цей запис видалено
+      onDeleteSuccess(id);
     }
   };
 
