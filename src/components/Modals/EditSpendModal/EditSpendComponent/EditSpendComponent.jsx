@@ -5,7 +5,7 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
 const EditSpendModal = ({ onClose }) => {
-  const [amount, setAmount] = useState(250); // Початкове значення
+  const [amount, setAmount] = useState(250);
 
   const increaseAmount = () => {
     setAmount((prev) => prev + 10);
