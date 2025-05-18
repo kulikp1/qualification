@@ -11,6 +11,9 @@ import Modal from "../../Modal/Modal";
 const Category = ({ id, name, amount, recordingTime, onDeleteSuccess }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [currentAmount, setCurrentAmount] = useState(amount);
+  const [currentName, setCurrentName] = useState(name);
+  const [currentTime, setCurrentTime] = useState(recordingTime || "14:30");
 
   const openDeleteModal = () => setIsDeleteModalOpen(true);
   const closeDeleteModal = () => setIsDeleteModalOpen(false);
@@ -25,13 +28,20 @@ const Category = ({ id, name, amount, recordingTime, onDeleteSuccess }) => {
     }
   };
 
+  const handleEditSuccess = (updatedData) => {
+    setCurrentAmount(updatedData.amount);
+    setCurrentName(updatedData.category);
+    setCurrentTime(updatedData.recordingTime);
+    closeEditModal();
+  };
+
   return (
     <div className={css.container}>
-      <h1 className={css.title}>{name}</h1>
+      <h1 className={css.title}>{currentName}</h1>
       <div className={css.categoryName}>
         <AiOutlineTransaction className={css.icon} />
         <div className={css.categorySpend}>
-          <p className={css.amount}>{amount}$</p>
+          <p className={css.amount}>{currentAmount}$</p>
         </div>
       </div>
       <div className={css.btnContainer}>
@@ -49,10 +59,11 @@ const Category = ({ id, name, amount, recordingTime, onDeleteSuccess }) => {
           <EditModal
             spendId={id}
             onClose={closeEditModal}
+            onSuccess={handleEditSuccess}
             initialData={{
-              amount,
-              category: name,
-              recordingTime: recordingTime || "14:30", // Постав дефолт або реальні дані
+              amount: currentAmount,
+              category: currentName,
+              recordingTime: currentTime,
             }}
           />
         </Modal>

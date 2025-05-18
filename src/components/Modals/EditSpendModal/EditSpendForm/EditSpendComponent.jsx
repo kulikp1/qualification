@@ -75,7 +75,12 @@ const EditSpendForm = ({
           console.log("✅ Успішно оновлено:", response.data);
           resetForm();
           setAmount(0);
-          if (onSuccess) onSuccess();
+          if (onSuccess)
+            onSuccess({
+              amount: values.amount,
+              category: values.category,
+              recordingTime: values.recordingTime,
+            });
         } catch (error) {
           console.error(
             "❌ Помилка оновлення:",
