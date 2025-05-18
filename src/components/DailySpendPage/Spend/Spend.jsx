@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import css from "./Spend.module.css";
 import Category from "../Category/Category";
 import money from "../../../assets/spendPageAssets/moneyPhoto.jpg";
@@ -14,49 +14,53 @@ const Spend = () => {
     localStorage.getItem("selectedDate") ||
     new Date().toISOString().split("T")[0];
 
-  useEffect(() => {
-    const fetchSpends = async () => {
-      try {
-        const token = localStorage.getItem("token");
+  const fetchSpends = useCallback(async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("token");
 
-        const response = await fetch(
-          `http://localhost:3000/money/day/${selectedDate}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+      const response = await fetch(
+        `http://localhost:3000/money/day/${selectedDate}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
+      );
 
-        const result = await response.json();
-        console.log("Fetched spends data:", result);
-
-        if (!Array.isArray(result.data)) {
-          throw new Error("Invalid data format from backend");
-        }
-
-        setSpends(result.data);
-        setTotalValue(result.totalValue || 0);
-        setDailyNorm(result.dailyNorm || null);
-        setError(null);
-      } catch (err) {
-        console.error("Error fetching spends:", err.message);
-        setError(err.message);
-        setSpends([]);
-        setTotalValue(0);
-        setDailyNorm(null);
-      } finally {
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
 
-    fetchSpends();
+      const result = await response.json();
+      if (!Array.isArray(result.data)) {
+        throw new Error("Invalid data format from backend");
+      }
+
+      setSpends(result.data);
+      setTotalValue(result.totalValue || 0);
+      setDailyNorm(result.dailyNorm || null);
+      setError(null);
+    } catch (err) {
+      console.error("Error fetching spends:", err.message);
+      setError(err.message);
+      setSpends([]);
+      setTotalValue(0);
+      setDailyNorm(null);
+    } finally {
+      setLoading(false);
+    }
   }, [selectedDate]);
+
+  useEffect(() => {
+    fetchSpends();
+  }, [fetchSpends]);
+
+  const handleDeleteSuccess = (deletedId) => {
+    setSpends((prev) => prev.filter((item) => item.id !== deletedId));
+    fetchSpends(); // оновлюємо дані після видалення
+  };
 
   return (
     <div className={css.mainContainer}>
@@ -98,6 +102,8 @@ const Spend = () => {
               id={spend.id}
               name={spend.category || "Unknown Category"}
               amount={spend.value}
+              recordingTime={spend.recordingTime}
+              onDeleteSuccess={handleDeleteSuccess}
             />
           ))
         ) : !loading && !error ? (
