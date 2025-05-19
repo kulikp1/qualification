@@ -236,7 +236,7 @@ const Spend = () => {
             <h3 className={css.chartTitle}>Statistic</h3>
             <div className={css.monthControls}>
               <button onClick={handlePrevMonth} className={css.monthBtn}>
-                ← Prev
+                ←
               </button>
               <span className={css.monthLabel}>
                 {getMonthString(chartMonth)}
@@ -246,7 +246,7 @@ const Spend = () => {
                 disabled={isCurrentMonth()}
                 className={css.monthBtn}
               >
-                Next →
+                →
               </button>
             </div>
           </div>
