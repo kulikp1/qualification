@@ -182,7 +182,7 @@ const Spend = () => {
       {/* --- Графік по місяцю --- */}
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
-          <h3 className={css.chartTitle}>Spending per Day</h3>
+          <h3 className={css.chartTitle}>Statistic</h3>
           <div className={css.chartWrapper}>
             <ResponsiveContainer width="100%" height={200}>
               <AreaChart data={chartData}>

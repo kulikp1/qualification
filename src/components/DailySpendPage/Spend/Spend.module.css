@@ -195,3 +195,22 @@
 .scrollChartContainer::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.chartTitle {
+  font-family: Poppins;
+  /* text-align: center; */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 76px;
+  letter-spacing: -0.8px;
+  margin-left: 64px;
+
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+  .chartTitle {
+    font-size: 30px;
+  }
+}
