@@ -268,7 +268,7 @@ const Spend = () => {
                 <XAxis dataKey="day" />
                 <YAxis
                   tickFormatter={(val) => `${(val / 1000).toFixed(1)}k $`}
-                  domain={[0, 5000]}
+                  domain={[0, 2000]}
                 />
 
                 <Tooltip />
