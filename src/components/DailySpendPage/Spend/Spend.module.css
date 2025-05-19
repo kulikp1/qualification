@@ -102,7 +102,7 @@
 
 .chartWrapper {
   width: 100%;
-  max-width: 600px;
+  max-width: 00px;
   margin: 32px auto 0 auto;
   box-sizing: border-box;
   padding: 0 16px;
@@ -111,7 +111,7 @@
 
 @media only screen and (min-width: 1440px) {
   .chartWrapper {
-    max-width: 450px;
+    max-width: 500px;
     height: 100px; /* також менша висота на десктопі */
     padding: 0 32px;
   }
@@ -213,4 +213,44 @@
   .chartTitle {
     font-size: 30px;
   }
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.chartTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.monthControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.monthBtn {
+  padding: 6px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.monthBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.monthLabel {
+  font-weight: 500;
+  font-size: 16px;
 }

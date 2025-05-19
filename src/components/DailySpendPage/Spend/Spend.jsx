@@ -12,7 +12,28 @@ import {
   Brush,
 } from "recharts";
 
+// 🔽 Додаткові утиліти
+const getMonthString = (date) =>
+  date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+
 const Spend = () => {
+  const today = new Date();
+
+  // 📅 Стейт для категорій (конкретна дата)
+  const [selectedDate] = useState(() => {
+    const savedDate = localStorage.getItem("selectedDate");
+    return savedDate ? new Date(savedDate) : new Date();
+  });
+
+  // 📊 Стейт для графіка (місяць)
+  const [chartMonth, setChartMonth] = useState(() => {
+    const savedDate = localStorage.getItem("selectedDate");
+    return savedDate ? new Date(savedDate) : new Date();
+  });
+
+  const selectedDateString = selectedDate.toISOString().split("T")[0];
+  const chartMonthString = chartMonth.toISOString().split("T")[0];
+
   const [spends, setSpends] = useState([]);
   const [monthlySpends, setMonthlySpends] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
@@ -20,17 +41,14 @@ const Spend = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const selectedDate =
-    localStorage.getItem("selectedDate") ||
-    new Date().toISOString().split("T")[0];
-
+  // 📥 Запит для денної інформації
   const fetchSpends = useCallback(async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:3000/money/day/${selectedDate}`,
+        `http://localhost:3000/money/day/${selectedDateString}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -61,14 +79,15 @@ const Spend = () => {
     } finally {
       setLoading(false);
     }
-  }, [selectedDate]);
+  }, [selectedDateString]);
 
+  // 📊 Запит для графіка (місяць)
   const fetchMonthlySpends = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:3000/money/month/${selectedDate}`,
+        `http://localhost:3000/money/month/${chartMonthString}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -91,12 +110,17 @@ const Spend = () => {
       console.error("Error fetching monthly spends:", err.message);
       setMonthlySpends([]);
     }
-  }, [selectedDate]);
+  }, [chartMonthString]);
 
+  // 🔁 useEffect'и
   useEffect(() => {
     fetchSpends();
+    localStorage.setItem("selectedDate", selectedDateString);
+  }, [fetchSpends, selectedDateString]);
+
+  useEffect(() => {
     fetchMonthlySpends();
-  }, [fetchSpends, fetchMonthlySpends]);
+  }, [fetchMonthlySpends]);
 
   const handleDeleteSuccess = (deletedId) => {
     setSpends((prev) => prev.filter((item) => item.id !== deletedId));
@@ -104,6 +128,7 @@ const Spend = () => {
     fetchMonthlySpends();
   };
 
+  // 📈 Побудова даних для графіка
   const chartData = monthlySpends
     .filter((item) => {
       return (
@@ -130,6 +155,32 @@ const Spend = () => {
     }, [])
     .sort((a, b) => a.day - b.day);
 
+  // 🔁 Кнопки місяця для графіка
+  const handlePrevMonth = () => {
+    const newMonth = new Date(chartMonth);
+    newMonth.setMonth(newMonth.getMonth() - 1);
+    setChartMonth(newMonth);
+  };
+
+  const handleNextMonth = () => {
+    const newMonth = new Date(chartMonth);
+    newMonth.setMonth(newMonth.getMonth() + 1);
+    if (newMonth <= today) {
+      setChartMonth(newMonth);
+    }
+  };
+
+  const isCurrentMonth = () =>
+    chartMonth.getFullYear() === today.getFullYear() &&
+    chartMonth.getMonth() === today.getMonth();
+
+  const todayIndex = chartData.findIndex(
+    (item) => item.day === today.getDate()
+  );
+
+  const brushStart = Math.max(0, todayIndex - 4); // показуємо 5 днів: сьогодні + 4 попередніх
+  const brushEnd = todayIndex !== -1 ? todayIndex : chartData.length - 1;
+
   return (
     <div className={css.mainContainer}>
       <div>
@@ -145,9 +196,9 @@ const Spend = () => {
           <h2 className={css.descr}>Error: {error}</h2>
         ) : (
           <h2 className={css.descr}>
-            {selectedDate === new Date().toISOString().split("T")[0]
+            {selectedDateString === new Date().toISOString().split("T")[0]
               ? "Today "
-              : new Date(selectedDate).toLocaleDateString("en-US", {
+              : new Date(selectedDateString).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                 })}
@@ -179,12 +230,29 @@ const Spend = () => {
         ) : null}
       </div>
 
-      {/* --- Графік по місяцю --- */}
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
-          <h3 className={css.chartTitle}>Statistic</h3>
+          <div className={css.chartHeader}>
+            <h3 className={css.chartTitle}>Statistic</h3>
+            <div className={css.monthControls}>
+              <button onClick={handlePrevMonth} className={css.monthBtn}>
+                ← Prev
+              </button>
+              <span className={css.monthLabel}>
+                {getMonthString(chartMonth)}
+              </span>
+              <button
+                onClick={handleNextMonth}
+                disabled={isCurrentMonth()}
+                className={css.monthBtn}
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+
           <div className={css.chartWrapper}>
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height={180}>
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="colorSpend" x1="0" y1="0" x2="0" y2="1">
@@ -195,9 +263,10 @@ const Spend = () => {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="day" />
                 <YAxis
-                  tickFormatter={(val) => `${val} L`}
-                  domain={[0, "dataMax + 0.5"]}
+                  tickFormatter={(val) => `${(val / 1000).toFixed(1)}k $`}
+                  domain={[0, 5000]}
                 />
+
                 <Tooltip />
                 <Area
                   type="monotone"
@@ -218,8 +287,8 @@ const Spend = () => {
                   height={10}
                   stroke="#4CAF50"
                   travellerWidth={10}
-                  startIndex={Math.max(0, chartData.length - 5)} // останні 5 днів
-                  endIndex={chartData.length - 1}
+                  startIndex={brushStart}
+                  endIndex={brushEnd}
                 />
               </AreaChart>
             </ResponsiveContainer>
