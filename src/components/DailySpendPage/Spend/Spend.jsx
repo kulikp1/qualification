@@ -39,7 +39,6 @@ const Spend = () => {
   const [spends, setSpends] = useState([]);
   const [monthlySpends, setMonthlySpends] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
-  const [dailyNorm, setDailyNorm] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -70,14 +69,12 @@ const Spend = () => {
 
       setSpends(result.data);
       setTotalValue(result.totalValue || 0);
-      setDailyNorm(result.dailyNorm || null);
       setError(null);
     } catch (err) {
       console.error("Error fetching spends:", err.message);
       setError(err.message);
       setSpends([]);
       setTotalValue(0);
-      setDailyNorm(null);
     } finally {
       setLoading(false);
     }
@@ -204,14 +201,8 @@ const Spend = () => {
                   month: "long",
                   day: "numeric",
                 })}
-            you spent {totalValue.toFixed(2)}$ on the following:
+            you spent {totalValue.toFixed(2)}$
           </h2>
-        )}
-
-        {!loading && !error && dailyNorm !== null && (
-          <p className={css.normText}>
-            Your daily norm is {dailyNorm.toFixed(2)}$
-          </p>
         )}
       </div>
 
@@ -228,7 +219,9 @@ const Spend = () => {
             />
           ))
         ) : !loading && !error ? (
-          <p className={css.noSpendsText}>No spends for this day.</p>
+          <p className={css.noSpendsText}>
+            No records about spend for this day{" "}
+          </p>
         ) : null}
       </div>
 

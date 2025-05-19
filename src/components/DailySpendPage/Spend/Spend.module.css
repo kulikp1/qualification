@@ -171,7 +171,9 @@
 }
 
 .noSpendsText {
-  font-size: 24px;
+  margin-left: 32px;
+  font-weight: 200;
+  font-size: 20px;
   display: flex;
   text-align: center;
   align-items: center;
