@@ -1,7 +1,15 @@
 import { useEffect, useState, useCallback } from "react";
 import css from "./Spend.module.css";
 import Category from "../Category/Category";
-import money from "../../../assets/spendPageAssets/moneyPhoto.jpg";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const Spend = () => {
   const [spends, setSpends] = useState([]);
@@ -59,8 +67,22 @@ const Spend = () => {
 
   const handleDeleteSuccess = (deletedId) => {
     setSpends((prev) => prev.filter((item) => item.id !== deletedId));
-    fetchSpends(); // оновлюємо дані після видалення
+    fetchSpends();
   };
+
+  // ✅ Групування витрат по днях
+  const chartData = spends
+    .reduce((acc, item) => {
+      const day = new Date(item.recordingTime).getDate();
+      const existing = acc.find((entry) => entry.day === day);
+      if (existing) {
+        existing.value += item.value;
+      } else {
+        acc.push({ day, value: item.value });
+      }
+      return acc;
+    }, [])
+    .sort((a, b) => a.day - b.day); // сортуємо по днях
 
   return (
     <div className={css.mainContainer}>
@@ -111,7 +133,42 @@ const Spend = () => {
         ) : null}
       </div>
 
-      <img src={money} alt="money" className={css.moneyImg} />
+      {/* 📊 Графік витрат по днях */}
+      {chartData.length > 0 && (
+        <div className={css.chartContainer}>
+          <h3 className={css.chartTitle}>Spending per Day</h3>
+          <div className={css.chartWrapper}>
+            <ResponsiveContainer width="100%" height={200}>
+              <AreaChart data={chartData}>
+                <defs>
+                  <linearGradient id="colorSpend" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#4CAF50" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#4CAF50" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                <XAxis dataKey="category" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="value"
+                  stroke="#4CAF50"
+                  strokeWidth={3}
+                  fill="url(#colorSpend)"
+                  dot={{
+                    stroke: "#4CAF50",
+                    strokeWidth: 2,
+                    fill: "#fff",
+                    r: 6,
+                  }}
+                  activeDot={{ r: 8 }}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

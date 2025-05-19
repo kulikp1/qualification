@@ -84,6 +84,37 @@
   display: none;
 }
 
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainSpendsContainer {
+  flex-shrink: 0;
+}
+
+.chartContainer {
+  flex-shrink: 0;
+  margin-top: 20px;
+}
+
+.chartWrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 32px auto 0 auto;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .chartWrapper {
+    max-width: 450px;
+    height: 100px; /* також менша висота на десктопі */
+    padding: 0 32px;
+  }
+}
 /* DESKTOP */
 @media only screen and (min-width: 1440px) {
   .mainContainer {
@@ -103,7 +134,7 @@
 @media only screen and (min-width: 1440px) {
   .mainSpendsContainer {
     margin-left: 64px;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
