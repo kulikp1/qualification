@@ -28,3 +28,27 @@
     width: 38px;
   }
 }
+
+.calendarContainer {
+  padding: 4px;
+}
+
+.calendarItem {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  /* border-radius: 4px; */
+  transition: background-color 0.2s;
+}
+
+.calendarItem:hover {
+  background-color: #f0f0f0;
+}
+
+.calendarItem:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+  opacity: 0.5;
+}

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import css from "./AddSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
 import * as Yup from "yup";
@@ -17,6 +17,15 @@ const SyncAmountWithFormik = ({ amount }) => {
 };
 
 const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
+  const [selectedDate, setSelectedDate] = useState("");
+
+  useEffect(() => {
+    const storedDate = localStorage.getItem("selectedDate");
+    if (storedDate) {
+      setSelectedDate(storedDate);
+    }
+  }, []);
+
   const validationSchema = Yup.object({
     amount: Yup.number()
       .required("Введіть значення")
@@ -34,7 +43,6 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
   });
 
   const token = localStorage.getItem("token");
-  const todayDate = new Date().toISOString().slice(0, 10);
 
   return (
     <Formik
@@ -46,12 +54,15 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
         try {
+          const dateToSend =
+            selectedDate || new Date().toISOString().slice(0, 10);
+
           const response = await axios.post(
             "http://localhost:3000/money/",
             {
               value: Number(values.amount),
               time: values.recordingTime,
-              date: todayDate,
+              date: dateToSend,
               category: values.category,
             },
             {
@@ -136,6 +147,10 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
                 component="div"
                 style={{ color: "red" }}
               />
+            </div>
+
+            <div className={css.dateInfo}>
+              Дата: <strong>{selectedDate || "сьогодні"}</strong>
             </div>
 
             <button className={css.saveBtn} type="submit">
