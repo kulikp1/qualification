@@ -9,10 +9,12 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Brush,
 } from "recharts";
 
 const Spend = () => {
   const [spends, setSpends] = useState([]);
+  const [monthlySpends, setMonthlySpends] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
   const [dailyNorm, setDailyNorm] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -61,28 +63,72 @@ const Spend = () => {
     }
   }, [selectedDate]);
 
+  const fetchMonthlySpends = useCallback(async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const response = await fetch(
+        `http://localhost:3000/money/month/${selectedDate}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      if (!Array.isArray(result.data)) {
+        throw new Error("Invalid data format from backend");
+      }
+
+      setMonthlySpends(result.data);
+    } catch (err) {
+      console.error("Error fetching monthly spends:", err.message);
+      setMonthlySpends([]);
+    }
+  }, [selectedDate]);
+
   useEffect(() => {
     fetchSpends();
-  }, [fetchSpends]);
+    fetchMonthlySpends();
+  }, [fetchSpends, fetchMonthlySpends]);
 
   const handleDeleteSuccess = (deletedId) => {
     setSpends((prev) => prev.filter((item) => item.id !== deletedId));
     fetchSpends();
+    fetchMonthlySpends();
   };
 
-  // ✅ Групування витрат по днях
-  const chartData = spends
+  const chartData = monthlySpends
+    .filter((item) => {
+      return (
+        item &&
+        item.date &&
+        !isNaN(new Date(item.date)) &&
+        typeof item.value === "number"
+      );
+    })
     .reduce((acc, item) => {
-      const day = new Date(item.recordingTime).getDate();
+      const date = new Date(item.date);
+      const day = date.getDate();
+
       const existing = acc.find((entry) => entry.day === day);
+      const value = Number(item.value) || 0;
+
       if (existing) {
-        existing.value += item.value;
+        existing.value += value;
       } else {
-        acc.push({ day, value: item.value });
+        acc.push({ day, value });
       }
+
       return acc;
     }, [])
-    .sort((a, b) => a.day - b.day); // сортуємо по днях
+    .sort((a, b) => a.day - b.day);
 
   return (
     <div className={css.mainContainer}>
@@ -133,7 +179,7 @@ const Spend = () => {
         ) : null}
       </div>
 
-      {/* 📊 Графік витрат по днях */}
+      {/* --- Графік по місяцю --- */}
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
           <h3 className={css.chartTitle}>Spending per Day</h3>
@@ -147,8 +193,11 @@ const Spend = () => {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="category" />
-                <YAxis />
+                <XAxis dataKey="day" />
+                <YAxis
+                  tickFormatter={(val) => `${val} L`}
+                  domain={[0, "dataMax + 0.5"]}
+                />
                 <Tooltip />
                 <Area
                   type="monotone"
@@ -163,6 +212,14 @@ const Spend = () => {
                     r: 6,
                   }}
                   activeDot={{ r: 8 }}
+                />
+                <Brush
+                  dataKey="day"
+                  height={10}
+                  stroke="#4CAF50"
+                  travellerWidth={10}
+                  startIndex={Math.max(0, chartData.length - 5)} // останні 5 днів
+                  endIndex={chartData.length - 1}
                 />
               </AreaChart>
             </ResponsiveContainer>
