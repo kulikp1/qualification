@@ -149,10 +149,6 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
               />
             </div>
 
-            <div className={css.dateInfo}>
-              Дата: <strong>{selectedDate || "сьогодні"}</strong>
-            </div>
-
             <button className={css.saveBtn} type="submit">
               Save
             </button>
