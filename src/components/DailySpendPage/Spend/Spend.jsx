@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import css from "./Spend.module.css";
 import Category from "../Category/Category";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import {
   AreaChart,
   Area,
@@ -233,20 +235,29 @@ const Spend = () => {
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
           <div className={css.chartHeader}>
-            <h3 className={css.chartTitle}>Statistic</h3>
+            <h3 className={css.chartTitle}>Month statistic</h3>
             <div className={css.monthControls}>
-              <button onClick={handlePrevMonth} className={css.monthBtn}>
-                ←
+              <button
+                onClick={handlePrevMonth}
+                className={`${css.arrowBtn}`}
+                aria-label="Previous Month"
+              >
+                <ChevronLeft size={20} />
               </button>
+
               <span className={css.monthLabel}>
                 {getMonthString(chartMonth)}
               </span>
+
               <button
                 onClick={handleNextMonth}
+                className={`${css.arrowBtn} ${
+                  isCurrentMonth() ? css.disabled : ""
+                }`}
                 disabled={isCurrentMonth()}
-                className={css.monthBtn}
+                aria-label="Next Month"
               >
-                →
+                <ChevronRight size={20} />
               </button>
             </div>
           </div>
