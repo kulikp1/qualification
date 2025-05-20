@@ -36,15 +36,14 @@
 .calendarItem {
   width: 40px;
   height: 40px;
-  background-color: #323f4733;
+  background-color: #2d394133;
   border: 1px solid #ccc;
   cursor: pointer;
-  /* border-radius: 4px; */
-  transition: background-color 0.2s;
+  transition: border-color 0.75s;
 }
 
 .calendarItem:hover {
-  background-color: #f0f0f0;
+  border-color: black;
 }
 
 .calendarItem:disabled {
