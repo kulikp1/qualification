@@ -49,7 +49,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
       initialValues={{
         amount: amount.toString(),
         category: "",
-        recordingTime: "",
+        recordingTime: new Date().toTimeString().slice(0, 5),
       }}
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
