@@ -54,7 +54,7 @@
 }
 
 .selected {
-  background-color: #323f47 !important; /* або будь-який інший колір */
+  background-color: #323f47 !important;
   color: #9be1a0;
   font-weight: bold;
 }
