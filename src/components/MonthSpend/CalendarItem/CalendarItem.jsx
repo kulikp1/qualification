@@ -9,11 +9,13 @@ const CalendarItem = ({ value, month, year }) => {
   today.setHours(0, 0, 0, 0); // обнуляємо час
 
   const isFuture = selectedDate > today;
+  const storedDate = localStorage.getItem("selectedDate");
+  const isSelected = storedDate === selectedDateStr;
 
   const handleClick = () => {
     if (!isFuture) {
       localStorage.setItem("selectedDate", selectedDateStr);
-      window.location.reload();
+      window.location.reload(); // можна замінити на onChange або useEffect
     }
   };
 
@@ -21,7 +23,7 @@ const CalendarItem = ({ value, month, year }) => {
     <div className={css.calendarContainer}>
       <button
         onClick={handleClick}
-        className={css.calendarItem}
+        className={`${css.calendarItem} ${isSelected ? css.selected : ""}`}
         disabled={isFuture}
       >
         {value}
