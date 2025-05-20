@@ -1,131 +1,112 @@
 .container {
-  flex: 0 0 110px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 15px;
-  background: #fff;
-  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  margin-top: 25px;
-}
-
-.btnContainer {
-  margin: 10px 0 5px;
-  display: flex;
-  gap: 10px;
-}
-
-.changeBtn {
-  width: 7px;
-  height: 7px;
-}
-
-.deleteBtn {
-  width: 7px;
-  height: 7px;
-}
-
-.changeIcon {
-  width: 15px;
-  height: 15px;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.05);
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 220px;
+  height: 50px;
+  margin-top: 50px;
 }
 
 .title {
   font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: -0.8px;
-  margin: 0;
-  padding: 0;
+  text-align: center;
+  color: #2f2f2f;
+  margin: 0 0 6px 0;
 }
 
-.categoryName {
+.contentRow {
   display: flex;
-  margin-top: 14px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
-  fill: #1cb626;
+  width: 28px;
+  height: 28px;
+  color: #94d6a4;
 }
 
 .categorySpend {
   display: flex;
-  gap: 4px;
+  flex-direction: column;
 }
-.categoryDescr {
-  color: #2f2f2f;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
 
-  letter-spacing: 0.96px;
-  margin-bottom: 0px;
-}
 .amount {
-  color: #2f2f2f;
   font-family: Poppins;
-  font-size: 13px;
-
-  font-style: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2f2f2f;
+  margin: 0;
 }
 
-.categoryName {
+.time {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.btnContainer {
   display: flex;
-  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-/* DESKTOP */
+.changeBtn,
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.changeIcon {
+  width: 16px;
+  height: 16px;
+  color: #2f2f2f;
+}
+
 @media only screen and (min-width: 1440px) {
   .container {
-    width: 230px;
-    margin-top: 50px;
+    max-width: 240px;
+    height: 85px;
   }
-}
 
-@media only screen and (min-width: 1440px) {
   .title {
-    font-size: 18px;
+    font-size: 15px;
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  .amount {
-    font-size: 17px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
   .icon {
     width: 30px;
     height: 30px;
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  .changeBtn {
-    width: 20px;
-    height: 20px;
+  .amount {
+    font-size: 16px;
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  .deleteBtn {
-    width: 20px;
-    height: 20px;
+  .time {
+    font-size: 13px;
   }
-}
 
-@media only screen and (min-width: 1440px) {
   .changeIcon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }

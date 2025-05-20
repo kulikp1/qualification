@@ -38,20 +38,24 @@ const Category = ({ id, name, amount, recordingTime, onDeleteSuccess }) => {
   return (
     <div className={css.container}>
       <h1 className={css.title}>{currentName}</h1>
-      <div className={css.categoryName}>
-        <AiOutlineTransaction className={css.icon} />
-        <div className={css.categorySpend}>
-          <p className={css.amount}>{currentAmount}$</p>
-        </div>
-      </div>
-      <div className={css.btnContainer}>
-        <button className={css.deleteBtn} onClick={openDeleteModal}>
-          <RiDeleteBin6Line className={css.changeIcon} />
-        </button>
 
-        <button className={css.changeBtn} onClick={openEditModal}>
-          <FaPencil className={css.changeIcon} />
-        </button>
+      <div className={css.contentRow}>
+        <div className={css.leftSection}>
+          <AiOutlineTransaction className={css.icon} />
+          <div className={css.categorySpend}>
+            <p className={css.amount}>{currentAmount}$</p>
+            <p className={css.time}>{currentTime}</p>
+          </div>
+        </div>
+
+        <div className={css.btnContainer}>
+          <button className={css.changeBtn} onClick={openEditModal}>
+            <FaPencil className={css.changeIcon} />
+          </button>
+          <button className={css.deleteBtn} onClick={openDeleteModal}>
+            <RiDeleteBin6Line className={css.changeIcon} />
+          </button>
+        </div>
       </div>
 
       {isEditModalOpen && (
