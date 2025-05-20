@@ -36,7 +36,7 @@
 .calendarItem {
   width: 40px;
   height: 40px;
-  background-color: white;
+  background-color: #323f4733;
   border: 1px solid #ccc;
   cursor: pointer;
   /* border-radius: 4px; */
