@@ -21,6 +21,10 @@ const getMonthString = (date) =>
 const Spend = () => {
   const today = new Date();
 
+  const [name] = useState(() => {
+    return localStorage.getItem("name") || "User";
+  });
+
   // 📅 Стейт для категорій (конкретна дата)
   const [selectedDate] = useState(() => {
     const savedDate = localStorage.getItem("selectedDate");
@@ -187,7 +191,7 @@ const Spend = () => {
       </div>
 
       <div className={css.mainSpendsContainer}>
-        <h1 className={css.title}>Hello, Pavlo!</h1>
+        <h1 className={css.title}>Hello, {name}</h1>
 
         {loading ? (
           <h2 className={css.descr}>Loading...</h2>

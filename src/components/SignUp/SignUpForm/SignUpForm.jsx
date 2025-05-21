@@ -43,6 +43,8 @@ const SignUpForm = () => {
 
       console.log("Registered:", res.data);
       localStorage.setItem("token", res.data.data.accessToken);
+      localStorage.setItem("name", res.data.data.user.name);
+
       resetForm();
       navigate("/tracker");
     } catch (err) {

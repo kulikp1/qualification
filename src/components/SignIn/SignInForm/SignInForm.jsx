@@ -26,6 +26,8 @@ const SignInForm = () => {
       const res = await axios.post("http://localhost:3000/auth/login", values);
       console.log("Login successful:", res.data);
       localStorage.setItem("token", res.data.data.accessToken);
+      localStorage.setItem("name", res.data.data.user.name);
+
       navigate("/tracker");
     } catch (err) {
       if (err.response?.data?.message) {

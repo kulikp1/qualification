@@ -6,8 +6,16 @@ import UserBarPopover from "../UserBarPopover/UserBarPopover";
 
 const UserInfo = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [userName, setUserName] = useState("User");
   const popoverRef = useRef(null);
   const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setUserName(storedName);
+    }
+  }, []);
 
   const isClickInsideModal = (event) => {
     return event.target.closest(".modal-open");
@@ -47,7 +55,7 @@ const UserInfo = () => {
         </div>
 
         <div className={css.userItems}>
-          <h3>Pavlo</h3>
+          <h3>{userName}</h3>
           <img src={avatar} alt="avatar" className={css.avatar} />
 
           <button
