@@ -88,41 +88,6 @@
 
   margin-top: 40px;
 }
-
-/* DESKTOP */
-@media only screen and (min-width: 1440px) {
-  .radioGroup {
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.16px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .inputGroupEmail {
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.18px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .inputGroupEmail {
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.18px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .submitBtn {
-    padding: 16px 50px;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.16px;
-  }
-}
-
 .inputGroupSpending {
   display: flex;
   gap: 8px;
@@ -144,6 +109,38 @@
 
 /* DESKTOP */
 @media only screen and (min-width: 1440px) {
+  .radioGroup {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .inputGroupEmail {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+  }
+  .submitBtn {
+    padding: 16px 50px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+  }
+  .inputGroupEmail {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+  }
+
+  .submitBtn {
+    padding: 16px 50px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+  }
+
   .inputGroupSpending {
     font-size: 18px;
     line-height: 24px;
