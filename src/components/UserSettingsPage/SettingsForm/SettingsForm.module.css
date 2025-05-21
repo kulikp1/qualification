@@ -122,3 +122,31 @@
     letter-spacing: -0.16px;
   }
 }
+
+.inputGroupSpending {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 337px;
+
+  color: #323f47;
+  font-family: Poppins;
+
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+
+  font-style: normal;
+  font-weight: 700;
+
+  margin-top: 14px;
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1440px) {
+  .inputGroupSpending {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+  }
+}
