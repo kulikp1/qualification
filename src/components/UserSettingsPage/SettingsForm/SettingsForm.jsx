@@ -1,7 +1,10 @@
 import css from "./SettingsForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 
-const SettingsForm = () => {
+const token = localStorage.getItem("token"); // або звідки у тебе зберігається токен
+
+const SettingsForm = ({ selectedPhoto }) => {
   return (
     <Formik
       initialValues={{
@@ -9,8 +12,33 @@ const SettingsForm = () => {
         email: "",
         maxDailySpending: "",
       }}
-      onSubmit={(values) => {
-        console.log("Form Values:", values);
+      onSubmit={async (values, { setSubmitting }) => {
+        const formData = new FormData();
+        formData.append("name", values.name);
+        formData.append("email", values.email);
+        formData.append("maxDailySpending", values.maxDailySpending);
+
+        if (selectedPhoto) {
+          formData.append("photo", selectedPhoto);
+        }
+
+        try {
+          const response = await axios.patch(
+            "http://localhost:3000/users/update",
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`, // <-- Ось тут токен
+              },
+            }
+          );
+          console.log("✅ Response:", response.data);
+        } catch (error) {
+          console.error("❌ Error updating user:", error);
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       {() => (

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import css from "./UserSettingsPage.module.css";
 import { IoClose } from "react-icons/io5";
 import userAvatar from "../../assets/homePageAssets/pre-avatar.png";
@@ -5,28 +6,46 @@ import { BsUpload } from "react-icons/bs";
 import SettingsForm from "./SettingsForm/SettingsForm";
 
 const UserSettingsPage = ({ onClose }) => {
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [previewURL, setPreviewURL] = useState(userAvatar);
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedPhoto(file);
+      setPreviewURL(URL.createObjectURL(file));
+    }
+  };
+
   return (
     <div className={css.overlay}>
       <div className={css.modal}>
         <div className={css.settingsTitle}>
-          <h2 className={css.settingsTitleItem}>Setting</h2>
+          <h2 className={css.settingsTitleItem}>Settings</h2>
           <button className={css.closeBtn} onClick={onClose}>
             <IoClose className={css.closeBtnItem} />
           </button>
         </div>
 
         <div className={css.avatarItems}>
-          <img src={userAvatar} alt="userAvatar" className={css.avatar} />
+          <img src={previewURL} alt="userAvatar" className={css.avatar} />
           <div className={css.avatarItem}>
-            <button className={css.uploadBtn}>
+            <label htmlFor="avatar-upload" className={css.uploadBtn}>
               <BsUpload />
-            </button>
+            </label>
+            <input
+              type="file"
+              id="avatar-upload"
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={handlePhotoChange}
+            />
             <p className={css.avatarDescr}>Upload a photo</p>
           </div>
         </div>
 
         <div className={css.settingsController}>
-          <SettingsForm />
+          <SettingsForm selectedPhoto={selectedPhoto} />
         </div>
       </div>
     </div>
