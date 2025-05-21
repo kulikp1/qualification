@@ -28,9 +28,17 @@ const SignUpForm = () => {
     setServerError("");
     try {
       const { email, password } = values;
+      const name = email.split("@")[0];
+      console.log("Payload:", {
+        email,
+        password,
+        name,
+      });
+
       const res = await axios.post("http://localhost:3000/auth/register", {
         email,
         password,
+        name,
       });
 
       console.log("Registered:", res.data);
