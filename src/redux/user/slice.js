@@ -19,7 +19,6 @@ const handlePendingIsLoggedIn = (state) => {
   state.loadingTracker = true;
 };
 
-// register logIn logInWithGoogle
 const handleRejectedIsLoggedIn = (state, action) => {
   state.token = null;
   state.isLoggedIn = false;
