@@ -13,7 +13,6 @@ import {
   updateUserData,
 } from "./operations.js";
 
-// register logIn logInWithGoogle
 const handlePendingIsLoggedIn = (state) => {
   state.isLoggedIn = false;
   state.error = null;
