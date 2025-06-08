@@ -258,3 +258,49 @@
   font-weight: 500;
   font-size: 16px;
 }
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 32px;
+  margin-top: 16px;
+}
+
+.filterLabel {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Poppins;
+  color: #2f2f2f;
+}
+
+.select {
+  font-family: Poppins;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #2f2f2f;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+@media only screen and (min-width: 1440px) {
+  .filterContainer {
+    padding: 0 64px;
+  }
+
+  .filterLabel {
+    font-size: 18px;
+  }
+
+  .select {
+    font-size: 16px;
+  }
+}

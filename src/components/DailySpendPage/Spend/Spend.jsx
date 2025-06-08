@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import css from "./Spend.module.css";
 import Category from "../Category/Category";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -25,13 +25,11 @@ const Spend = () => {
     return localStorage.getItem("name") || "User";
   });
 
-  // 📅 Стейт для категорій (конкретна дата)
   const [selectedDate] = useState(() => {
     const savedDate = localStorage.getItem("selectedDate");
     return savedDate ? new Date(savedDate) : new Date();
   });
 
-  // 📊 Стейт для графіка (місяць)
   const [chartMonth, setChartMonth] = useState(() => {
     const savedDate = localStorage.getItem("selectedDate");
     return savedDate ? new Date(savedDate) : new Date();
@@ -46,7 +44,8 @@ const Spend = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 📥 Запит для денної інформації
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   const fetchSpends = useCallback(async () => {
     try {
       setLoading(true);
@@ -84,7 +83,6 @@ const Spend = () => {
     }
   }, [selectedDateString]);
 
-  // 📊 Запит для графіка (місяць)
   const fetchMonthlySpends = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -115,7 +113,6 @@ const Spend = () => {
     }
   }, [chartMonthString]);
 
-  // 🔁 useEffect'и
   useEffect(() => {
     fetchSpends();
     localStorage.setItem("selectedDate", selectedDateString);
@@ -131,16 +128,32 @@ const Spend = () => {
     fetchMonthlySpends();
   };
 
-  // 📈 Побудова даних для графіка
+  const uniqueCategories = useMemo(() => {
+    const categories = spends.map(
+      (spend) => spend.category || "Unknown Category"
+    );
+    return ["All", ...new Set(categories)];
+  }, [spends]);
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const filteredSpends = useMemo(() => {
+    if (selectedCategory === "All") return spends;
+    return spends.filter(
+      (spend) => (spend.category || "Unknown Category") === selectedCategory
+    );
+  }, [spends, selectedCategory]);
+
   const chartData = monthlySpends
-    .filter((item) => {
-      return (
+    .filter(
+      (item) =>
         item &&
         item.date &&
         !isNaN(new Date(item.date)) &&
         typeof item.value === "number"
-      );
-    })
+    )
     .reduce((acc, item) => {
       const date = new Date(item.date);
       const day = date.getDate();
@@ -158,7 +171,6 @@ const Spend = () => {
     }, [])
     .sort((a, b) => a.day - b.day);
 
-  // 🔁 Кнопки місяця для графіка
   const handlePrevMonth = () => {
     const newMonth = new Date(chartMonth);
     newMonth.setMonth(newMonth.getMonth() - 1);
@@ -180,8 +192,7 @@ const Spend = () => {
   const todayIndex = chartData.findIndex(
     (item) => item.day === today.getDate()
   );
-
-  const brushStart = Math.max(0, todayIndex - 4); // показуємо 5 днів: сьогодні + 4 попередніх
+  const brushStart = Math.max(0, todayIndex - 4);
   const brushEnd = todayIndex !== -1 ? todayIndex : chartData.length - 1;
 
   return (
@@ -210,9 +221,31 @@ const Spend = () => {
         )}
       </div>
 
+      {/* 🔽 Селектор категорій */}
+      {spends.length > 0 && (
+        <div className={css.filterContainer}>
+          <label htmlFor="categorySelect" className={css.filterLabel}>
+            Filter by category:
+          </label>
+          <select
+            id="categorySelect"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            className={css.select}
+          >
+            {uniqueCategories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {/* 🔽 Категорії витрат */}
       <div className={css.categories}>
-        {spends.length > 0 ? (
-          spends.map((spend) => (
+        {filteredSpends.length > 0 ? (
+          filteredSpends.map((spend) => (
             <Category
               key={spend._id}
               id={spend.id}
@@ -224,11 +257,12 @@ const Spend = () => {
           ))
         ) : !loading && !error ? (
           <p className={css.noSpendsText}>
-            No records about spend for this day{" "}
+            No records for this category on this day
           </p>
         ) : null}
       </div>
 
+      {/* 🔽 Графік */}
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
           <div className={css.chartHeader}>
@@ -236,7 +270,7 @@ const Spend = () => {
             <div className={css.monthControls}>
               <button
                 onClick={handlePrevMonth}
-                className={`${css.arrowBtn}`}
+                className={css.arrowBtn}
                 aria-label="Previous Month"
               >
                 <ChevronLeft size={20} />
@@ -274,7 +308,6 @@ const Spend = () => {
                   tickFormatter={(val) => `${(val / 1000).toFixed(1)}k $`}
                   domain={[0, 2000]}
                 />
-
                 <Tooltip />
                 <Area
                   type="monotone"
