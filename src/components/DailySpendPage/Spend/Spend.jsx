@@ -247,7 +247,7 @@ const Spend = () => {
         {filteredSpends.length > 0 ? (
           filteredSpends.map((spend) => (
             <Category
-              key={spend._id}
+              key={spend.id}
               id={spend.id}
               name={spend.category || "Unknown Category"}
               amount={spend.value}
