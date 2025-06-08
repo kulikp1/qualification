@@ -3,12 +3,14 @@ import css from "./UserInfo.module.css";
 import avatar from "../../assets/homePageAssets/pre-avatar.png";
 import { SlArrowDown } from "react-icons/sl";
 import UserBarPopover from "../UserBarPopover/UserBarPopover";
+import { useTranslation } from "react-i18next";
 
 const UserInfo = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [userName, setUserName] = useState("User");
   const popoverRef = useRef(null);
   const buttonRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const storedName = localStorage.getItem("name");
@@ -51,7 +53,7 @@ const UserInfo = () => {
     <div className={css.pageContainer}>
       <div className={css.Container}>
         <div className={css.description}>
-          <h3>Spending calendar</h3>
+          <h3>{t("spendingCalendar")}</h3>
         </div>
 
         <div className={css.userItems}>

@@ -6,12 +6,14 @@ import UserSettingsPage from "../UserSettingsPage/UserSettingsPage";
 import LogOutModal from "../Modals/LogOutModal/LogOutModal";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const UserBarPopover = ({ isVisible, onClose }) => {
   const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
   const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
   const popoverRef = useRef(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const openSettingsModal = () => setSettingsModalOpen(true);
   const closeSettingsModal = () => setSettingsModalOpen(false);
@@ -48,11 +50,12 @@ const UserBarPopover = ({ isVisible, onClose }) => {
     >
       <button className={styles.button} onClick={openSettingsModal}>
         <IoSettingsOutline className={styles.popoverImg} />
-        {"Settings"}
+        {t("settings")}
       </button>
+
       <button className={styles.buttonOut} onClick={openLogOutModal}>
         <IoLogOutOutline className={styles.popoverImg} />
-        {"Log out"}
+        {t("logout")}
       </button>
 
       {isSettingsModalOpen && (

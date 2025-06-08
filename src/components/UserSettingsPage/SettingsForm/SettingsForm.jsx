@@ -1,10 +1,13 @@
 import css from "./SettingsForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
-const token = localStorage.getItem("token"); // або звідки у тебе зберігається токен
+const token = localStorage.getItem("token");
 
 const SettingsForm = ({ selectedPhoto }) => {
+  const { t } = useTranslation();
+
   return (
     <Formik
       initialValues={{
@@ -29,7 +32,7 @@ const SettingsForm = ({ selectedPhoto }) => {
             {
               headers: {
                 "Content-Type": "multipart/form-data",
-                Authorization: `Bearer ${token}`, // <-- Ось тут токен
+                Authorization: `Bearer ${token}`,
               },
             }
           );
@@ -44,7 +47,7 @@ const SettingsForm = ({ selectedPhoto }) => {
       {() => (
         <Form className={css.settingsForm}>
           <div className={css.inputGroupName}>
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="name">{t("yourName")}</label>
             <Field
               id="name"
               name="name"
@@ -55,7 +58,7 @@ const SettingsForm = ({ selectedPhoto }) => {
           </div>
 
           <div className={css.inputGroupEmail}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t("email")}</label>
             <Field
               id="email"
               name="email"
@@ -66,7 +69,7 @@ const SettingsForm = ({ selectedPhoto }) => {
           </div>
 
           <div className={css.inputGroupSpending}>
-            <label htmlFor="maxDailySpending">Maximum Daily Spending</label>
+            <label htmlFor="maxDailySpending">{t("maxDailySpending")}</label>
             <Field
               id="maxDailySpending"
               name="maxDailySpending"
@@ -81,7 +84,7 @@ const SettingsForm = ({ selectedPhoto }) => {
           </div>
 
           <button type="submit" className={css.submitBtn}>
-            Save
+            {t("save")}
           </button>
         </Form>
       )}

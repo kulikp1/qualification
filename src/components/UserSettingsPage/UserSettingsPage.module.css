@@ -79,6 +79,7 @@
 .uploadBtn {
   border: 0;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .avatarDescr {

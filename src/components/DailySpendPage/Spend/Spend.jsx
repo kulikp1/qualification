@@ -4,6 +4,7 @@ import Category from "../Category/Category";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../../LanguageSwitcher/LanguageSwitcher";
+import i18n from "../../../i18n/i18n";
 
 import {
   AreaChart,
@@ -16,9 +17,11 @@ import {
   Brush,
 } from "recharts";
 
-// 🔽 Додаткові утиліти
 const getMonthString = (date) =>
-  date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  date.toLocaleDateString(i18n.language === "ua" ? "uk-UA" : "en-US", {
+    month: "long",
+    year: "numeric",
+  });
 
 const Spend = () => {
   const today = new Date();
@@ -266,9 +269,7 @@ const Spend = () => {
             />
           ))
         ) : !loading && !error ? (
-          <p className={css.noSpendsText}>
-            No records for this category on this day
-          </p>
+          <p className={css.noSpendsText}>{t("noRecords")}</p>
         ) : null}
       </div>
 

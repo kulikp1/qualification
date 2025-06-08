@@ -4,10 +4,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SignInForm = () => {
   const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const validationSchema = yup.object({
     password: yup
@@ -52,25 +54,25 @@ const SignInForm = () => {
       {({ isSubmitting }) => (
         <Form className={css.signInFormContainer}>
           <div className={css.inputGroupEmail}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t("emailLabel")}</label>
             <Field
               id="email"
               name="email"
               type="email"
               className={css.inputField}
-              placeholder="Enter your email"
+              placeholder={t("placeholderEmail")}
             />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
 
           <div className={css.inputGroupPassword}>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t("passwordLabel")}</label>
             <Field
               id="password"
               name="password"
               type="password"
               className={css.inputField}
-              placeholder="Enter your password"
+              placeholder={t("placeholderPassword")}
             />
             <ErrorMessage
               name="password"
@@ -86,7 +88,7 @@ const SignInForm = () => {
             className={css.submitBtn}
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Signing in..." : "Sign In"}
+            {isSubmitting ? t("signingIn") : t("signIn")}
           </button>
         </Form>
       )}

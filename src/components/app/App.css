@@ -45,3 +45,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+body.font-ukrainian,
+body.font-ukrainian * {
+  font-family: "Manrope", "Arial", sans-serif !important;
+}

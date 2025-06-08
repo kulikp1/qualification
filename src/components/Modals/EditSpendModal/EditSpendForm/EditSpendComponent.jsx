@@ -3,6 +3,7 @@ import css from "./EditSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const SyncAmountWithFormik = ({ amount }) => {
   const { values, setFieldValue } = useFormikContext();
@@ -25,6 +26,8 @@ const EditSpendForm = ({
   initialTime,
 }) => {
   const token = localStorage.getItem("token");
+
+  const { t } = useTranslation();
 
   const validationSchema = Yup.object({
     amount: Yup.number()
@@ -102,7 +105,7 @@ const EditSpendForm = ({
 
             <div className={css.formContainer}>
               <label className={css.valueDescr} htmlFor="category">
-                Enter Category
+                {t("enterCategory")}
               </label>
               <Field
                 className={css.formField}
@@ -120,7 +123,7 @@ const EditSpendForm = ({
 
             <div className={css.formContainer}>
               <label className={css.formDescr} htmlFor="recordingTime">
-                Recording time:
+                {t("recordingTime")}
               </label>
               <Field
                 className={css.formField}
@@ -138,7 +141,7 @@ const EditSpendForm = ({
 
             <div className={css.formContainer}>
               <label className={css.valueDescr} htmlFor="amount">
-                Enter the value of spend:
+                {t("enterSpendValue")}
               </label>
               <input
                 className={css.formField}
@@ -156,7 +159,7 @@ const EditSpendForm = ({
             </div>
 
             <button className={css.saveBtn} type="submit">
-              Save
+              {t("save")}
             </button>
           </Form>
         );

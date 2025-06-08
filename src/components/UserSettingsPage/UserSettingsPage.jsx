@@ -4,8 +4,11 @@ import { IoClose } from "react-icons/io5";
 import userAvatar from "../../assets/homePageAssets/pre-avatar.png";
 import { BsUpload } from "react-icons/bs";
 import SettingsForm from "./SettingsForm/SettingsForm";
+import { useTranslation } from "react-i18next";
 
 const UserSettingsPage = ({ onClose }) => {
+  const { t } = useTranslation();
+
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [previewURL, setPreviewURL] = useState(userAvatar);
 
@@ -21,7 +24,7 @@ const UserSettingsPage = ({ onClose }) => {
     <div className={css.overlay}>
       <div className={css.modal}>
         <div className={css.settingsTitle}>
-          <h2 className={css.settingsTitleItem}>Settings</h2>
+          <h2 className={css.settingsTitleItem}>{t("settings")}</h2>
           <button className={css.closeBtn} onClick={onClose}>
             <IoClose className={css.closeBtnItem} />
           </button>
@@ -40,7 +43,7 @@ const UserSettingsPage = ({ onClose }) => {
               style={{ display: "none" }}
               onChange={handlePhotoChange}
             />
-            <p className={css.avatarDescr}>Upload a photo</p>
+            <p className={css.avatarDescr}>{t("uploadPhoto")}</p>
           </div>
         </div>
 

@@ -4,10 +4,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SignUpForm = () => {
   const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const validationSchema = yup.object({
     email: yup
@@ -75,25 +78,25 @@ const SignUpForm = () => {
       {({ isSubmitting }) => (
         <Form className={css.signInFormContainer}>
           <div className={css.inputGroupEmail}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t("emailLabel")}</label>
             <Field
               id="email"
               name="email"
               type="email"
               className={css.inputField}
-              placeholder="Enter your email"
+              placeholder={t("placeholderEmail")}
             />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
 
           <div className={css.inputGroupPassword}>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t("passwordLabel")}</label>
             <Field
               id="password"
               name="password"
               type="password"
               className={css.inputField}
-              placeholder="Enter your password"
+              placeholder={t("placeholderPassword")}
             />
             <ErrorMessage
               name="password"
@@ -103,13 +106,15 @@ const SignUpForm = () => {
           </div>
 
           <div className={css.inputGroupPassword}>
-            <label htmlFor="repeatPassword">Repeat password</label>
+            {/* <label htmlFor="repeatPassword">Repeat password</label> */}
+            <label htmlFor="repeatPassword">{t("againPasswordLabel")}</label>
+
             <Field
               id="repeatPassword"
               name="repeatPassword"
               type="password"
               className={css.inputField}
-              placeholder="Repeat password"
+              placeholder={t("placeholderRepeatPassword")}
             />
             <ErrorMessage
               name="repeatPassword"
@@ -126,7 +131,7 @@ const SignUpForm = () => {
             className={css.submitBtn}
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Registering..." : "Sign Up"}
+            {isSubmitting ? t("registering") : t("signUp")}
           </button>
         </Form>
       )}

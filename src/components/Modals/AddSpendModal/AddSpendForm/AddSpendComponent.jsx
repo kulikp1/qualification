@@ -3,6 +3,7 @@ import css from "./AddSpendComponent.module.css";
 import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const SyncAmountWithFormik = ({ amount }) => {
   const { values, setFieldValue } = useFormikContext();
@@ -18,6 +19,8 @@ const SyncAmountWithFormik = ({ amount }) => {
 
 const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
   const [selectedDate, setSelectedDate] = useState("");
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const storedDate = localStorage.getItem("selectedDate");
@@ -96,7 +99,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
 
             <div className={css.formContainer}>
               <label className={css.valueDescr} htmlFor="category">
-                Enter Category
+                {t("enterCategory")}
               </label>
               <Field
                 className={css.formField}
@@ -114,7 +117,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
 
             <div className={css.formContainer}>
               <label className={css.formDescr} htmlFor="recordingTime">
-                Recording time:
+                {t("recordingTime")}
               </label>
               <Field
                 className={css.formField}
@@ -132,7 +135,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
 
             <div className={css.formContainer}>
               <label className={css.valueDescr} htmlFor="amount">
-                Enter the value of spend:
+                {t("enterSpendValue")}
               </label>
               <input
                 className={css.formField}
@@ -150,7 +153,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
             </div>
 
             <button className={css.saveBtn} type="submit">
-              Save
+              {t("save")}
             </button>
           </Form>
         );

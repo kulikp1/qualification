@@ -3,6 +3,7 @@ import css from "./MonthSpend.module.css";
 import UserInfo from "../UserInfo/UserInfo";
 import Calendar from "./Calendar/Calendar";
 import AddSpendButton from "../AddMoneyButton/AddMoneyButton";
+import { useTranslation } from "react-i18next";
 
 const monthNames = [
   "January",
@@ -23,6 +24,8 @@ const MonthsSpend = () => {
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
+
+  const { t } = useTranslation();
 
   const handlePrevMonth = () => {
     if (month === 0) {
@@ -47,7 +50,7 @@ const MonthsSpend = () => {
       <UserInfo />
 
       <div className={css.spendItems}>
-        <h3 className={css.descr}>Month</h3>
+        <h3 className={css.descr}>{t("month")}</h3>
 
         <div className={css.monthSwitcher}>
           <button onClick={handlePrevMonth} className={css.arrowBtn}>
