@@ -112,7 +112,7 @@ const EditSpendForm = ({
                 type="text"
                 id="category"
                 name="category"
-                placeholder="Shop"
+                placeholder={t("placeholderShop")}
               />
               <ErrorMessage
                 name="category"

@@ -106,7 +106,7 @@ const AddSpendForm = ({ amount, setAmount, onSuccess }) => {
                 type="text"
                 id="category"
                 name="category"
-                placeholder="Shop"
+                placeholder={t("placeholderShop")}
               />
               <ErrorMessage
                 name="category"
