@@ -2,6 +2,8 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import css from "./Spend.module.css";
 import Category from "../Category/Category";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../../LanguageSwitcher/LanguageSwitcher";
 
 import {
   AreaChart,
@@ -37,6 +39,7 @@ const Spend = () => {
 
   const selectedDateString = selectedDate.toISOString().split("T")[0];
   const chartMonthString = chartMonth.toISOString().split("T")[0];
+  const { t } = useTranslation();
 
   const [spends, setSpends] = useState([]);
   const [monthlySpends, setMonthlySpends] = useState([]);
@@ -199,10 +202,13 @@ const Spend = () => {
     <div className={css.mainContainer}>
       <div>
         <h1 className={css.logo}>BudgetTrack</h1>
+        <LanguageSwitcher />
       </div>
 
       <div className={css.mainSpendsContainer}>
-        <h1 className={css.title}>Hello, {name}</h1>
+        <h1 className={css.title}>
+          {t("greeting")}, {name}
+        </h1>
 
         {loading ? (
           <h2 className={css.descr}>Loading...</h2>
@@ -211,12 +217,17 @@ const Spend = () => {
         ) : (
           <h2 className={css.descr}>
             {selectedDateString === new Date().toISOString().split("T")[0]
-              ? "Today "
-              : new Date(selectedDateString).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
+              ? t("spentToday", { amount: totalValue.toFixed(2) })
+              : t("spentOnDate", {
+                  date: new Date(selectedDateString).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "long",
+                      day: "numeric",
+                    }
+                  ),
+                  amount: totalValue.toFixed(2),
                 })}
-            you spent {totalValue.toFixed(2)}$
           </h2>
         )}
       </div>
@@ -224,8 +235,9 @@ const Spend = () => {
       {spends.length > 0 && (
         <div className={css.filterContainer}>
           <label htmlFor="categorySelect" className={css.filterLabel}>
-            Filter by category:
+            {t("filterCategory")}
           </label>
+
           <select
             id="categorySelect"
             value={selectedCategory}
@@ -263,7 +275,7 @@ const Spend = () => {
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
           <div className={css.chartHeader}>
-            <h3 className={css.chartTitle}>Month statistic</h3>
+            <h3 className={css.chartTitle}>{t("monthStatistic")}</h3>
             <div className={css.monthControls}>
               <button
                 onClick={handlePrevMonth}

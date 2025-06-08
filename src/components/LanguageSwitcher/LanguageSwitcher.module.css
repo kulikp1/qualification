@@ -1,0 +1,10 @@
+.langButton {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0rem 1rem;
+  margin: 1rem 1rem 0rem 1rem;
+  color: #000000;
+  font-weight: bold;
+}

@@ -1,12 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+
+import "../../i18n/i18n.js";
+
 import HomePage from "../../pages/HomePage/HomePage.jsx";
 import TrackerPage from "../../pages/TrackerPage/TrackerPage.jsx";
 import SignInPage from "../../pages/SignInPage/SignInPage.jsx";
 import SignUpPage from "../../pages/SignUpPage/SignUpPage.jsx";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
+
 import SharedLayout from "../SharedLayout/SharedLayout.jsx";
-import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx"; // імпортуй компонент
+import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx";
 
 function App() {
   return (
