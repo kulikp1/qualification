@@ -221,7 +221,6 @@ const Spend = () => {
         )}
       </div>
 
-      {/* 🔽 Селектор категорій */}
       {spends.length > 0 && (
         <div className={css.filterContainer}>
           <label htmlFor="categorySelect" className={css.filterLabel}>
@@ -242,7 +241,6 @@ const Spend = () => {
         </div>
       )}
 
-      {/* 🔽 Категорії витрат */}
       <div className={css.categories}>
         {filteredSpends.length > 0 ? (
           filteredSpends.map((spend) => (
@@ -262,7 +260,6 @@ const Spend = () => {
         ) : null}
       </div>
 
-      {/* 🔽 Графік */}
       {chartData.length > 0 && (
         <div className={css.chartContainer}>
           <div className={css.chartHeader}>
