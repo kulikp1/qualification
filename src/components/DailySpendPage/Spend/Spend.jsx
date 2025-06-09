@@ -264,7 +264,7 @@ const Spend = () => {
               id={spend.id}
               name={spend.category || "Unknown Category"}
               amount={spend.value}
-              recordingTime={spend.recordingTime}
+              recordingTime={spend.time}
               onDeleteSuccess={handleDeleteSuccess}
             />
           ))

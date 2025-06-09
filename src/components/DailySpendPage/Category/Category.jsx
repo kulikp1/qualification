@@ -14,6 +14,7 @@ const Category = ({ id, name, amount, recordingTime, onDeleteSuccess }) => {
   const [currentAmount, setCurrentAmount] = useState(amount);
   const [currentName, setCurrentName] = useState(name);
   const [currentTime, setCurrentTime] = useState(recordingTime || "14:30");
+  console.log("recordingTime prop:", recordingTime);
 
   const openDeleteModal = () => setIsDeleteModalOpen(true);
   const closeDeleteModal = () => setIsDeleteModalOpen(false);
