@@ -96,7 +96,7 @@ const resources = {
       happyCustomersEnd: "клієнти",
       logo: "BudgetTrack",
       description: "Щоденно фіксуйте свої витрати та переглядайте статистику",
-      recordBudgetTitle: "Записуйте свій бюджет",
+      recordBudgetTitle: "Контролюйте свій бюджет",
       tryTrackerBtn: "Спробувати трекер",
       signInBtn: "Увійти",
       emailLabel: "Електронна пошта",
