@@ -82,7 +82,7 @@ h2 {
     height: 736px;
     background: url(../../../assets/homePageAssets/background2.png) no-repeat
       center center;
-    background-size: 672px 1000px; /* обмеження розміру фону */
+    background-size: 672px 1000px;
   }
 }
 
