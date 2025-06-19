@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const AddMoneyButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { t, i18n } = useTranslation(); // Додано i18n для доступу до поточної мови
+  const { t, i18n } = useTranslation();
 
   const openModal = () => {
     setIsModalOpen(true);
