@@ -27,7 +27,6 @@ const AddMoneyButton = () => {
       </button>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        {/* Додаємо key для повного перерендеру при зміні мови */}
         <AddSpendModal key={i18n.language} onClose={closeModal} />
       </Modal>
     </>
