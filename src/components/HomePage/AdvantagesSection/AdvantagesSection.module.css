@@ -75,7 +75,6 @@ h2 {
   color: #76c893;
 }
 
-/* DESKTOP */
 @media only screen and (min-width: 1440px) {
   .mainContainer {
     width: 672px;
