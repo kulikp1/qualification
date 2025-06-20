@@ -19,7 +19,7 @@ const AddSpendComponent = ({ onClose }) => {
   };
 
   const handleSuccess = () => {
-    onClose(); // Закриває модалку
+    onClose(); 
     window.location.reload(); // Перезавантажує сторінку
   };
 
