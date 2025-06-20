@@ -20,7 +20,7 @@ const AddSpendComponent = ({ onClose }) => {
 
   const handleSuccess = () => {
     onClose(); 
-    window.location.reload(); // Перезавантажує сторінку
+    window.location.reload(); 
   };
 
   return (
