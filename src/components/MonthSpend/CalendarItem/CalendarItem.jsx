@@ -15,7 +15,7 @@ const CalendarItem = ({ value, month, year }) => {
   const handleClick = () => {
     if (!isFuture) {
       localStorage.setItem("selectedDate", selectedDateStr);
-      window.location.reload(); // можна замінити на onChange або useEffect
+      window.location.reload(); 
     }
   };
 
