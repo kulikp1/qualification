@@ -6,7 +6,7 @@ const CalendarItem = ({ value, month, year }) => {
   const selectedDateStr = `${year}-${m}-${day}`;
   const selectedDate = new Date(`${year}-${m}-${day}T00:00:00`);
   const today = new Date();
-  today.setHours(0, 0, 0, 0); // обнуляємо час
+  today.setHours(0, 0, 0, 0);
 
   const isFuture = selectedDate > today;
   const storedDate = localStorage.getItem("selectedDate");
