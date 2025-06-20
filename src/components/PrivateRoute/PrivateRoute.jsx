@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const PrivateRoute = ({ children }) => {
-  const [isAuthorized, setIsAuthorized] = useState(null); // спочатку невідомо
+  const [isAuthorized, setIsAuthorized] = useState(null); 
 
   useEffect(() => {
     const token = localStorage.getItem("token");
