@@ -58,7 +58,6 @@ export const getDaySpendByDate = createAsyncThunk(
   }
 );
 
-// Операція для отримання даних за конкретний місяць
 export const getMonthSpendByMonth = createAsyncThunk(
   "spend/getMonthSpendByMonth",
   async (month, thunkAPI) => {
