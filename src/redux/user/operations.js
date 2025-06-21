@@ -164,7 +164,6 @@ export const resetPassword = createAsyncThunk(
     }
   }
 );
-//Token refresh
 export const refreshToken = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
