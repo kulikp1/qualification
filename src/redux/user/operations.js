@@ -43,7 +43,6 @@ export const logOut = createAsyncThunk("user/logout", async (_, thunkAPI) => {
   }
 });
 
-// Операція для оновлення доступу 
 export const refreshUser = createAsyncThunk(
   "user/refresh",
   async (_, thunkAPI) => {
