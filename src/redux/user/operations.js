@@ -137,7 +137,6 @@ export const logInWithGoogle = createAsyncThunk(
   }
 );
 
-// для зміни паролю 
 export const sendResetPassword = createAsyncThunk(
   "user/resetPassword",
   async (email, { rejectWithValue }) => {
