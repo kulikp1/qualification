@@ -18,7 +18,6 @@ export const register = createAsyncThunk(
   }
 );
 
-// Операція для логіну 
 export const logIn = createAsyncThunk(
   "user/login",
   async (userData, thunkAPI) => {
