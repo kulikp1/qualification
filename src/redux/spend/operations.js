@@ -46,7 +46,6 @@ export const editSpendItem = createAsyncThunk(
   }
 );
 
-// Операція для отримання даних за конкретну дату
 export const getDaySpendByDate = createAsyncThunk(
   "spend/getDaySpendrByDate",
   async (date, thunkAPI) => {
