@@ -16,7 +16,6 @@ export const addSpendItem = createAsyncThunk(
   }
 );
 
-// Операція для видалення витрат
 export const deleteSpendItem = createAsyncThunk(
   "spend/deleteItem",
   async (spendItemId, thunkAPI) => {
