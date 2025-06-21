@@ -190,7 +190,6 @@ export const refreshToken = createAsyncThunk(
   }
 );
 
-// Отримання загальної кількості користувачів
 export const getUsersAmount = createAsyncThunk(
   "user/getUsersAmount",
   async (_, thunkAPI) => {
