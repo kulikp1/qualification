@@ -106,7 +106,6 @@ const SignUpForm = () => {
           </div>
 
           <div className={css.inputGroupPassword}>
-            {/* <label htmlFor="repeatPassword">Repeat password</label> */}
             <label htmlFor="repeatPassword">{t("againPasswordLabel")}</label>
 
             <Field
