@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {axiosInstance} from '../../services/api.js'
 
-// Операція для додвання витрат в поточний день
 export const addSpendItem = createAsyncThunk(
   "spend/addSpendItem",
   async ({ newSpendItem, selectedDate }, thunkAPI) => {
