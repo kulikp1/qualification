@@ -82,7 +82,6 @@ export const getUserData = createAsyncThunk(
   }
 );
 
-// Операція для зміни інформації
 export const updateUserData = createAsyncThunk(
   "user/updateUserData",
   async (userDataToUpdate, thunkAPI) => {
