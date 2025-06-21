@@ -123,7 +123,6 @@ const SignUpForm = () => {
             />
           </div>
 
-          {/* Помилка з бекенду */}
           {serverError && <div className={css.error}>{serverError}</div>}
 
           <button
