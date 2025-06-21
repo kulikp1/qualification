@@ -97,7 +97,6 @@ export const updateUserData = createAsyncThunk(
   }
 );
 
-// Операція для зміни аватару 
 export const updateUserAvatar = createAsyncThunk(
   "user/updateAvatar",
   async (newAvatar, thunkAPI) => {
