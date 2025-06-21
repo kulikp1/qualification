@@ -33,7 +33,6 @@ export const logIn = createAsyncThunk(
   }
 );
 
-// Операція для логауту 
 export const logOut = createAsyncThunk("user/logout", async (_, thunkAPI) => {
   try {
     const response = await axiosInstance.post("/auth/logout");
