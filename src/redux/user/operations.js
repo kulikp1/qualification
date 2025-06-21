@@ -5,7 +5,6 @@ import {
   axiosInstance,
 } from "../../services/api.js";
 
-// Операція для реєстрації 
 export const register = createAsyncThunk(
   "user/register",
   async (userData, thunkAPI) => {
