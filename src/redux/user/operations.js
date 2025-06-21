@@ -70,7 +70,6 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-// Операція для отримання інформації про поточного користувача
 export const getUserData = createAsyncThunk(
   "user/getUserData",
   async (_, thunkAPI) => {
