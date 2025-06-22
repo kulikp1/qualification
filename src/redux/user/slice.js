@@ -41,7 +41,6 @@ const handlePendingUser = (state) => {
   state.error = null;
 };
 
-// getUserData updateUserAvatar updateUserData
 const handleRejectedUser = (state, action) => {
   state.loadingUser = false;
   state.loadingTracker = false;
