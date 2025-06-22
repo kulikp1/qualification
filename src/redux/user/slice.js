@@ -36,7 +36,6 @@ const handleRejectedAuth = (state, action) => {
   state.error = action.payload;
 };
 
-// getUserData updateUserAvatar updateUserData
 const handlePendingUser = (state) => {
   state.loadingUser = true;
   state.error = null;
