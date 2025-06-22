@@ -31,7 +31,6 @@ const handlePendingAuth = (state) => {
   state.error = null;
 };
 
-// logOut
 const handleRejectedAuth = (state, action) => {
   state.loadingTracker = false;
   state.error = action.payload;
