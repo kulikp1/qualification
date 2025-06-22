@@ -26,7 +26,6 @@ const handleRejectedIsLoggedIn = (state, action) => {
   state.error = action.payload;
 };
 
-// logOut
 const handlePendingAuth = (state) => {
   state.loadingTracker = true;
   state.error = null;
